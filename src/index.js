@@ -6,9 +6,13 @@ import { createStore } from 'redux';
 import './index.css';
 import App from './App/App';
 import { rootReducer } from './reducers';
+import * as firebase from 'firebase';
+import { config } from './firebase/firebaseConfig';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(rootReducer, devTools);
+
+firebase.initializeApp(config);
 
 const root = (
   <Provider store={ store }>
