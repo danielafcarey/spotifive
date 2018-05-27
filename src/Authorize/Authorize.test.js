@@ -9,7 +9,15 @@ import {
   mapStateToProps,
   mapDispatchToProps
 } from './Authorize';
+
+const cleanedUserData = {
+  userId: 1,
+  name: 'Daniela',
+  image: 'imageurl',
+  hasSpotifive: false
+}
 cleaner.getAccessToken = jest.fn().mockImplementation(() => 'cleanedAccessToken')
+cleaner.cleanUserData = jest.fn().mockImplementation(() => cleanedUserData)
 
 describe('Authorize', () => {
   let wrapper;
@@ -42,21 +50,45 @@ describe('Authorize', () => {
 
     it('calls apiCalls.getUserData with correct args if props.accessToken has updated', () => {
       apiCalls.getUserData = jest.fn();
+      apiCalls.getUserPlaylists = jest.fn();
       const wrapperInst = wrapper.instance();
       wrapper.setProps({ accessToken: 'hi' });
 
       expect(apiCalls.getUserData).toHaveBeenCalledWith(wrapperInst.props.accessToken);
     })
 
-    it('does not call apiCalls.getUserData if props.accessToken has not updated', () => {
+    it('calls apiCalls.getUserPlaylists with correct args if props.accessToken has updated', async () => {
       apiCalls.getUserData = jest.fn();
+      apiCalls.getUserPlaylists = jest.fn();
       const wrapperInst = wrapper.instance();
-      wrapper.update();
+      wrapper.setProps({ accessToken: 'hi' });
+      await wrapper.update();
 
-      expect(apiCalls.getUserData.mock.calls.length).toEqual(0);
+      expect(apiCalls.getUserPlaylists).toHaveBeenCalledWith(wrapperInst.props.accessToken);
+    })
+
+    it.skip('calls cleaner.cleanUserData with the correct props if props.accessToken has updated', async () => {
+      apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
+      apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
+      const wrapperInst = wrapper.instance();
+      wrapper.setProps({ accessToken: 'hi' });
+      await wrapper.update();
+
+      expect(cleaner.cleanUserData).toHaveBeenCalledWith('mockUserData', 'mockPlaylists');
+ 
+    })
+
+    it('calls props.updateUser with the correct args if props.accessToken has updated', () => {
 
     })
+
+
+    it('updates the error if props.accessToken has not updated', () => {
+
+    })
+
   })
+
 
   describe('mapStateToProps', () => {
 
