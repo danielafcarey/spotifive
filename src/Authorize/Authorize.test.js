@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import * as cleaner from '../cleaner';
 import {
   Authorize,
+  mapStateToProps,
   mapDispatchToProps
 } from './Authorize';
 
@@ -20,6 +21,7 @@ describe('Authorize', () => {
 
   beforeEach(() => {
     mockProps = {
+      accessToken: '',
       updateAccessToken: jest.fn(),
     }
     window.location = { hash: 'string' }
@@ -40,9 +42,23 @@ describe('Authorize', () => {
     })
   })
 
+  describe('mapStateToProps', () => {
+
+    it('returns an object with an accessToken', () => {
+      const mockState = {
+        accessToken: 'iamaccesstoken',
+        fakeProp: 'pleasedontaddme'
+      } 
+      const expected = { accessToken: 'iamaccesstoken' }
+      const result = mapStateToProps(mockState);
+
+      expect(result).toEqual(expected);
+    })
+  })
+
   describe('mapDispatchToProps', () => {
 
-    it('should call dispatch with the correct arguments', () => {
+    it('calls dispatch with the correct arguments', () => {
       const dispatch = jest.fn();
       const mockAccessToken = 'token';
       const mockAction = {

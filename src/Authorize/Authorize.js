@@ -19,12 +19,17 @@ class Authorize extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  accessToken: state.accessToken,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   updateAccessToken: (accessToken) => dispatch(updateAccessToken(accessToken))
-})
+});
 
 export {
   Authorize,
+  mapStateToProps,
   mapDispatchToProps
 }
-export default connect(null, mapDispatchToProps)(Authorize);
+export default connect(mapStateToProps, mapDispatchToProps)(Authorize);
