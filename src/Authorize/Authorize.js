@@ -26,13 +26,14 @@ class Authorize extends Component {
       const userData = await getUserData(this.props.accessToken);
       const userPlaylists = await getUserPlaylists(this.props.accessToken);
       const cleanedUserData = await cleanUserData(userData, userPlaylists);
-      // await this.props.updateUser(cleanedUserData);
+      await this.props.updateUser(cleanedUserData);
     }
   }
 
   render() {
     return (
       <div className='authorize' >
+        <img src={this.props.user.image} />
       </div>
     )
   }
