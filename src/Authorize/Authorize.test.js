@@ -102,11 +102,23 @@ describe('Authorize', () => {
 
       expect(result).toEqual(expected);
     })
+
+    it('returns an object with a user', () => {
+      const mockState = {
+        user: { userId: 1 },
+        fakeProp: 'pleasedontaddme'
+      } 
+      const expected = { user: { userId: 1 } }
+      const result = mapStateToProps(mockState);
+
+      expect(result).toEqual(expected);
+    })
+
   })
 
   describe('mapDispatchToProps', () => {
 
-    it('calls dispatch with the correct arguments', () => {
+    it('calls dispatch with the correct arguments for UPDATE_ACCESS_TOKEN', () => {
       const dispatch = jest.fn();
       const mockAccessToken = 'token';
       const mockAction = {
@@ -119,6 +131,21 @@ describe('Authorize', () => {
 
       expect(dispatch).toHaveBeenCalledWith(mockAction);
     })
+
+    it('calls dispatch with the correct arguments for UPDATE_USER', () => {
+      const dispatch = jest.fn();
+      const mockUser = { userId: 1 };
+      const mockAction = {
+        type: 'UPDATE_USER',
+        user: mockUser
+      }
+      const mappedProps = mapDispatchToProps(dispatch);
+
+      mappedProps.updateUser(mockAction.user);
+
+      expect(dispatch).toHaveBeenCalledWith(mockAction);
+    })
+
   })
 
 })

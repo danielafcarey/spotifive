@@ -40,10 +40,12 @@ class Authorize extends Component {
 
 const mapStateToProps = (state) => ({
   accessToken: state.accessToken,
+  user: state.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateAccessToken: (accessToken) => dispatch(updateAccessToken(accessToken))
+  updateAccessToken: (accessToken) => dispatch(updateAccessToken(accessToken)),
+  updateUser: (user) => dispatch(updateUser(user))
 });
 
 export {
