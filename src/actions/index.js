@@ -3,6 +3,12 @@ const updateAccessToken = (accessToken) => ({
   accessToken
 })
 
+const updateUser = (user) => ({
+  type: 'UPDATE_USER',
+  user
+})
+
 export {
   updateAccessToken,
+  updateUser
 }
