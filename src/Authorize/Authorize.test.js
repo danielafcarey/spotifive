@@ -2,18 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import * as cleaner from '../cleaner';
+import * as apiCalls from '../apiCalls';
+import { updateAccessToken } from '../actions';
 import {
   Authorize,
   mapStateToProps,
   mapDispatchToProps
 } from './Authorize';
-
-import {
-  updateAccessToken
-} from '../actions';
 cleaner.getAccessToken = jest.fn().mockImplementation(() => 'cleanedAccessToken')
-
-
 
 describe('Authorize', () => {
   let wrapper;
@@ -39,6 +35,26 @@ describe('Authorize', () => {
       const expected = cleaner.getAccessToken();
 
       expect(wrapper.instance().props.updateAccessToken).toHaveBeenCalledWith(expected);
+    })
+  })
+
+  describe('componentDidUpdate', () => {
+
+    it('calls apiCalls.getUserData with correct args if props.accessToken has updated', () => {
+      apiCalls.getUserData = jest.fn();
+      const wrapperInst = wrapper.instance();
+      wrapper.setProps({ accessToken: 'hi' });
+
+      expect(apiCalls.getUserData).toHaveBeenCalledWith(wrapperInst.props.accessToken);
+    })
+
+    it('does not call apiCalls.getUserData if props.accessToken has not updated', () => {
+      apiCalls.getUserData = jest.fn();
+      const wrapperInst = wrapper.instance();
+      wrapper.update();
+
+      expect(apiCalls.getUserData.mock.calls.length).toEqual(0);
+
     })
   })
 
