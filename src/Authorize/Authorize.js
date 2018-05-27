@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAccessToken } from '../cleaner.js';
 import { updateAccessToken } from '../actions';
-import { getUserData } from '../apiCalls';
+import { 
+  getUserData,
+  getUserPlaylists
+} from '../apiCalls';
 
 class Authorize extends Component {
 
@@ -15,7 +18,6 @@ class Authorize extends Component {
   componentDidUpdate = async (prevProps) => {
     if (prevProps.accessToken !== this.props.accessToken) {
       const userData = await getUserData(this.props.accessToken);
-      console.log(userData);
       // get user playlists
       // cleanUserData(userData, userPlaylists) => userId, name, hasSpotifive, image
     }
