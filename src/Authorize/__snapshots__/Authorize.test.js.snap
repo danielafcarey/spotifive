@@ -7,6 +7,12 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Authorize
     accessToken=""
     updateAccessToken={[Function]}
+    updateUser={[Function]}
+    user={
+        Object {
+            "userId": 1,
+          }
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -20,10 +26,23 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "children": <img
+        src={undefined}
+/>,
       "className": "authorize",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "src": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "img",
+    },
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,10 +51,23 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "children": <img
+          src={undefined}
+/>,
         "className": "authorize",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "src": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
       "type": "div",
     },
   ],

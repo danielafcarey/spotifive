@@ -26,7 +26,9 @@ describe('Authorize', () => {
   beforeEach(() => {
     mockProps = {
       accessToken: '',
+      user: { userId: 1 },
       updateAccessToken: jest.fn(),
+      updateUser: jest.fn()
     }
     window.location = { hash: 'string' }
     wrapper = shallow(<Authorize { ...mockProps }/>);
@@ -75,11 +77,16 @@ describe('Authorize', () => {
       await wrapper.update();
 
       expect(cleaner.cleanUserData).toHaveBeenCalledWith('mockUserData', 'mockPlaylists');
- 
     })
 
-    it('calls props.updateUser with the correct args if props.accessToken has updated', () => {
+    it.skip('calls props.updateUser with the correct args if props.accessToken has updated', async () => {
+      apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
+      apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
+      const wrapperInst = wrapper.instance();
+      wrapper.setProps({ accessToken: 'hi' });
+      await wrapper.update();
 
+      expect(wrapperInst.props.updateUser).toHaveBeenCalledWith(cleanedUserData);
     })
 
 
