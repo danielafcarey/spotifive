@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Signin />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <p>
+          Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.
+</p>,
+        <p>
+          To begin, sign in with Spotify:
+</p>,
+        <button
+          onClick={[Function]}
+>
+          Sign in with Spotify
+</button>,
+      ],
+      "className": "signin",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+        },
+        "ref": null,
+        "rendered": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "To begin, sign in with Spotify:",
+        },
+        "ref": null,
+        "rendered": "To begin, sign in with Spotify:",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sign in with Spotify",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Sign in with Spotify",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <p>
+            Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.
+</p>,
+          <p>
+            To begin, sign in with Spotify:
+</p>,
+          <button
+            onClick={[Function]}
+>
+            Sign in with Spotify
+</button>,
+        ],
+        "className": "signin",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+          },
+          "ref": null,
+          "rendered": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "To begin, sign in with Spotify:",
+          },
+          "ref": null,
+          "rendered": "To begin, sign in with Spotify:",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign in with Spotify",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Sign in with Spotify",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

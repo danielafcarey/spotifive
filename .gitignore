@@ -17,8 +17,8 @@
 .env.test.local
 .env.production.local
 ./src/apiKey.js
-./src/firebase
-./src/spotify
+/src/firebase
+/src/spotify
 
 
 npm-debug.log*
