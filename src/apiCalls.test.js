@@ -109,7 +109,7 @@ describe('getUserPlaylists', () => {
         status: 500
       }));
 
-      const expected = Error('500');
+      const expected = Error('There was a problem fetching your playlists');
       const result = getUserPlaylists(accessToken);
 
       expect(result).rejects.toEqual(expected);
