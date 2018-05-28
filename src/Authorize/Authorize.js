@@ -17,7 +17,6 @@ class Authorize extends Component {
 
   componentDidMount = () => {
     const cleanAccessToken = getAccessToken(window.location.hash);
-
     this.props.updateAccessToken(cleanAccessToken);
   }
 
