@@ -6,12 +6,7 @@ import {
 } from '../actions';
 import { 
   getAccessToken,
-  cleanUserData
 } from '../cleaner.js';
-import { 
-  getUserData,
-  getUserPlaylists
-} from '../apiCalls';
 
 class Authorize extends Component {
 
