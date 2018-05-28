@@ -40,58 +40,7 @@ describe('Authorize', () => {
 
   describe('componentDidMount', () => {
 
-    it('calls updateAccessToken with the correct argumenst', () => {
-      wrapper = shallow(<Authorize { ...mockProps }/>);
-      const expected = cleaner.getAccessToken();
 
-      expect(wrapper.instance().props.updateAccessToken).toHaveBeenCalledWith(expected);
-    })
-  })
-
-  describe('componentDidUpdate', () => {
-  
-    //   apiCalls.getUserData = jest.fn();
-    //   apiCalls.getUserPlaylists = jest.fn();
-    //   const wrapperInst = wrapper.instance();
-    //   wrapper.setProps({ accessToken: 'hi' });
-
-    //   expect(apiCalls.getUserData).toHaveBeenCalledWith(wrapperInst.props.accessToken);
-    // })
-
-    // it('calls apiCalls.getUserPlaylists with correct args if props.accessToken has updated', async () => {
-    //   apiCalls.getUserData = jest.fn();
-    //   apiCalls.getUserPlaylists = jest.fn();
-    //   const wrapperInst = wrapper.instance();
-    //   wrapper.setProps({ accessToken: 'hi' });
-    //   await wrapper.update();
-
-    //   expect(apiCalls.getUserPlaylists).toHaveBeenCalledWith(wrapperInst.props.accessToken);
-    // })
-
-    // it.skip('calls cleaner.cleanUserData with the correct props if props.accessToken has updated', async () => {
-    //   apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
-    //   apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
-    //   const wrapperInst = wrapper.instance();
-    //   wrapper.setProps({ accessToken: 'hi' });
-    //   await wrapper.update();
-
-    //   expect(cleaner.cleanUserData).toHaveBeenCalledWith('mockUserData', 'mockPlaylists');
-    // })
-
-    // it.skip('calls props.updateUser with the correct args if props.accessToken has updated', async () => {
-    //   apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
-    //   apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
-    //   const wrapperInst = wrapper.instance();
-    //   wrapper.setProps({ accessToken: 'hi' });
-    //   await wrapper.update();
-
-    //   expect(wrapperInst.props.updateUser).toHaveBeenCalledWith(cleanedUserData);
-    // })
-
-
-    // it('updates the error if props.accessToken has not updated', () => {
-
-    // })
 
   })
 

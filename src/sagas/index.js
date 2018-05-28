@@ -14,7 +14,7 @@ export function* submitUpdateUser(action) {
     const cleanedUserData = yield call(cleaners.cleanUserData, rawUserData, rawUserPlaylists)
     yield put(actions.updateUser(cleanedUserData))
   } catch(error) {
-    yield put(actions.updateUserError, error.message);
+    yield put(actions.updateUserError(error.message));
   }
 }
 
