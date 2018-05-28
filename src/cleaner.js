@@ -13,7 +13,7 @@ const cleanUserData = (userData, playlists) => {
     userId: userData.id,
     name: userData.display_name,
     image: userData.images[0].url,
-    hasSpotifive: spotifive !== undefined
+    spotifiveId: spotifive ? spotifive.id : null
   } 
 }
 
