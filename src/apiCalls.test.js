@@ -52,7 +52,14 @@ describe('apiCalls', () => {
     })
 
     it('should throw an error if the response was 401', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 401
+      }))
 
+      const expected = Error('Please sign in again');
+      const result = getUserData(accessToken);
+
+      expect(result).rejects.toEqual(expected);
     })
 
     it('should throw an error if the fetch failed', () => {
