@@ -1,5 +1,7 @@
 const initialState = {
   loggedIn: false,
+  userInfo: {},
+  loginError: null
 }
 const userReducer = (state = initialState, action) => {
   switch (action.type) {

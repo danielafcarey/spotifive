@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { 
   updateAccessToken,
   submitUpdateUser
@@ -15,7 +16,7 @@ class Authorize extends Component {
     this.props.updateAccessToken(cleanAccessToken);
   }
 
-  componentDidUpdate = async (prevProps) => {
+  componentDidUpdate = (prevProps) => {
     if (prevProps.accessToken !== this.props.accessToken) {
       this.props.submitUpdateUser(this.props.accessToken)
     }
@@ -38,6 +39,13 @@ const mapDispatchToProps = (dispatch) => ({
   updateAccessToken: (accessToken) => dispatch(updateAccessToken(accessToken)),
   submitUpdateUser: (accessToken) => dispatch(submitUpdateUser(accessToken))
 });
+
+Authorize.propTypes = {
+  accessToken: PropTypes.string,
+  user: PropTypes.object,
+  updateAccessToken: PropTypes.func,
+  submitUpdateUser: PropTypes.func
+}
 
 export {
   Authorize,

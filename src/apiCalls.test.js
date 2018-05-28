@@ -22,7 +22,7 @@ describe('apiCalls', () => {
       }));
     })
 
-    it('should call fetch with the correct arguments', async () => {
+    it('calls fetch with the correct arguments', async () => {
       const url = 'https://api.spotify.com/v1/me';
       const optionsObject = {
         headers: { 'Authorization': `Bearer ${accessToken}` }
@@ -33,14 +33,14 @@ describe('apiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(url, optionsObject);
     })
 
-    it('should return the correct data', async () => {
+    it('returns the correct data', async () => {
       const expected = mockUserData;
       const result = await getUserData(accessToken);
 
       expect(result).toEqual(expected);
     })
 
-    it('should throw an error if the response was not ok', () => {
+    it('throws an error if the response was not ok', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 500
       }));
@@ -51,7 +51,7 @@ describe('apiCalls', () => {
       expect(result).rejects.toEqual(expected);
     })
 
-    it('should throw an error if the response was 401', () => {
+    it('throws an error if the response was 401', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 401
       }))
@@ -62,7 +62,7 @@ describe('apiCalls', () => {
       expect(result).rejects.toEqual(expected);
     })
 
-    it('should throw an error if the fetch failed', () => {
+    it('throws an error if the fetch failed', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject('Fetch failed'))
       
       const expected = 'Fetch failed';
@@ -72,8 +72,8 @@ describe('apiCalls', () => {
     })
   })
 
-describe('getUserPlaylists', () => {
-    
+  describe('getUserPlaylists', () => {
+
     beforeEach(() => {
       accessToken = 'thisisaccesstoken';
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -82,7 +82,7 @@ describe('getUserPlaylists', () => {
       }));
     })
 
-    it('should call fetch with the correct arguments', async () => {
+    it('calls fetch with the correct arguments', async () => {
       const url = 'https://api.spotify.com/v1/me/playlists?limit=50';
       const optionsObject = {
         headers: { 'Authorization': `Bearer ${accessToken}` }
@@ -93,18 +93,14 @@ describe('getUserPlaylists', () => {
       expect(window.fetch).toHaveBeenCalledWith(url, optionsObject);
     })
 
-    it('should fetch all the users playlists if there are multiple pages', () => {
-      
-    })
-
-    it('should return the correct data', async () => {
+    it('returns the correct data', async () => {
       const expected = mockUserPlaylists2.items;
       const result = await getUserPlaylists(accessToken);
 
       expect(result).toEqual(expected);
     })
 
-    it('should throw an error if the response was not ok', () => {
+    it('throws an error if the response was not ok', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 500
       }));
@@ -115,16 +111,86 @@ describe('getUserPlaylists', () => {
       expect(result).rejects.toEqual(expected);
     })
 
-    it('should throw an error if the response was 401', () => {
+    it('throws an error if the fetch failed', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject('Fetch failed'))
+
+      const expected = 'Fetch failed';
+      const result = getUserPlaylists(accessToken);
+
+      expect(result).rejects.toEqual(expected);
+    })
+
+  })
+
+  describe('getAllPLaylists', () => {
+
+    beforeEach(() => {
+      accessToken = 'thisisaccesstoken';
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockUserPlaylists2)
+      }));
+    })
+
+    it('calls fetch with the correct arguments if nextPage is not null', async () => {
+      const prevPlaylists = ['playlist1']
+      const nextPage = 'https://api.spotify.com/v1/me/playlists?limit=50';
+      const optionsObject = {
+        headers: { 'Authorization': `Bearer ${accessToken}` }
+      };
+
+      await getAllPlaylists(prevPlaylists, nextPage, optionsObject);
+
+      expect(window.fetch).toHaveBeenCalledWith(nextPage, optionsObject);
+    })
+
+    it('returns the prevPlaylists if nextPage is null', async () => {
+      const prevPlaylists = ['playlist1']
+      const nextPage = null;
+      const optionsObject = {
+        headers: { 'Authorization': `Bearer ${accessToken}` }
+      };
+
+      const result = await getAllPlaylists(prevPlaylists, nextPage, optionsObject);
+
+      expect(result).toEqual(prevPlaylists);
 
     })
 
-    it('should throw an error if the fetch failed', () => {
+    it('returns a combined playlist array', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({ 
+          items: ['playlist1'],
+          next: null
+        })
+      }));
+      const prevPlaylists = ['playlist2']
+      const nextPage = 'notNull'
+      const optionsObject = 'fakeOptions'
+      const expected = ['playlist1', 'playlist2'];
+      const result = await getAllPlaylists(prevPlaylists, nextPage, optionsObject);
+
+      expect(result).toEqual(expected);
+    })
+
+    it('throws an error if the response was not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 500
+      }));
+
+      const expected = Error('There was a problem fetching your playlists');
+      const result = getAllPlaylists();
+
+      expect(result).rejects.toEqual(expected);
+    })
+
+    it('throws an error if the fetch failed', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject('Fetch failed'))
-      
+
       const expected = 'Fetch failed';
-      const result = getUserPlaylists(accessToken);
-      
+      const result = getAllPlaylists();
+
       expect(result).rejects.toEqual(expected);
     })
   })

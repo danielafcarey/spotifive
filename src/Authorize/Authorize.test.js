@@ -38,9 +38,27 @@ describe('Authorize', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  describe('componentDidMount', () => {
+  describe('componentDidUpdate', () => {
+    
+    it('calls props.submitUpdateUser if accessToken has been udpated', () => {
+      const wrapperInst = wrapper.instance();
+      const prevProps = {
+        accessToken: '1'
+      }
+      wrapperInst.componentDidUpdate(prevProps);
 
+      expect(wrapperInst.props.submitUpdateUser).toHaveBeenCalledWith('');
+    })
 
+    it('does not call props.submitUpdateUser if accessToken has not updated', () => {
+      const wrapperInst = wrapper.instance();
+      const prevProps = {
+        accessToken: ''
+      }
+      wrapperInst.componentDidUpdate(prevProps);
+
+      expect(wrapperInst.props.submitUpdateUser.mock.calls.length).toEqual(0);
+    })
 
   })
 

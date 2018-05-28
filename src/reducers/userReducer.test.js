@@ -6,7 +6,11 @@ describe('userReducer', () => {
     const action = {
       type: 'I_AM_FAKE',
     }
-    const state = { loggedIn: false };
+    const state = { 
+      loggedIn: false,
+      userInfo: {},
+      loginError: null
+    };
     const result = userReducer(state, action);
 
     expect(result).toEqual(state);
