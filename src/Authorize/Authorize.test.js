@@ -28,7 +28,7 @@ describe('Authorize', () => {
       accessToken: '',
       user: { userId: 1 },
       updateAccessToken: jest.fn(),
-      updateUser: jest.fn()
+      submitUpdateUser: jest.fn()
     }
     window.location = { hash: 'string' }
     wrapper = shallow(<Authorize { ...mockProps }/>);
@@ -38,60 +38,26 @@ describe('Authorize', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  describe('componentDidMount', () => {
-
-    it('calls updateAccessToken with the correct argumenst', () => {
-      wrapper = shallow(<Authorize { ...mockProps }/>);
-      const expected = cleaner.getAccessToken();
-
-      expect(wrapper.instance().props.updateAccessToken).toHaveBeenCalledWith(expected);
-    })
-  })
-
   describe('componentDidUpdate', () => {
-
-    it('calls apiCalls.getUserData with correct args if props.accessToken has updated', () => {
-      apiCalls.getUserData = jest.fn();
-      apiCalls.getUserPlaylists = jest.fn();
+    
+    it('calls props.submitUpdateUser if accessToken has been udpated', () => {
       const wrapperInst = wrapper.instance();
-      wrapper.setProps({ accessToken: 'hi' });
+      const prevProps = {
+        accessToken: '1'
+      }
+      wrapperInst.componentDidUpdate(prevProps);
 
-      expect(apiCalls.getUserData).toHaveBeenCalledWith(wrapperInst.props.accessToken);
+      expect(wrapperInst.props.submitUpdateUser).toHaveBeenCalledWith('');
     })
 
-    it('calls apiCalls.getUserPlaylists with correct args if props.accessToken has updated', async () => {
-      apiCalls.getUserData = jest.fn();
-      apiCalls.getUserPlaylists = jest.fn();
+    it('does not call props.submitUpdateUser if accessToken has not updated', () => {
       const wrapperInst = wrapper.instance();
-      wrapper.setProps({ accessToken: 'hi' });
-      await wrapper.update();
+      const prevProps = {
+        accessToken: ''
+      }
+      wrapperInst.componentDidUpdate(prevProps);
 
-      expect(apiCalls.getUserPlaylists).toHaveBeenCalledWith(wrapperInst.props.accessToken);
-    })
-
-    it.skip('calls cleaner.cleanUserData with the correct props if props.accessToken has updated', async () => {
-      apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
-      apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
-      const wrapperInst = wrapper.instance();
-      wrapper.setProps({ accessToken: 'hi' });
-      await wrapper.update();
-
-      expect(cleaner.cleanUserData).toHaveBeenCalledWith('mockUserData', 'mockPlaylists');
-    })
-
-    it.skip('calls props.updateUser with the correct args if props.accessToken has updated', async () => {
-      apiCalls.getUserData = jest.fn().mockImplementation(() => 'mockUserData');
-      apiCalls.getUserPlaylists = jest.fn().mockImplementation(() => 'mockPlaylists');
-      const wrapperInst = wrapper.instance();
-      wrapper.setProps({ accessToken: 'hi' });
-      await wrapper.update();
-
-      expect(wrapperInst.props.updateUser).toHaveBeenCalledWith(cleanedUserData);
-    })
-
-
-    it('updates the error if props.accessToken has not updated', () => {
-
+      expect(wrapperInst.props.submitUpdateUser.mock.calls.length).toEqual(0);
     })
 
   })
@@ -112,10 +78,12 @@ describe('Authorize', () => {
 
     it('returns an object with a user', () => {
       const mockState = {
-        user: { userId: 1 },
+        user: { 
+          userInfo: { userId: 1 } 
+        },
         fakeProp: 'pleasedontaddme'
       } 
-      const expected = { user: { userId: 1 } }
+      const expected = { user: mockState.user }
       const result = mapStateToProps(mockState);
 
       expect(result).toEqual(expected);
@@ -139,16 +107,16 @@ describe('Authorize', () => {
       expect(dispatch).toHaveBeenCalledWith(mockAction);
     })
 
-    it('calls dispatch with the correct arguments for UPDATE_USER', () => {
+    it('calls dispatch with the correct arguments for SUBMIT_UPDATE_USER', () => {
       const dispatch = jest.fn();
-      const mockUser = { userId: 1 };
+      const mockAccessToken = 'token';
       const mockAction = {
-        type: 'UPDATE_USER',
-        user: mockUser
+        type: 'SUBMIT_UPDATE_USER',
+        accessToken: mockAccessToken
       }
       const mappedProps = mapDispatchToProps(dispatch);
 
-      mappedProps.updateUser(mockAction.user);
+      mappedProps.submitUpdateUser(mockAction.accessToken);
 
       expect(dispatch).toHaveBeenCalledWith(mockAction);
     })
