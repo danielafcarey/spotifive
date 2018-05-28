@@ -29,4 +29,21 @@ describe('cleanUserData', () => {
 
     expect(result).toEqual(expected);
   })
+
+  it('returns a user object with spotifiveId if playlists include Spotifive', () => {
+    const mockPlaylists = [{ 
+      name: 'Spotifive',
+      id: 1
+    }];
+    const expected = {
+      userId: 'wizzler' ,
+      name: 'JM Wizzler',
+      spotifiveId: 1,
+      image: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/1970403_10152215092574354_1798272330_n.jpg'
+    } 
+    const result = cleaner.cleanUserData(mockUserData, mockPlaylists);
+
+    expect(result).toEqual(expected);
+
+  })
 })
