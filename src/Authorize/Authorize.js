@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { 
   updateAccessToken,
-  updateUser
+  submitUpdateUser
 } from '../actions';
 import { 
   getAccessToken,
-  cleanUserData
 } from '../cleaner.js';
-import { 
-  getUserData,
-  getUserPlaylists
-} from '../apiCalls';
 
 class Authorize extends Component {
 
@@ -20,19 +16,15 @@ class Authorize extends Component {
     this.props.updateAccessToken(cleanAccessToken);
   }
 
-  componentDidUpdate = async (prevProps) => {
+  componentDidUpdate = (prevProps) => {
     if (prevProps.accessToken !== this.props.accessToken) {
-      const userData = await getUserData(this.props.accessToken);
-      const userPlaylists = await getUserPlaylists(this.props.accessToken);
-      const cleanedUserData = await cleanUserData(userData, userPlaylists);
-      await this.props.updateUser(cleanedUserData);
+      this.props.submitUpdateUser(this.props.accessToken)
     }
   }
 
   render() {
     return (
       <div className='authorize' >
-        <img src={this.props.user.image} />
       </div>
     )
   }
@@ -45,8 +37,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateAccessToken: (accessToken) => dispatch(updateAccessToken(accessToken)),
-  updateUser: (user) => dispatch(updateUser(user))
+  submitUpdateUser: (accessToken) => dispatch(submitUpdateUser(accessToken))
 });
+
+Authorize.propTypes = {
+  accessToken: PropTypes.string,
+  user: PropTypes.object,
+  updateAccessToken: PropTypes.func,
+  submitUpdateUser: PropTypes.func
+}
 
 export {
   Authorize,

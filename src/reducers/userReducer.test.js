@@ -6,7 +6,11 @@ describe('userReducer', () => {
     const action = {
       type: 'I_AM_FAKE',
     }
-    const state = {};
+    const state = { 
+      loggedIn: false,
+      userInfo: {},
+      loginError: null
+    };
     const result = userReducer(state, action);
 
     expect(result).toEqual(state);
@@ -17,9 +21,29 @@ describe('userReducer', () => {
       type: 'UPDATE_USER',
       user: { userId: 1 }
     }
-    const state = '';
+    const state = { loggedIn: false };
+    const expected = {
+      loggedIn: true,
+      userInfo: action.user 
+    }
     const result = userReducer(state, action);
 
-    expect(result).toEqual(action.user);
+    expect(result).toEqual(expected);
+  })
+
+  it('returns new state if action is UPDATE_USER_ERROR', () => {
+    const action = {
+      type: 'UPDATE_USER_ERROR',
+      error: 'i failed'
+    }
+
+    const state = { loggedIn: false }
+    const expected = {
+      loggedIn: false,
+      loginError: 'i failed'
+    }
+    const result = userReducer(state, action);
+
+    expect(result).toEqual(expected);
   })
 })
