@@ -27,7 +27,8 @@ const getUserPlaylists = async (accessToken) => {
     const response = await fetch(url, optionsObject);
     if (response.status === 200) {
       const data = await response.json();
-      return await getAllPlaylists(data.items, data.next, optionsObject);
+      const allPlaylists = await getAllPlaylists(data.items, data.next, optionsObject)
+      return allPlaylists
     } else {
       throw Error(response.status)
     }
@@ -46,7 +47,7 @@ const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
     if (response.status === 200) {
       const data = await response.json();
       const combinedPlaylists = [...data.items, ...prevPlaylists] 
-      getAllPlaylists(combinedPlaylists, data.next, optionsObject)
+      return getAllPlaylists(combinedPlaylists, data.next, optionsObject)
     } else {
       throw Error(response.status)
     }
