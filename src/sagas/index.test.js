@@ -98,6 +98,7 @@ describe('sagas', () => {
       iterator = sagas.submitUpdateUser(mockAction);
       iterator.next();
     })
+
     it('yields put with updateUserError action if there is an error', () => {
       const expected = put(actions.updateUserError('i am bad'));
       const value = iterator.throw(Error('i am bad')).value;
