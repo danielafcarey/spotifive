@@ -4,6 +4,7 @@ const updateAccessToken = (accessToken) => ({
   accessToken
 })
 
+
 //updateUser
 const updateUser = (user) => ({
   type: 'UPDATE_USER',
@@ -20,9 +21,29 @@ const submitUpdateUser = (accessToken) => ({
   accessToken
 })
 
+
+//updateArtist
+const updateArtist = (artist) => ({
+  type: 'UPDATE_ARTIST',
+  artist
+})
+
+const updateArtistError = (error) => ({
+  type: 'UPDATE_ARTIST_ERROR',
+  error
+})
+
+const submitUpdateArtist = (artistName) => ({
+  type: 'SUBMIT_UPDATE_ARTIST',
+  artistName
+})
+
 export {
   updateAccessToken,
   updateUser,
   updateUserError,
-  submitUpdateUser
+  submitUpdateUser,
+  updateArtist,
+  updateArtistError,
+  submitUpdateArtist
 }

@@ -52,11 +52,12 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => {
-
+  //user -> to check to see if loggedin is true
+  //artist -> to render search error if necessary
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+ //submitUpdateArtist (saga) -> to update artist on submit
 }
 
 export {
