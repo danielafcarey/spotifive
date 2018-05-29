@@ -9,7 +9,10 @@ import App from './App/App';
 import { rootReducer } from './reducers';
 import * as firebase from 'firebase';
 import { config } from './firebase/firebaseConfig';
-import listenForSubmitUpdateUser from './sagas';
+import { 
+  listenForSubmitUpdateUser,
+  listenForSubmitUpdateArtist
+} from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -17,6 +20,7 @@ const store = createStore(rootReducer, devTools, applyMiddleware(sagaMiddleware)
 
 firebase.initializeApp(config);
 sagaMiddleware.run(listenForSubmitUpdateUser);
+sagaMiddleware.run(listenForSubmitUpdateArtist);
 
 const root = (
   <Provider store={ store }>

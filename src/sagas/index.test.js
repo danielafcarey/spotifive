@@ -107,4 +107,101 @@ describe('sagas', () => {
     })
 
   })
+
+
+  describe('listenForSubmitUpdateArtist', () => {
+    let iterator;
+
+    beforeAll(() => {
+      iterator = sagas.listenForSubmitUpdateArtist();
+    })
+
+    it('should takeLatest SUBMIT_UPDATE_ARTIST', () => {
+      const value = iterator.next().value;
+      const expected = takeLatest('SUBMIT_UPDATE_ARTIST', sagas.submitUpdateArtist);
+
+      expect(value).toEqual(expected);
+    })
+
+    it('should be done', () => {
+      const done = iterator.next().done;
+
+      expect(done).toBe(true);
+    }) 
+  })
+
+
+  describe('submitUpdateArtist', () => {
+    let iterator;
+    let mockAction;
+    let mockRawArtistData;
+
+    beforeAll(() => {
+      mockAction = {
+        type: 'SUBMIT_UPDATE_ARTIST',
+        artist: 'beebs'
+      }
+      iterator = sagas.submitUpdateArtist(mockAction);
+      mockRawArtistData = {
+        artistId: 'iambeebs'
+      }
+    })
+
+    it('yields call with the correct getArtistData apiCall and arguments', () => {
+      const value = iterator.next().value;
+      const expected = call(apiCalls.getArtistData, mockAction.artist);
+
+      expect(value).toEqual(expected);
+    })
+
+    it('yields call with the correct data cleaner and args', () => {
+      
+      const value = iterator.next(mockRawArtistData).value;
+      const expected = call(cleaners.cleanArtistData, mockRawArtistData)
+
+      expect(value).toEqual(expected);
+    })
+
+    it('yields put with updateArtist action', () => {
+      const mockCleanedArtist = {
+        artistId: 'iambeebs'
+      }
+      const value = iterator.next(mockCleanedArtist).value;
+      const expected = put(actions.updateArtist(mockCleanedArtist));
+
+      expect(value).toEqual(expected);
+    })
+
+    it('should be done', () => {
+      const done = iterator.next().done;
+
+      expect(done).toBe(true);
+    })
+
+  })
+
+  describe('submitUpdateArtist error', () => {
+    let iterator;
+    let mockAction;
+
+    beforeAll(() => {
+      mockAction = {
+        type: 'SUBMIT_UPDATE_ARTIST',
+        artist: 'iamnotanartist'
+      }
+      iterator = sagas.submitUpdateArtist(mockAction);
+      iterator.next();
+    })
+
+    it('yields put with updateArtistError action if there is an error', () => {
+      const expected = put(actions.updateArtistError('iamnotanartist'));
+      const value = iterator.throw(Error('iamnotanartist')).value;
+
+      expect(value).toEqual(expected);
+    })
+
+  })
+
+
+
 })

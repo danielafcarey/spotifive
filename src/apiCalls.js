@@ -47,8 +47,13 @@ const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
   }
 }
 
+const getArtistData = async (artist) => {
+
+} 
+
 export {
   getUserData,
   getUserPlaylists,
-  getAllPlaylists
+  getAllPlaylists,
+  getArtistData
 }
