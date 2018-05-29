@@ -23,6 +23,7 @@ ShallowWrapper {
 >
           <input
                     onChange={[Function]}
+                    placeholder="Search for an artist"
                     value=""
           />
           <button>
@@ -30,7 +31,13 @@ ShallowWrapper {
           </button>
 </form>,
         <p>
-          Instructions
+          1. Search for an artist
+</p>,
+        <p>
+          2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist
+</p>,
+        <p>
+          3. See new music in your Spotifive playlist in the Spotify app
 </p>,
       ],
       "className": "search",
@@ -45,6 +52,7 @@ ShallowWrapper {
           "children": Array [
             <input
               onChange={[Function]}
+              placeholder="Search for an artist"
               value=""
 />,
             <button>
@@ -61,6 +69,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "onChange": [Function],
+              "placeholder": "Search for an artist",
               "value": "",
             },
             "ref": null,
@@ -86,10 +95,32 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Instructions",
+          "children": "1. Search for an artist",
         },
         "ref": null,
-        "rendered": "Instructions",
+        "rendered": "1. Search for an artist",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist",
+        },
+        "ref": null,
+        "rendered": "2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "3. See new music in your Spotifive playlist in the Spotify app",
+        },
+        "ref": null,
+        "rendered": "3. See new music in your Spotifive playlist in the Spotify app",
         "type": "p",
       },
     ],
@@ -107,6 +138,7 @@ ShallowWrapper {
 >
             <input
                         onChange={[Function]}
+                        placeholder="Search for an artist"
                         value=""
             />
             <button>
@@ -114,7 +146,13 @@ ShallowWrapper {
             </button>
 </form>,
           <p>
-            Instructions
+            1. Search for an artist
+</p>,
+          <p>
+            2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist
+</p>,
+          <p>
+            3. See new music in your Spotifive playlist in the Spotify app
 </p>,
         ],
         "className": "search",
@@ -129,6 +167,7 @@ ShallowWrapper {
             "children": Array [
               <input
                 onChange={[Function]}
+                placeholder="Search for an artist"
                 value=""
 />,
               <button>
@@ -145,6 +184,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "onChange": [Function],
+                "placeholder": "Search for an artist",
                 "value": "",
               },
               "ref": null,
@@ -170,10 +210,32 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Instructions",
+            "children": "1. Search for an artist",
           },
           "ref": null,
-          "rendered": "Instructions",
+          "rendered": "1. Search for an artist",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist",
+          },
+          "ref": null,
+          "rendered": "2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "3. See new music in your Spotifive playlist in the Spotify app",
+          },
+          "ref": null,
+          "rendered": "3. See new music in your Spotifive playlist in the Spotify app",
           "type": "p",
         },
       ],
