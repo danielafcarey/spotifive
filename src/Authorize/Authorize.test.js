@@ -38,6 +38,13 @@ describe('Authorize', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
+  it('matches the snapshot if props.user.loggedIn is true', () => {
+    mockProps.user.loggedIn = true;
+    wrapper = shallow(<Authorize { ...mockProps } />)
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
   describe('componentDidUpdate', () => {
     
     it('calls props.submitUpdateUser if accessToken has been udpated', () => {
@@ -61,7 +68,6 @@ describe('Authorize', () => {
     })
 
   })
-
 
   describe('mapStateToProps', () => {
 
