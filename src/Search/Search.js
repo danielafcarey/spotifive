@@ -10,12 +10,13 @@ class Search extends Component {
 
   handleChange = (event) => {
     const { value } = event.target;
-
     this.setState({ searchInput: value })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+
+    this.setState({ searchInput: '' })
   }
 
   render() {
