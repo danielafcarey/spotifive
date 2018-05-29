@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Search extends Component {
   constructor(props) {
@@ -50,4 +51,18 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+}
+
+export {
+  Search,
+  mapStateToProps,
+  mapDispatchToProps
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
