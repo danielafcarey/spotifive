@@ -1,9 +1,54 @@
+.Header {
+  text-align: right; }
+  .Header h1 {
+    display: inline-block;
+    font-size: 55px;
+    margin: 0;
+    padding: 10px;
+    vertical-align: middle; }
+  .Header img {
+    display: inline-block;
+    width: 65px;
+    padding: 30px 30px 30px 6px;
+    vertical-align: middle; }
+
+.search {
+  width: 45%;
+  margin: 50px auto;
+  text-align: center; }
+  .search input {
+    width: 90%;
+    height: 45px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: none;
+    padding-left: 10px;
+    margin: 30px 0; }
+    .search input::placeholder {
+      padding-left: 10px;
+      color: grey; }
+  .search p {
+    text-align: left; }
+
+.signin {
+  width: 45%;
+  margin: 50px auto;
+  text-align: center; }
+
 body {
   background-color: black;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: white; }
-
-.App header {
-  text-align: right; }
+  body button {
+    background-color: #1fd760;
+    width: 90%;
+    height: 45px;
+    border: none;
+    color: white;
+    font-size: 20px; }
+  body p {
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 300; }

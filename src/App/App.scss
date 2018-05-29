@@ -1,18 +1,32 @@
+@import '../Header/Header.scss';
+@import '../Authorize/Authorize.scss';
 @import '../Search/Search.scss';
 @import '../Signin/Signin.scss';
 @import '../Tryit/Tryit.scss';
+
+$spotify-green: #1fd760;
 
 body {
   background-color: black;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: white;
-}
 
-.App {
+  button {
+    background-color: $spotify-green;
+    width: 90%;
+    height: 45px;
+    border: none;
+    color: white;
+    font-size: 20px;
+  }
 
-  header {
-    text-align: right;
+  p {
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
   }
 }
+
+
