@@ -18,4 +18,16 @@ export function* submitUpdateUser(action) {
   }
 }
 
-export default listenForSubmitUpdateUser;
+export function* listenForSubmitUpdateArtist() {
+  yield takeLatest('SUBMIT_UPDATE_ARTIST', submitUpdateArtist)
+}
+
+export function* submitUpdateArtist(action) {
+  try {
+    const rawArtistData = yield call(apiCalls.getArtistData, action.artist);
+    const cleanedArtistData = yield call(cleaners.cleanArtistData, rawArtistData)
+    yield put(actions.updateArtist(cleanedArtistData))
+  } catch(error) {
+    yield put(actions.updateArtistError(error.message))
+  }
+}
