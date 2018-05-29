@@ -17,6 +17,14 @@ describe('Search', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
+  it('matches the snapshot if artist has been found', () => {
+
+  })
+
+  it('matches the snapshot if artist was not found', () => {
+
+  })
+
   it('has a default state of searchInput', () => {
     const wrapper = shallow(<Search />);
 
@@ -44,6 +52,14 @@ describe('Search', () => {
     })
 
     it('updates the store with new artist info', () => {
+
+    })
+
+  })
+
+  describe('mapStateToProps', () => {
+
+    it('returns a state object with user and artist', () => {
 
     })
 

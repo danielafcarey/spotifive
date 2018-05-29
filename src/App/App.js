@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 
+import Header from '../Header/Header';
 import Search from '../Search/Search';
 import Signin from '../Signin/Signin';
 import Tryit from '../Tryit/Tryit';
@@ -12,10 +13,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Spotifive</h1>
-        </header>
-
+        <Header />
+        
         <Route path='/authorize'
           component={ Authorize }
         />

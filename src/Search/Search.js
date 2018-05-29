@@ -37,10 +37,13 @@ class Search extends Component {
           <input 
             value={ this.state.searchInput } 
             onChange={ this.handleChange }
+            placeholder='Search for an artist'
           /> 
           <button>Search</button>
         </form>
-        <p>Instructions</p>
+        <p>1. Search for an artist</p>
+        <p>2. Click TryIt to add that artist’s top 5 songs to your Spotifive playlist</p>
+        <p>3. See new music in your Spotifive playlist in the Spotify app</p>
       </div>
     )
   }
