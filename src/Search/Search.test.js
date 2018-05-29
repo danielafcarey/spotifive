@@ -12,17 +12,27 @@ it('renders without crashing', () => {
 describe('Search', () => {
 
   it('matches the snapshot', () => {
+    const wrapper = shallow(<Search />)
 
+    expect(wrapper).toMatchSnapshot();
   })
 
   it('has a default state of searchInput', () => {
+    const wrapper = shallow(<Search />);
 
+    expect(wrapper.state('searchInput')).toEqual('');
   })
 
   describe('handleChange', () => {
 
     it('sets the state of searchInput', () => {
+      const wrapper = shallow(<Search />);
+      const mockEvent = { target: { value: 'some input' } };
+      const expected = 'some input';
+      
+      wrapper.instance().handleChange(mockEvent);
 
+      expect(wrapper.state('searchInput')).toEqual(expected);
     })
 
   })
