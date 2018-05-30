@@ -145,7 +145,8 @@ describe('sagas', () => {
     beforeAll(() => {
       mockAction = {
         type: 'SUBMIT_UPDATE_SEARCH',
-        searchString: 'an artist'
+        searchString: 'an artist',
+        accessToken: '1'
       }
       iterator = sagas.submitUpdateSearch(mockAction);
       mockSearchResults = [{ artistId: 'artist1' }]
@@ -153,7 +154,7 @@ describe('sagas', () => {
 
     it('yields call with apiCalls.getSearchResults and correct arguments', () => {
       const value = iterator.next().value;
-      const expected = call(apiCalls.getSearchResults, mockAction.searchString);
+      const expected = call(apiCalls.getSearchResults, mockAction.searchString, mockAction.accessToken);
 
       expect(value).toEqual(expected);
     })

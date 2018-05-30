@@ -33,9 +33,10 @@ const updateSearchError = (error) => ({
   error
 })
 
-const submitUpdateSearch = (searchString) => ({
+const submitUpdateSearch = (searchString, accessToken) => ({
   type: 'SUBMIT_UPDATE_SEARCH',
-  searchString
+  searchString,
+  accessToken
 })
 
 

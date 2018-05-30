@@ -19,6 +19,7 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.submitUpdateSearch(this.state.searchInput, this.props.accessToken);
 
     this.setState({ searchInput: '' })
   }
@@ -57,11 +58,12 @@ class Search extends Component {
 const mapStateToProps = (state) => ({
   accessToken: state.accessToken,
   user: state.user,
+  searchResults: state.searchResults,
   artist: state.artist
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  submitUpdateSearch: (searchString) => dispatch(submitUpdateSearch(searchString)),
+  submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
   // submitUpdateArtist: (artistId) => dispatch(submitUpdateArtist(artistId)) 
 })
 

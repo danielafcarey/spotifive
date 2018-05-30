@@ -1,7 +1,8 @@
 import * as cleaner from './cleaner';
 import {
   mockUserData,
-  mockUserPlaylists2
+  mockUserPlaylists2,
+  mockSearchResults
 } from './mockData';
 
 describe('getAccessToken', () => {
@@ -44,6 +45,17 @@ describe('cleanUserData', () => {
     const result = cleaner.cleanUserData(mockUserData, mockPlaylists);
 
     expect(result).toEqual(expected);
+  })
 
+  it('returns a cleaned array of search results', () => {
+    const expected = [{
+      name: 'Ivan Molina & Abba Padre Band',
+      id: '6BwpDpGWc8m630vadAuLRn',
+      image: 'https://i.scdn.co/image/0fc0f29f3b61ab4524603c9be2e92eb6acba22ae'
+    }]; 
+    const result = cleaner.cleanSearchResults(mockSearchResults);
+
+    expect(result).toEqual(expected);
   })
 })
+

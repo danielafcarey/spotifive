@@ -89,9 +89,10 @@ describe('search action', () => {
   it('returns a SUBMIT_UPDATE_SEARCH action object', () => {
     const expected = {
       type: 'SUBMIT_UPDATE_SEARCH',
-      searchString: 'the garbage man'
+      searchString: 'the garbage man',
+      accessToken: '1'
     }
-    const result = submitUpdateSearch(expected.searchString);
+    const result = submitUpdateSearch(expected.searchString, expected.accessToken);
 
     expect(result).toEqual(expected);
   })

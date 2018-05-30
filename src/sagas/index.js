@@ -24,7 +24,8 @@ export function* listenForSubmitUpdateSearch() {
 
 export function* submitUpdateSearch(action) {
   try {
-    const rawSearchResults = yield call(apiCalls.getSearchResults, action.searchString); 
+    const rawSearchResults = yield call(apiCalls.getSearchResults, action.searchString, action.accessToken); 
+    console.log(rawSearchResults);
     const cleanedSearchResults = yield call(cleaners.cleanSearchResults, rawSearchResults);
     yield put(actions.updateSearchResults(cleanedSearchResults));
   } catch(error) {

@@ -18,7 +18,16 @@ const cleanUserData = (userData, playlists) => {
 }
 
 const cleanSearchResults = (searchResults) => {
+  const cleanedSearchResults = searchResults.artists.items.map(result => {
+    const cleanResult = {
+      name: result.name,
+      id: result.id,
+      image: result.images.length ? result.images[0].url : null
+    }
+    return cleanResult;
+  })
 
+  return cleanedSearchResults;
 }
 
 const cleanArtistData = (artistData) => {
