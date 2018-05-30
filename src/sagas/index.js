@@ -18,6 +18,14 @@ export function* submitUpdateUser(action) {
   }
 }
 
+export function* listenForSubmitUpdateSearch() {
+  
+}
+
+export function* submitUpdateSearch(action) {
+
+}
+
 export function* listenForSubmitUpdateArtist() {
   yield takeLatest('SUBMIT_UPDATE_ARTIST', submitUpdateArtist)
 }

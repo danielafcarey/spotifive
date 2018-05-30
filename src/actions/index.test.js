@@ -3,6 +3,9 @@ import {
   updateUser,
   updateUserError,
   submitUpdateUser,
+  updateSearchResults,
+  updateSearchError,
+  submitUpdateSearch,
   updateArtist,
   updateArtistError,
   submitUpdateArtist
@@ -59,6 +62,39 @@ describe('user actions', () => {
     expect(result).toEqual(expected);
   })
 
+})
+
+describe('search action', () => {
+
+  it('returns an UPDATE_SEARCH_RESULTS action object', () => {
+    const expected = {
+      type: 'UPDATE_SEARCH_RESULTS',
+      searchResults: ['result1', 'result2']
+    }
+    const result = updateSearchResults(expected.searchResults);
+
+    expect(result).toEqual(expected);
+  })
+
+  it('returns an UPDATE_SEARCH_ERROR action object', () => {
+    const expected = {
+      type: 'UPDATE_SEARCH_ERROR',
+      error: 'i failed but im not a failure'
+    }
+    const result = updateSearchError(expected.error);
+
+    expect(result).toEqual(expected);
+  })
+
+  it('returns a SUBMIT_UPDATE_SEARCH action object', () => {
+    const expected = {
+      type: 'SUBMIT_UPDATE_SEARCH',
+      searchString: 'the garbage man'
+    }
+    const result = submitUpdateSearch(expected.searchString);
+
+    expect(result).toEqual(expected);
+  })
 })
 
 describe('artist actions', () => {

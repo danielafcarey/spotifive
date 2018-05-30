@@ -22,6 +22,23 @@ const submitUpdateUser = (accessToken) => ({
 })
 
 
+//updateSearchResults
+const updateSearchResults = (searchResults) => ({
+  type: 'UPDATE_SEARCH_RESULTS',
+  searchResults
+})
+
+const updateSearchError = (error) => ({
+  type: 'UPDATE_SEARCH_ERROR',
+  error
+})
+
+const submitUpdateSearch = (searchString) => ({
+  type: 'SUBMIT_UPDATE_SEARCH',
+  searchString
+})
+
+
 //updateArtist
 const updateArtist = (artist) => ({
   type: 'UPDATE_ARTIST',
@@ -43,6 +60,9 @@ export {
   updateUser,
   updateUserError,
   submitUpdateUser,
+  updateSearchResults,
+  updateSearchError,
+  submitUpdateSearch,
   updateArtist,
   updateArtistError,
   submitUpdateArtist

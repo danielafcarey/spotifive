@@ -109,6 +109,11 @@ describe('sagas', () => {
   })
 
 
+  describe('listenForSubmitUpdateSearch', () => {
+
+  })
+
+
   describe('listenForSubmitUpdateArtist', () => {
     let iterator;
 
