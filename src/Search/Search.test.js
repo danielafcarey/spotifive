@@ -76,8 +76,21 @@ describe('Search', () => {
 
   describe('mapStateToProps', () => {
 
-    it('returns a state object with user and artist', () => {
+    it('returns a state object with accessToken, user, and artist', () => {
+      const state = {
+        accessToken: 1,
+        user: { userId: 1 },
+        artist: { artistId: 1 },
+        fakeProp: 'do not add me'
+      }
+      const expected = {
+        accessToken: 1,
+        user: { userId: 1 },
+        artist: { artistId: 1 }
+      }
+      const result = mapStateToProps(state);
 
+      expect(result).toEqual(expected);
     })
 
   })
@@ -85,7 +98,15 @@ describe('Search', () => {
   describe('mapDispatchToProps', () => {
     
     it('calls dispatch with the correct arguments', () => {
+      const dispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'SUBMIT_UPDATE_SEARCH',
+        searchString: 'hi'
+      }
+      mappedProps.submitUpdateSearch(mockAction.searchString);
 
+      expect(dispatch).toHaveBeenCalledWith(mockAction)
     })
 
   })

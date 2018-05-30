@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  submitUpdateSearch,
+} from '../actions';
 
 class Search extends Component {
   constructor(props) {
@@ -51,15 +54,16 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  //user -> to check to see if loggedin is true
-  //artist -> to render search error if necessary
-}
+const mapStateToProps = (state) => ({
+  accessToken: state.accessToken,
+  user: state.user,
+  artist: state.artist
+})
 
-const mapDispatchToProps = (dispatch) => {
-  //submitUpdateSearch (saga) -> to update search list and display on submit
-  //submitUpdateArtist (saga) -> to update artist on click
-}
+const mapDispatchToProps = (dispatch) => ({
+  submitUpdateSearch: (searchString) => dispatch(submitUpdateSearch(searchString)),
+  // submitUpdateArtist: (artistId) => dispatch(submitUpdateArtist(artistId)) 
+})
 
 export {
   Search,

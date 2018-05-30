@@ -4,7 +4,7 @@ const mockUserData = {
   "display_name": "JM Wizzler",
   "email": "email@example.com",
   "external_urls": {
-  "spotify": "https://open.spotify.com/user/wizzler"
+    "spotify": "https://open.spotify.com/user/wizzler"
   },
   "followers" : {
     "href" : null,
@@ -150,8 +150,57 @@ const mockUserPlaylists1 = {
   "total": 2
 }
 
+const mockSearchResults = {
+  "artists": {
+    "href": "https://api.spotify.com/v1/search?query=band+abba&type=artist&market=US&offset=0&limit=5",
+    "items": [
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6BwpDpGWc8m630vadAuLRn"
+        },
+        "followers": {
+          "href": null,
+          "total": 801
+        },
+        "genres": [
+          "deep latin christian"
+        ],
+        "href": "https://api.spotify.com/v1/artists/6BwpDpGWc8m630vadAuLRn",
+        "id": "6BwpDpGWc8m630vadAuLRn",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/0fc0f29f3b61ab4524603c9be2e92eb6acba22ae",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/b3de146af46e7805ec42c90c65862873a53b96da",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/9d4780116a488468de3afebacea3b3849359f3c2",
+            "width": 64
+          }
+        ],
+        "name": "Ivan Molina & Abba Padre Band",
+        "popularity": 19,
+        "type": "artist",
+        "uri": "spotify:artist:6BwpDpGWc8m630vadAuLRn"
+      }
+    ],
+    "limit": 5,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 1
+  }
+}
+
 export {
   mockUserData,
   mockUserPlaylists1,
-  mockUserPlaylists2
+  mockUserPlaylists2,
+  mockSearchResults
 }
