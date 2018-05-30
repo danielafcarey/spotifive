@@ -24,6 +24,28 @@ class Search extends Component {
     this.setState({ searchInput: '' })
   }
 
+  renderInstructions = () => {
+    return (
+      <div>
+        <p>1. Search for an artist</p>
+        <p>2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
+        <p>3. See new music in your Spotifive playlist in the Spotify app</p>
+      </div>
+    )
+  }
+
+  renderResults = () => {
+    const listOfResults = this.props.searchResults.searchResults.map(result => {
+      return <li>{result.name}</li>
+    })
+
+    return (
+      <ul>
+        { listOfResults }
+      </ul>
+    )
+  }
+
   render() {
     // redirect to Tryit if artist was found (is not null)
     // if (this.props.artistError) {
@@ -34,6 +56,15 @@ class Search extends Component {
     // if (this.props.user.loggedin) {
     //   return <Redirect to='/' />
     // }
+    //
+    let body;
+    const lengthOfSearchResults = this.props.searchResults.searchResults.length;
+
+    if (lengthOfSearchResults < 1) {
+      body = this.renderInstructions();
+    } else {
+      body = this.renderResults();
+    }
 
     return (
       <div className='search'>
@@ -47,9 +78,7 @@ class Search extends Component {
           /> 
           <button>Search</button>
         </form>
-        <p>1. Search for an artist</p>
-        <p>2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
-        <p>3. See new music in your Spotifive playlist in the Spotify app</p>
+        {body}
       </div>
     )
   }
