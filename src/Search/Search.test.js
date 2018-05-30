@@ -7,17 +7,31 @@ import {
   mapDispatchToProps
 } from './Search';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Search />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
 
 describe('Search', () => {
+  let mockProps;
+  let wrapper;
+
+  beforeEach(() => {
+    mockProps = {
+      accessToken: 'a',
+      user: { userId: 1 },
+      searchResults: { 
+        searchResults: [
+          {
+            name: 'hi',
+            id: 1
+          }
+        ] 
+      },
+      artist: { artistId: 1 },
+      submitUpdateSearch: jest.fn(),
+      submitUpdateArtist: jest.fn()
+    }
+    wrapper = shallow(<Search { ...mockProps } />)
+  })
 
   it('matches the snapshot', () => {
-    const wrapper = shallow(<Search />)
-
     expect(wrapper).toMatchSnapshot();
   })
 
@@ -30,15 +44,12 @@ describe('Search', () => {
   })
 
   it('has a default state of searchInput', () => {
-    const wrapper = shallow(<Search />);
-
     expect(wrapper.state('searchInput')).toEqual('');
   })
 
   describe('handleChange', () => {
 
     it('sets the state of searchInput', () => {
-      const wrapper = shallow(<Search />);
       const mockEvent = { target: { value: 'some input' } };
       const expected = 'some input';
       
@@ -50,11 +61,9 @@ describe('Search', () => {
   })
 
   describe('handleSubmit', () => {
-    let wrapper;
     let mockEvent;
 
     beforeEach(() => {
-      wrapper = shallow(<Search />)
       mockEvent = { preventDefault: () => {} }
     })
 

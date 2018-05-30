@@ -4,7 +4,31 @@ exports[`Search matches the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Search />,
+  Symbol(enzyme.__unrendered__): <Search
+    accessToken="a"
+    artist={
+        Object {
+            "artistId": 1,
+          }
+    }
+    searchResults={
+        Object {
+            "searchResults": Array [
+              Object {
+                "id": 1,
+                "name": "hi",
+              },
+            ],
+          }
+    }
+    submitUpdateArtist={[Function]}
+    submitUpdateSearch={[Function]}
+    user={
+        Object {
+            "userId": 1,
+          }
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -30,15 +54,18 @@ ShallowWrapper {
                     Search
           </button>
 </form>,
-        <p>
-          1. Search for an artist
-</p>,
-        <p>
-          2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist
-</p>,
-        <p>
-          3. See new music in your Spotifive playlist in the Spotify app
-</p>,
+        <div>
+          <p>
+                    Select an artist: 
+          </p>
+          <ul>
+                    <ArtistCard
+                              id={1}
+                              name="hi"
+                              selectArtist={[Function]}
+                    />
+          </ul>
+</div>,
       ],
       "className": "search",
     },
@@ -95,33 +122,65 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "1. Search for an artist",
+          "children": Array [
+            <p>
+              Select an artist: 
+</p>,
+            <ul>
+              <ArtistCard
+                            id={1}
+                            name="hi"
+                            selectArtist={[Function]}
+              />
+</ul>,
+          ],
         },
         "ref": null,
-        "rendered": "1. Search for an artist",
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist",
-        },
-        "ref": null,
-        "rendered": "2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist",
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "3. See new music in your Spotifive playlist in the Spotify app",
-        },
-        "ref": null,
-        "rendered": "3. See new music in your Spotifive playlist in the Spotify app",
-        "type": "p",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Select an artist: ",
+            },
+            "ref": null,
+            "rendered": "Select an artist: ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ArtistCard
+                  id={1}
+                  name="hi"
+                  selectArtist={[Function]}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "artistKey0",
+                "nodeType": "function",
+                "props": Object {
+                  "id": 1,
+                  "name": "hi",
+                  "selectArtist": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "ul",
+          },
+        ],
+        "type": "div",
       },
     ],
     "type": "div",
@@ -145,15 +204,18 @@ ShallowWrapper {
                         Search
             </button>
 </form>,
-          <p>
-            1. Search for an artist
-</p>,
-          <p>
-            2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist
-</p>,
-          <p>
-            3. See new music in your Spotifive playlist in the Spotify app
-</p>,
+          <div>
+            <p>
+                        Select an artist: 
+            </p>
+            <ul>
+                        <ArtistCard
+                                    id={1}
+                                    name="hi"
+                                    selectArtist={[Function]}
+                        />
+            </ul>
+</div>,
         ],
         "className": "search",
       },
@@ -210,33 +272,65 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "1. Search for an artist",
+            "children": Array [
+              <p>
+                Select an artist: 
+</p>,
+              <ul>
+                <ArtistCard
+                                id={1}
+                                name="hi"
+                                selectArtist={[Function]}
+                />
+</ul>,
+            ],
           },
           "ref": null,
-          "rendered": "1. Search for an artist",
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist",
-          },
-          "ref": null,
-          "rendered": "2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist",
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "3. See new music in your Spotifive playlist in the Spotify app",
-          },
-          "ref": null,
-          "rendered": "3. See new music in your Spotifive playlist in the Spotify app",
-          "type": "p",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Select an artist: ",
+              },
+              "ref": null,
+              "rendered": "Select an artist: ",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ArtistCard
+                    id={1}
+                    name="hi"
+                    selectArtist={[Function]}
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "artistKey0",
+                  "nodeType": "function",
+                  "props": Object {
+                    "id": 1,
+                    "name": "hi",
+                    "selectArtist": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "ul",
+            },
+          ],
+          "type": "div",
         },
       ],
       "type": "div",

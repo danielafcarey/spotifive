@@ -44,12 +44,13 @@ class Search extends Component {
   }
 
   renderResults = () => {
-    const listOfResults = this.props.searchResults.searchResults.map(result => {
+    const listOfResults = this.props.searchResults.searchResults.map((result, i) => {
       return (
         <ArtistCard 
           name={ result.name } 
           id={ result.id }
           selectArtist={ this.selectArtist } 
+          key={`artistKey${i}`}
         />     
       )
     })
