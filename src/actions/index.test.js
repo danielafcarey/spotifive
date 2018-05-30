@@ -126,9 +126,9 @@ describe('artist actions', () => {
   it('retuns an SUBMIT_UPDATE_ARTIST action object', () => {
     const expected = {
       type: 'SUBMIT_UPDATE_ARTIST',
-      artistName: 'beeeeeeebs'
+      artistId: 'beeeeeeebs'
     }
-    const result = submitUpdateArtist(expected.artistName);
+    const result = submitUpdateArtist(expected.artistId);
 
     expect(result).toEqual(expected);
   })

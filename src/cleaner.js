@@ -17,6 +17,10 @@ const cleanUserData = (userData, playlists) => {
   } 
 }
 
+const cleanSearchResults = (searchResults) => {
+
+}
+
 const cleanArtistData = (artistData) => {
 
 }
@@ -24,5 +28,6 @@ const cleanArtistData = (artistData) => {
 export {
   getAccessToken,
   cleanUserData,
+  cleanSearchResults,
   cleanArtistData
 }
