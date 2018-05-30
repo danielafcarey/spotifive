@@ -194,4 +194,8 @@ describe('apiCalls', () => {
       expect(result).rejects.toEqual(expected);
     })
   })
+
+  describe('getSearchResults', () => {
+
+  })
 })

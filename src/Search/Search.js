@@ -57,7 +57,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
- //submitUpdateArtist (saga) -> to update artist on submit
+  //submitUpdateSearch (saga) -> to update search list and display on submit
+  //submitUpdateArtist (saga) -> to update artist on click
 }
 
 export {
