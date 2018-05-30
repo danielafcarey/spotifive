@@ -18,4 +18,30 @@ export function* submitUpdateUser(action) {
   }
 }
 
-export default listenForSubmitUpdateUser;
+export function* listenForSubmitUpdateSearch() {
+  yield takeLatest('SUBMIT_UPDATE_SEARCH', submitUpdateSearch); 
+}
+
+export function* submitUpdateSearch(action) {
+  try {
+    const rawSearchResults = yield call(apiCalls.getSearchResults, action.searchString); 
+    const cleanedSearchResults = yield call(cleaners.cleanSearchResults, rawSearchResults);
+    yield put(actions.updateSearchResults(cleanedSearchResults));
+  } catch(error) {
+    yield put(actions.updateSearchError(error.message));
+  }
+}
+
+export function* listenForSubmitUpdateArtist() {
+  yield takeLatest('SUBMIT_UPDATE_ARTIST', submitUpdateArtist)
+}
+
+export function* submitUpdateArtist(action) {
+  try {
+    const rawArtistData = yield call(apiCalls.getArtistData, action.artistId);
+    const cleanedArtistData = yield call(cleaners.cleanArtistData, rawArtistData)
+    yield put(actions.updateArtist(cleanedArtistData))
+  } catch(error) {
+    yield put(actions.updateArtistError(error.message))
+  }
+}

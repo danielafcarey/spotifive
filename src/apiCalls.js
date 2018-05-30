@@ -47,8 +47,19 @@ const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
   }
 }
 
+const getSearchResults = async (searchString) => {
+  const searchQuery = searchString.split(' ').join('+');
+  const url = `https://api.spotify.com/v1/search?q=${searchQuery}&type=artist&limit=5`;
+} 
+
+const getArtistData = async (artist) => {
+
+}
+
 export {
   getUserData,
   getUserPlaylists,
-  getAllPlaylists
+  getAllPlaylists,
+  getSearchResults,
+  getArtistData
 }

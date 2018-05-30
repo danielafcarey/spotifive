@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { 
@@ -17,14 +18,23 @@ class Authorize extends Component {
   }
 
   componentDidUpdate = (prevProps) => {
-    if (prevProps.accessToken !== this.props.accessToken) {
-      this.props.submitUpdateUser(this.props.accessToken)
+    const { accessToken, submitUpdateUser } = this.props;
+
+    if (prevProps.accessToken !== accessToken) {
+      submitUpdateUser(accessToken)
     }
   }
 
   render() {
+    const { loginError, loggedIn } = this.props.user;
+
+    if (loggedIn) {
+      return <Redirect to='/search' />
+    }
+
     return (
       <div className='authorize' >
+        <p>{ loginError }</p>
       </div>
     )
   }

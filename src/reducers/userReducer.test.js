@@ -21,10 +21,15 @@ describe('userReducer', () => {
       type: 'UPDATE_USER',
       user: { userId: 1 }
     }
-    const state = { loggedIn: false };
+    const state = { 
+      loggedIn: false,
+      userInfo: {},
+      loginError: null
+    };
     const expected = {
       loggedIn: true,
-      userInfo: action.user 
+      userInfo: action.user,
+      loginError: null
     }
     const result = userReducer(state, action);
 
@@ -35,11 +40,15 @@ describe('userReducer', () => {
     const action = {
       type: 'UPDATE_USER_ERROR',
       error: 'i failed'
-    }
-
-    const state = { loggedIn: false }
+    };
+    const state = { 
+      loggedIn: false,
+      userInfo: {},
+      loginError: null
+    };
     const expected = {
       loggedIn: false,
+      userInfo: {},
       loginError: 'i failed'
     }
     const result = userReducer(state, action);

@@ -1,11 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Search = (props) => {
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchInput: ''
+    }
+  }
 
-  return (
-    <div className='search'>
-    </div>
-  )
+  handleChange = (event) => {
+    const { value } = event.target;
+    this.setState({ searchInput: value })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({ searchInput: '' })
+  }
+
+  render() {
+    // redirect to Tryit if artist was found (is not null)
+    // if (this.props.artistError) {
+    //   return <Redirect to='tryit' />
+    // }
+    //
+    // redirect to Signin if loggedin is false
+    // if (this.props.user.loggedin) {
+    //   return <Redirect to='/' />
+    // }
+
+    return (
+      <div className='search'>
+        <form
+          onSubmit={ this.handleSubmit } 
+        >
+          <input 
+            value={ this.state.searchInput } 
+            onChange={ this.handleChange }
+            placeholder='Search for an artist'
+          /> 
+          <button>Search</button>
+        </form>
+        <p>1. Search for an artist</p>
+        <p>2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
+        <p>3. See new music in your Spotifive playlist in the Spotify app</p>
+      </div>
+    )
+  }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+  //user -> to check to see if loggedin is true
+  //artist -> to render search error if necessary
+}
+
+const mapDispatchToProps = (dispatch) => {
+  //submitUpdateSearch (saga) -> to update search list and display on submit
+  //submitUpdateArtist (saga) -> to update artist on click
+}
+
+export {
+  Search,
+  mapStateToProps,
+  mapDispatchToProps
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
