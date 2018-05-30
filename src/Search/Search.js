@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ArtistCard from '../ArtistCard/ArtistCard';
 import {
   submitUpdateSearch,
+  submitUpdateArtist
 } from '../actions';
 
 class Search extends Component {
@@ -24,6 +26,13 @@ class Search extends Component {
     this.setState({ searchInput: '' })
   }
 
+  selectArtist = (artistId) => {
+    //get artistId from event.target.name
+    console.log(artistId);
+    //run this.props.submitUpdateArtist
+    //redirect to TryIt if successful
+  }
+
   renderInstructions = () => {
     return (
       <div>
@@ -36,13 +45,22 @@ class Search extends Component {
 
   renderResults = () => {
     const listOfResults = this.props.searchResults.searchResults.map(result => {
-      return <li>{result.name}</li>
+      return (
+        <ArtistCard 
+          name={ result.name } 
+          id={ result.id }
+          selectArtist={ this.selectArtist } 
+        />     
+      )
     })
 
     return (
-      <ul>
-        { listOfResults }
-      </ul>
+      <div>
+        <p>Select an artist: </p>
+        <ul>
+          { listOfResults }
+        </ul>
+      </div>
     )
   }
 
@@ -93,7 +111,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
-  // submitUpdateArtist: (artistId) => dispatch(submitUpdateArtist(artistId)) 
+  submitUpdateArtist: (artistId) => dispatch(submitUpdateArtist(artistId)) 
 })
 
 export {
