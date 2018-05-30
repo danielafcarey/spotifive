@@ -68,3 +68,5 @@ export {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
+
+
