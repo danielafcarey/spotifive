@@ -64,16 +64,11 @@ class Search extends Component {
   }
 
   render() {
-    // redirect to Tryit if artist was found (is not null)
-    // if (this.props.artistError) {
-    //   return <Redirect to='tryit' />
-    // }
-    //
     // redirect to Signin if loggedin is false
     // if (this.props.user.loggedin) {
     //   return <Redirect to='/' />
     // }
-    //
+    
     let body;
     const lengthOfSearchResults = this.props.searchResults.searchResults.length;
 
