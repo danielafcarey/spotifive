@@ -30,13 +30,31 @@ const cleanSearchResults = (searchResults) => {
   return cleanedSearchResults;
 }
 
-const cleanArtistData = (artistData) => {
+const cleanArtistData = (artistData, topTracks) => {
 
+  // {
+  // name:'',
+  // id:'',
+  // image:'',
+  // topTracks: cleanTopTracks(topTracks.tracks)
+  // }
+}
+
+const cleanTopTracks = (topTracks) => {
+  const cleanedTopTracks = topTracks.map(track => {
+    return {
+      name: track.name,
+      uri: track.uri
+    }
+  }).splice(0, 5)
+
+  return cleanedTopTracks;
 }
 
 export {
   getAccessToken,
   cleanUserData,
   cleanSearchResults,
-  cleanArtistData
+  cleanArtistData,
+  cleanTopTracks
 }

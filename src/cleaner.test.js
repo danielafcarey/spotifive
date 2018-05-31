@@ -2,7 +2,9 @@ import * as cleaner from './cleaner';
 import {
   mockUserData,
   mockUserPlaylists2,
-  mockSearchResults
+  mockSearchResults,
+  mockArtistData,
+  mockTopTracks
 } from './mockData';
 
 describe('getAccessToken', () => {
@@ -58,4 +60,35 @@ describe('cleanUserData', () => {
     expect(result).toEqual(expected);
   })
 })
+
+describe('cleanArtistData', () => {
+
+})
+
+describe('cleanTopTracks', () => {
+
+  it('returns a cleaned array of top tracks', () => {
+    const expected = [ 
+      { name: 'Can\'t Help Falling in Love',
+        uri: 'spotify:track:44AyOl4qVkzS48vBsbNXaC' },
+      { name: 'Jailhouse Rock',
+        uri: 'spotify:track:4gphxUgq0JSFv2BCLhNDiE' },
+      { name: 'Hound Dog',
+        uri: 'spotify:track:64Ny7djQ6rNJspquof2KoX' },
+      { name: 'Suspicious Minds',
+        uri: 'spotify:track:1H5IfYyIIAlgDX8zguUzns' },
+      { name: 'Burning Love',
+        uri: 'spotify:track:7zMUCLm1TN9o9JlLISztxO' } 
+    ];
+
+    const result = cleaner.cleanTopTracks(mockTopTracks.tracks);
+
+    expect(result).toEqual(expected);
+  })
+})
+
+
+
+
+
 
