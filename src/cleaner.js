@@ -31,13 +31,15 @@ const cleanSearchResults = (searchResults) => {
 }
 
 const cleanArtistData = (artistData, topTracks) => {
+  const cleanedArtistData = {
+    name: artistData.name,
+    id: artistData.id,
+    image: artistData.images.length ? artistData.images[0].url : null,
+    topTracks: cleanTopTracks(topTracks.tracks)
+  }
 
-  // {
-  // name:'',
-  // id:'',
-  // image:'',
-  // topTracks: cleanTopTracks(topTracks.tracks)
-  // }
+  return cleanedArtistData;
+
 }
 
 const cleanTopTracks = (topTracks) => {

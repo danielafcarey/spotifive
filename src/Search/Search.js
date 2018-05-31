@@ -26,8 +26,7 @@ class Search extends Component {
   }
 
   selectArtist = (artistId) => {
-    console.log(artistId);
-    //run this.props.submitUpdateArtist(artistId)
+    this.props.submitUpdateArtist(artistId, this.props.accessToken);
     //redirect to TryIt if successful (artist was updated in store)
   }
 
@@ -105,7 +104,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
-  submitUpdateArtist: (artistId) => dispatch(submitUpdateArtist(artistId)) 
+  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)) 
 })
 
 export {

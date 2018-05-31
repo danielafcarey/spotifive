@@ -63,6 +63,23 @@ describe('cleanUserData', () => {
 
 describe('cleanArtistData', () => {
 
+  it('returns a cleaned artist object', () => {
+    const mockTopTracksArg = {
+      tracks: [
+        { name: 'numba1', uri: 'uri' }
+      ]
+    }
+    const expected = {
+      name: 'Band of Horses',
+      id: '0OdUWJ0sBjDrqHygGUXeCF',
+      image: 'https://i.scdn.co/image/eb266625dab075341e8c4378a177a27370f91903',
+      topTracks: mockTopTracksArg.tracks
+    }
+    const result = cleaner.cleanArtistData(mockArtistData, mockTopTracksArg);
+
+    expect(result).toEqual(expected);
+  }) 
+
 })
 
 describe('cleanTopTracks', () => {
@@ -85,6 +102,7 @@ describe('cleanTopTracks', () => {
 
     expect(result).toEqual(expected);
   })
+
 })
 
 

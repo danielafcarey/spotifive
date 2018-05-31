@@ -38,6 +38,7 @@ export function* listenForSubmitUpdateArtist() {
 
 export function* submitUpdateArtist(action) {
   try {
+    console.log(action);
     const rawArtistData = yield call(apiCalls.getArtistData, action.artistId, action.accessToken);
     const rawTopTracks = yield call(apiCalls.getTopTracks, action.artistId, action.accessToken);
     const cleanedArtistData = yield call(cleaners.cleanArtistData, rawArtistData, rawTopTracks)
