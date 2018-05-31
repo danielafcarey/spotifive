@@ -53,7 +53,6 @@ describe('sagas', () => {
     })
 
     it('yields call with the correct getUserPlaylists apiCall and args', () => {
-      
       const value = iterator.next(mockRawUserData).value;
       const expected = call(apiCalls.getUserPlaylists, mockAction.accessToken);
 
@@ -61,7 +60,6 @@ describe('sagas', () => {
     })
 
     it('yields call with the correct data cleaner and args', () => {
-      
       const value = iterator.next(mockRawUserPlaylists).value;
       const expected = call(cleaners.cleanUserData, mockRawUserData, mockRawUserPlaylists)
 
@@ -145,7 +143,8 @@ describe('sagas', () => {
     beforeAll(() => {
       mockAction = {
         type: 'SUBMIT_UPDATE_SEARCH',
-        searchString: 'an artist'
+        searchString: 'an artist',
+        accessToken: '1'
       }
       iterator = sagas.submitUpdateSearch(mockAction);
       mockSearchResults = [{ artistId: 'artist1' }]
@@ -153,7 +152,7 @@ describe('sagas', () => {
 
     it('yields call with apiCalls.getSearchResults and correct arguments', () => {
       const value = iterator.next().value;
-      const expected = call(apiCalls.getSearchResults, mockAction.searchString);
+      const expected = call(apiCalls.getSearchResults, mockAction.searchString, mockAction.accessToken);
 
       expect(value).toEqual(expected);
     })
@@ -235,11 +234,13 @@ describe('sagas', () => {
     let iterator;
     let mockAction;
     let mockRawArtistData;
+    let mockTopTracks;
 
     beforeAll(() => {
       mockAction = {
         type: 'SUBMIT_UPDATE_ARTIST',
-        artistId: 'beebs'
+        artistId: 'beebs',
+        accessToken: 1
       }
       iterator = sagas.submitUpdateArtist(mockAction);
       mockRawArtistData = {
@@ -247,19 +248,26 @@ describe('sagas', () => {
         name: 'beebs',
         image: 'beebsUrl'
       }
+      mockTopTracks = ['track1', 'track2']
     })
 
     it('yields call with the correct getArtistData apiCall and arguments', () => {
       const value = iterator.next().value;
-      const expected = call(apiCalls.getArtistData, mockAction.artistId);
+      const expected = call(apiCalls.getArtistData, mockAction.artistId, mockAction.accessToken);
+
+      expect(value).toEqual(expected);
+    })
+
+    it('yields call with the correct getTopTracks apiCall and arguments', () => {
+      const value = iterator.next(mockRawArtistData).value;
+      const expected = call(apiCalls.getTopTracks, mockAction.artistId, mockAction.accessToken);
 
       expect(value).toEqual(expected);
     })
 
     it('yields call with the correct data cleaner and args', () => {
-      
-      const value = iterator.next(mockRawArtistData).value;
-      const expected = call(cleaners.cleanArtistData, mockRawArtistData)
+      const value = iterator.next(mockTopTracks).value;
+      const expected = call(cleaners.cleanArtistData, mockRawArtistData, mockTopTracks)
 
       expect(value).toEqual(expected);
     })

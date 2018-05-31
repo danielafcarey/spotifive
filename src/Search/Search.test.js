@@ -7,38 +7,50 @@ import {
   mapDispatchToProps
 } from './Search';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Search />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
 
 describe('Search', () => {
+  let mockProps;
+  let wrapper;
+
+  beforeEach(() => {
+    mockProps = {
+      accessToken: 'a',
+      user: { userId: 1 },
+      searchResults: { 
+        searchResults: [] 
+      },
+      artist: { artistId: 1 },
+      submitUpdateSearch: jest.fn(),
+      submitUpdateArtist: jest.fn()
+    }
+    wrapper = shallow(<Search { ...mockProps } />)
+  })
 
   it('matches the snapshot', () => {
-    const wrapper = shallow(<Search />)
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('matches the snapshot if there are search result', () => {
+    mockProps.searchResults = { 
+      searchResults: [
+        {
+          name: 'hi',
+          id: 1
+        }
+      ] 
+    };
+    const wrapper = shallow(<Search { ...mockProps } />);
 
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('matches the snapshot if artist has been found', () => {
-
-  })
-
-  it('matches the snapshot if artist was not found', () => {
-
-  })
-
   it('has a default state of searchInput', () => {
-    const wrapper = shallow(<Search />);
-
     expect(wrapper.state('searchInput')).toEqual('');
   })
 
   describe('handleChange', () => {
 
     it('sets the state of searchInput', () => {
-      const wrapper = shallow(<Search />);
       const mockEvent = { target: { value: 'some input' } };
       const expected = 'some input';
       
@@ -50,20 +62,18 @@ describe('Search', () => {
   })
 
   describe('handleSubmit', () => {
-    let wrapper;
     let mockEvent;
 
     beforeEach(() => {
-      wrapper = shallow(<Search />)
       mockEvent = { preventDefault: () => {} }
     })
 
-    it('gets the artist info and top song ids', () => {
-      // 2 fetch calls - one to get artist id and one to get top 5 songs
-    })
+    it('calls props.submitUpdateSearch with the correct arguments', () => {
+      wrapper.setState({ searchInput: 'hi' })
+      const wrapperInst = wrapper.instance();
+      wrapperInst.handleSubmit(mockEvent);
 
-    it('updates the store with new artist info', () => {
-
+      expect(wrapperInst.props.submitUpdateSearch).toHaveBeenCalledWith('hi', 'a');
     })
 
     it('resets the state to an empty string', () => {
@@ -74,10 +84,36 @@ describe('Search', () => {
 
   })
 
+  describe('selectArtist', () => {
+    let mockId;
+
+    beforeEach(() => {
+      mockId = 1
+    })
+
+    it('calls props.submitUpdateArtist with the correct arguments', () => {
+      
+    })
+
+  })
+
   describe('mapStateToProps', () => {
 
-    it('returns a state object with user and artist', () => {
+    it('returns a state object with accessToken, user, and artist', () => {
+      const state = {
+        accessToken: 1,
+        user: { userId: 1 },
+        artist: { artistId: 1 },
+        fakeProp: 'do not add me'
+      }
+      const expected = {
+        accessToken: 1,
+        user: { userId: 1 },
+        artist: { artistId: 1 }
+      }
+      const result = mapStateToProps(state);
 
+      expect(result).toEqual(expected);
     })
 
   })
@@ -85,7 +121,15 @@ describe('Search', () => {
   describe('mapDispatchToProps', () => {
     
     it('calls dispatch with the correct arguments', () => {
+      const dispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'SUBMIT_UPDATE_SEARCH',
+        searchString: 'hi'
+      }
+      mappedProps.submitUpdateSearch(mockAction.searchString);
 
+      expect(dispatch).toHaveBeenCalledWith(mockAction)
     })
 
   })

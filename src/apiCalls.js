@@ -47,13 +47,48 @@ const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
   }
 }
 
-const getSearchResults = async (searchString) => {
+const getSearchResults = async (searchString, accessToken) => {
   const searchQuery = searchString.split(' ').join('+');
   const url = `https://api.spotify.com/v1/search?q=${searchQuery}&type=artist&limit=5`;
+  const optionsObject = {
+    headers: { 'Authorization': `Bearer ${accessToken}` }
+  };
+  const response = await fetch(url, optionsObject);
+
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw Error('There was a problem. Please try again.')
+  }
 } 
 
-const getArtistData = async (artist) => {
+const getArtistData = async (artistId, accessToken) => {
+  const url = `https://api.spotify.com/v1/artists/${artistId}`
+  const optionsObject = {
+    headers: { 'Authorization': `Bearer ${accessToken}` }
+  };
 
+  const response = await fetch(url, optionsObject);
+
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw Error('There was a problem getting that artist.');
+  }
+}
+
+const getTopTracks = async (artistId, accessToken) => {
+  const url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`
+  const optionsObject = {
+    headers: { 'Authorization': `Bearer ${accessToken}` }
+  };
+  const response = await fetch(url, optionsObject);
+
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw Error('There was a problem getting artists top tracks.')
+  }
 }
 
 export {
@@ -61,5 +96,6 @@ export {
   getUserPlaylists,
   getAllPlaylists,
   getSearchResults,
-  getArtistData
+  getArtistData,
+  getTopTracks
 }

@@ -33,9 +33,10 @@ const updateSearchError = (error) => ({
   error
 })
 
-const submitUpdateSearch = (searchString) => ({
+const submitUpdateSearch = (searchString, accessToken) => ({
   type: 'SUBMIT_UPDATE_SEARCH',
-  searchString
+  searchString,
+  accessToken
 })
 
 
@@ -50,9 +51,10 @@ const updateArtistError = (error) => ({
   error
 })
 
-const submitUpdateArtist = (artistId) => ({
+const submitUpdateArtist = (artistId, accessToken) => ({
   type: 'SUBMIT_UPDATE_ARTIST',
-  artistId
+  artistId,
+  accessToken
 })
 
 export {

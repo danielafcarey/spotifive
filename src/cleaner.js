@@ -18,16 +18,45 @@ const cleanUserData = (userData, playlists) => {
 }
 
 const cleanSearchResults = (searchResults) => {
+  const cleanedSearchResults = searchResults.artists.items.map(result => {
+    const cleanResult = {
+      name: result.name,
+      id: result.id,
+      image: result.images.length ? result.images[0].url : null
+    }
+    return cleanResult;
+  })
+
+  return cleanedSearchResults;
+}
+
+const cleanArtistData = (artistData, topTracks) => {
+  const cleanedArtistData = {
+    name: artistData.name,
+    id: artistData.id,
+    image: artistData.images.length ? artistData.images[0].url : null,
+    topTracks: cleanTopTracks(topTracks.tracks)
+  }
+
+  return cleanedArtistData;
 
 }
 
-const cleanArtistData = (artistData) => {
+const cleanTopTracks = (topTracks) => {
+  const cleanedTopTracks = topTracks.map(track => {
+    return {
+      name: track.name,
+      uri: track.uri
+    }
+  }).splice(0, 5)
 
+  return cleanedTopTracks;
 }
 
 export {
   getAccessToken,
   cleanUserData,
   cleanSearchResults,
-  cleanArtistData
+  cleanArtistData,
+  cleanTopTracks
 }
