@@ -17,12 +17,7 @@ describe('Search', () => {
       accessToken: 'a',
       user: { userId: 1 },
       searchResults: { 
-        searchResults: [
-          {
-            name: 'hi',
-            id: 1
-          }
-        ] 
+        searchResults: [] 
       },
       artist: { artistId: 1 },
       submitUpdateSearch: jest.fn(),
@@ -35,12 +30,18 @@ describe('Search', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('matches the snapshot if artist has been found', () => {
+  it('matches the snapshot if there are search result', () => {
+    mockProps.searchResults = { 
+      searchResults: [
+        {
+          name: 'hi',
+          id: 1
+        }
+      ] 
+    };
+    const wrapper = shallow(<Search { ...mockProps } />);
 
-  })
-
-  it('matches the snapshot if artist was not found', () => {
-
+    expect(wrapper).toMatchSnapshot();
   })
 
   it('has a default state of searchInput', () => {
@@ -67,12 +68,12 @@ describe('Search', () => {
       mockEvent = { preventDefault: () => {} }
     })
 
-    it('gets the artist info and top song ids', () => {
-      // 2 fetch calls - one to get artist id and one to get top 5 songs
-    })
+    it('calls props.submitUpdateSearch with the correct arguments', () => {
+      wrapper.setState({ searchInput: 'hi' })
+      const wrapperInst = wrapper.instance();
+      wrapperInst.handleSubmit(mockEvent);
 
-    it('updates the store with new artist info', () => {
-
+      expect(wrapperInst.props.submitUpdateSearch).toHaveBeenCalledWith('hi', 'a');
     })
 
     it('resets the state to an empty string', () => {
@@ -80,6 +81,16 @@ describe('Search', () => {
 
       expect(wrapper.state('searchInput')).toEqual('');
     })
+
+  })
+
+  describe('selectArtist', () => {
+    let mockId;
+
+    beforeEach(() => {
+      mockId = 1
+    })
+
 
   })
 

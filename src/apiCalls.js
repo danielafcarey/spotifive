@@ -62,7 +62,11 @@ const getSearchResults = async (searchString, accessToken) => {
   }
 } 
 
-const getArtistData = async (artist) => {
+const getArtistData = async (artistId, accessToken) => {
+
+}
+
+const getTopTracks = async (artistId, accessToken) => {
 
 }
 
@@ -71,5 +75,6 @@ export {
   getUserPlaylists,
   getAllPlaylists,
   getSearchResults,
-  getArtistData
+  getArtistData,
+  getTopTracks
 }

@@ -51,9 +51,10 @@ const updateArtistError = (error) => ({
   error
 })
 
-const submitUpdateArtist = (artistId) => ({
+const submitUpdateArtist = (artistId, accessToken) => ({
   type: 'SUBMIT_UPDATE_ARTIST',
-  artistId
+  artistId,
+  accessToken
 })
 
 export {

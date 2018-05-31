@@ -22,15 +22,13 @@ class Search extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.submitUpdateSearch(this.state.searchInput, this.props.accessToken);
-
     this.setState({ searchInput: '' })
   }
 
   selectArtist = (artistId) => {
-    //get artistId from event.target.name
     console.log(artistId);
-    //run this.props.submitUpdateArtist
-    //redirect to TryIt if successful
+    //run this.props.submitUpdateArtist(artistId)
+    //redirect to TryIt if successful (artist was updated in store)
   }
 
   renderInstructions = () => {

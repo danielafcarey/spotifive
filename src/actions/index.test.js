@@ -127,9 +127,10 @@ describe('artist actions', () => {
   it('retuns an SUBMIT_UPDATE_ARTIST action object', () => {
     const expected = {
       type: 'SUBMIT_UPDATE_ARTIST',
-      artistId: 'beeeeeeebs'
+      artistId: 'beeeeeeebs',
+      accessToken: 1
     }
-    const result = submitUpdateArtist(expected.artistId);
+    const result = submitUpdateArtist(expected.artistId, expected.accessToken);
 
     expect(result).toEqual(expected);
   })
