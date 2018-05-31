@@ -91,6 +91,9 @@ describe('Search', () => {
       mockId = 1
     })
 
+    it('calls props.submitUpdateArtist with the correct arguments', () => {
+      
+    })
 
   })
 

@@ -53,7 +53,6 @@ describe('sagas', () => {
     })
 
     it('yields call with the correct getUserPlaylists apiCall and args', () => {
-      
       const value = iterator.next(mockRawUserData).value;
       const expected = call(apiCalls.getUserPlaylists, mockAction.accessToken);
 
@@ -61,7 +60,6 @@ describe('sagas', () => {
     })
 
     it('yields call with the correct data cleaner and args', () => {
-      
       const value = iterator.next(mockRawUserPlaylists).value;
       const expected = call(cleaners.cleanUserData, mockRawUserData, mockRawUserPlaylists)
 
