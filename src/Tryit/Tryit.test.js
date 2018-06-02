@@ -70,11 +70,12 @@ describe('Tryit', () => {
       const mappedProps = mapDispatchToProps(dispatch);
       const mockAction = {
         type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+        userId: 2,
         accessToken: 1
       }
       const expected = mockAction;
 
-      mappedProps.submitUpdateSpotifiveId(mockAction.accessToken);
+      mappedProps.submitUpdateSpotifiveId(2, 1);
       
       expect(dispatch).toHaveBeenCalledWith(expected);
     })
