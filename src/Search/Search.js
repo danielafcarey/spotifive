@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ArtistCard from '../ArtistCard/ArtistCard';
+import Instructions from '../Instructions/Instructions';
 import {
   submitUpdateSearch,
   submitUpdateArtist
@@ -31,13 +32,7 @@ class Search extends Component {
   }
 
   renderInstructions = () => {
-    return (
-      <div>
-        <p>1. Search for an artist</p>
-        <p>2. Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
-        <p>3. See new music in your Spotifive playlist in the Spotify app</p>
-      </div>
-    )
+    return <Instructions /> 
   }
 
   renderResults = () => {
