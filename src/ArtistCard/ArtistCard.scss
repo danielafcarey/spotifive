@@ -1,0 +1,19 @@
+.artist-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  p {
+    text-align: left;
+    padding: 0 15px;
+  }
+}

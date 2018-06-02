@@ -14,6 +14,7 @@ const SearchResults = (props) => {
         <ArtistCard 
           name={ result.name } 
           id={ result.id }
+          image={ result.image }
           selectArtist={ selectArtist } 
           key={`artistKey${i}`}
         />     
@@ -21,7 +22,7 @@ const SearchResults = (props) => {
     })
 
     return (
-      <div>
+      <div className='search-results'>
         <p>Select an artist: </p>
         <ul>
           { listOfResults }
