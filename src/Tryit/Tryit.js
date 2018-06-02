@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { submitUpdateSpotifiveId } from '../actions';
+import * as apiCalls from '../apiCalls';
 
 class Tryit extends Component {
 
@@ -9,9 +10,14 @@ class Tryit extends Component {
       accessToken, 
       submitUpdateSpotifiveId 
     } = this.props;
-    const { userId } = this.props.user.userInfo
+    const { userId, spotifiveId } = this.props.user.userInfo
+    const { topTracks } = this.props.artist.artist;
 
-    submitUpdateSpotifiveId(userId, accessToken);
+    if (spotifiveId === null) {
+      submitUpdateSpotifiveId(userId, accessToken);
+    }
+
+    //apiCalls.addTracks(userId, spotifiveId, topTracks, accessToken)
   }
 
   render() {

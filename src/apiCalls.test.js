@@ -6,7 +6,7 @@ import {
   getAllPlaylists,
   getTopTracks,
   createSpotifive,
-  addTopSongs
+  addTracks
 } from './apiCalls';
 import {
   mockUserData,
@@ -410,7 +410,7 @@ describe('apiCalls', () => {
       expect(result).rejects.toEqual(expected);
     })
 
-    it('throws an errof if the fetch failed', () => {
+    it('throws an error if the fetch failed', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject('There was a problem with your account - please sign in again.'));
       const expected = 'There was a problem with your account - please sign in again.'
       const result = createSpotifive(1, accessToken);
@@ -421,8 +421,73 @@ describe('apiCalls', () => {
   })
 
 
-  describe('addTopSongs', () => {
+  describe('addTracks', () => {
+    let optionsObject; 
+    let userId;
+    let spotifiveId;
+    let addTracksBody;
+    let mockTopTracks;
+    let accessToken;
 
+    beforeEach(() => {
+      userId = 1;
+      spotifiveId = 2;
+      accessToken = 'hi';
+      mockTopTracks = [
+        {
+          name: 'I can sing',
+          uri: "spotify:track:4iV5W9uYEdYUVa79Axb7Rh"
+        },
+        {
+          name: 'I cant sing',
+          uri: "spotify:track:1301WleyT98MSxVHPZCA6M"
+        }
+      ];
+      addTracksBody = {
+        uris: [
+          "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
+          "spotify:track:1301WleyT98MSxVHPZCA6M"
+        ]
+      };
+      optionsObject = {
+        method: 'POST',
+        headers: { 
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(addTracksBody)
+      };
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 201
+      }));
+    })
+
+    it('calls fetch with the correct arguments', async () => {
+      const url = `https://api.spotify.com/v1/users/${userId}/playlists/${spotifiveId}/tracks`; 
+
+      await addTracks(1, 2, mockTopTracks, 'hi');
+
+      expect(window.fetch).toHaveBeenCalledWith(url, optionsObject);
+    })
+
+    it('throws an error if the response was not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 403,
+      }));
+      const expected = Error('Oops! There was a problem adding these songs. Please try again.')
+      const result = addTracks(1, 2, mockTopTracks, 'hi');
+
+      expect(result).rejects.toEqual(expected);
+    })
+
+    it('throws an error if the fetch failed', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject('There was a problem with your account - please sign in again.'));
+      const expected = 'There was a problem with your account - please sign in again.'
+      const result = addTracks(1, 2, mockTopTracks, accessToken);
+
+      expect(result).rejects.toEqual(expected);
+
+    })
   })
 
 
