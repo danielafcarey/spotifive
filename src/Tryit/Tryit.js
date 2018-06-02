@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { submitUpdateSpotifiveId } from '../actions';
+import { submitUpdateSpotifive } from '../actions';
 import * as apiCalls from '../apiCalls';
 
 class Tryit extends Component {
 
-  handleClick = () => {
+  handleClick = async () => {
     const { 
       accessToken, 
-      submitUpdateSpotifiveId 
+      submitUpdateSpotifive 
     } = this.props;
-    const { userId, spotifiveId } = this.props.user.userInfo
+    const { userId, spotifiveId } = this.props.user.userInfo;
     const { topTracks } = this.props.artist.artist;
 
-    if (spotifiveId === null) {
-      submitUpdateSpotifiveId(userId, accessToken);
-    }
+    const addTracksResponse = await submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
+    console.log(addTracksResponse);
 
-    //apiCalls.addTracks(userId, spotifiveId, topTracks, accessToken)
+    // change saga to handle conditional
+    // use response to update error if necessary
   }
 
   render() {
@@ -38,7 +38,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  submitUpdateSpotifiveId: (userId, accessToken) => dispatch(submitUpdateSpotifiveId(userId, accessToken))
+  submitUpdateSpotifive: (userId, spotifiveId, topTracks, accessToken) => {
+    dispatch(submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken))
+  }
 })
 
 export {

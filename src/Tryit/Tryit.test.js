@@ -69,13 +69,15 @@ describe('Tryit', () => {
       const dispatch = jest.fn();
       const mappedProps = mapDispatchToProps(dispatch);
       const mockAction = {
-        type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+        type: 'SUBMIT_UPDATE_SPOTIFIVE',
         userId: 2,
+        spotifiveId: 3,
+        topTracks: [],
         accessToken: 1
       }
       const expected = mockAction;
 
-      mappedProps.submitUpdateSpotifiveId(2, 1);
+      mappedProps.submitUpdateSpotifive(2, 3, [], 1);
       
       expect(dispatch).toHaveBeenCalledWith(expected);
     })

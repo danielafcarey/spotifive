@@ -3,7 +3,7 @@ import {
   updateUser,
   updateUserError,
   submitUpdateUser,
-  submitUpdateSpotifiveId,
+  submitUpdateSpotifive,
   updateSpotifiveId,
   updateSearchResults,
   updateSearchError,
@@ -64,13 +64,15 @@ describe('user actions', () => {
     expect(result).toEqual(expected);
   })
 
-  it('returns a SUBMIT_UPDATE_SPOTIFIVEID action object', () => {
+  it('returns a SUBMIT_UPDATE_SPOTIFIVE action object', () => {
     const expected = {
-      type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+      type: 'SUBMIT_UPDATE_SPOTIFIVE',
       userId: 1,
+      spotifiveId: 2,
+      topTracks: [],
       accessToken: 'it me',
     }
-    const result = submitUpdateSpotifiveId(1, 'it me');
+    const result = submitUpdateSpotifive(1, 2, [], 'it me');
 
     expect(result).toEqual(expected);
   })

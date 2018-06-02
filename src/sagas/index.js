@@ -40,22 +40,32 @@ export function* submitUpdateArtist({ artistId, accessToken }) {
   try {
     const rawArtistData = yield call(apiCalls.getArtistData, artistId, accessToken);
     const rawTopTracks = yield call(apiCalls.getTopTracks, artistId, accessToken);
-    const cleanedArtistData = yield call(cleaners.cleanArtistData, rawArtistData, rawTopTracks)
-    yield put(actions.updateArtist(cleanedArtistData))
+    const cleanedArtistData = yield call(cleaners.cleanArtistData, rawArtistData, rawTopTracks);
+    yield put(actions.updateArtist(cleanedArtistData));
   } catch(error) {
-    yield put(actions.updateArtistError(error.message))
+    yield put(actions.updateArtistError(error.message));
   }
 }
 
-export function* listenForSubmitUpdateSpotifiveId() {
-  yield takeLatest('SUBMIT_UPDATE_SPOTIFIVEID', submitUpdateSpotifiveId);
+export function* listenForSubmitUpdateSpotifive() {
+  yield takeLatest('SUBMIT_UPDATE_SPOTIFIVE', submitUpdateSpotifive);
 }
 
-export function* submitUpdateSpotifiveId({ userId, accessToken }) {
+export function* submitUpdateSpotifive({ userId, spotifiveId, topTracks, accessToken }) {
   try {
-    const spotifive = yield call(apiCalls.createSpotifive, userId, accessToken)
-    yield put(actions.updateSpotifiveId(spotifive.id))
+    if (!spotifiveId) {
+      const spotifive = yield call(apiCalls.createSpotifive, userId, accessToken);
+      spotifiveId = spotifive.id;
+      yield put(actions.updateSpotifiveId(spotifiveId));
+    }
+
+    yield call(apiCalls.addTracks, userId, spotifiveId, topTracks, accessToken)
   } catch(error) {
     yield put(actions.updateUserError(error.message));
   }
 }
+
+
+
+
+

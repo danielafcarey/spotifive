@@ -21,9 +21,11 @@ const submitUpdateUser = (accessToken) => ({
   accessToken
 })
 
-const submitUpdateSpotifiveId = (userId, accessToken) => ({
-  type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+const submitUpdateSpotifive = (userId, spotifiveId, topTracks, accessToken) => ({
+  type: 'SUBMIT_UPDATE_SPOTIFIVE',
   userId,
+  spotifiveId,
+  topTracks,
   accessToken
 })
 
@@ -73,7 +75,7 @@ export {
   updateUser,
   updateUserError,
   submitUpdateUser,
-  submitUpdateSpotifiveId,
+  submitUpdateSpotifive,
   updateSpotifiveId,
   updateSearchResults,
   updateSearchError,

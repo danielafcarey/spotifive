@@ -133,7 +133,9 @@ const addTracks = async (userId, spotifiveId, topTracks, accessToken) => {
   try {
     const response = await fetch(url, optionsObject);
 
-    if (response.status !== 201) {
+    if (response.status === 201) {
+      return response;
+    } else {
       throw Error('Oops! There was a problem adding these songs. Please try again.')
     }
   } catch(error) {
