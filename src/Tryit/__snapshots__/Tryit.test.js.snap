@@ -1,10 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tryit matches the snapshot 1`] = `
+exports[`Tryit matches the snapshot if user is logged in 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Tryit />,
+  Symbol(enzyme.__unrendered__): <Tryit
+    accessToken="1"
+    artist={
+        Object {
+            "artist": Object {
+              "image": "selfie.png",
+              "name": "john",
+              "topTracks": Array [
+                "track1",
+                "track2",
+              ],
+            },
+          }
+    }
+    submitUpdateSpotifive={[Function]}
+    user={
+        Object {
+            "loggedIn": true,
+            "userInfo": Object {
+              "spotifiveId": null,
+              "userId": "a",
+            },
+          }
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,26 +41,211 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <button
-        onClick={[Function]}
+      "children": Array [
+        <img
+          alt="john"
+          className="artist-image"
+          src="selfie.png"
+/>,
+        <h1>
+          john
+</h1>,
+        <button
+          onClick={[Function]}
 >
-        Add Spotifive
+          Try it!
 </button>,
+        <p>
+          Click Try It to add these songs to your Spotifive playlist:
+</p>,
+        <ul>
+          <div
+                    className="track"
+          >
+                    <img
+                              alt={undefined}
+                              src="check-green.png"
+                    />
+                    <li />
+          </div>
+          <div
+                    className="track"
+          >
+                    <img
+                              alt={undefined}
+                              src="check-green.png"
+                    />
+                    <li />
+          </div>
+</ul>,
+      ],
       "className": "tryit",
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": "Add Spotifive",
-        "onClick": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "john",
+          "className": "artist-image",
+          "src": "selfie.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
       },
-      "ref": null,
-      "rendered": "Add Spotifive",
-      "type": "button",
-    },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "john",
+        },
+        "ref": null,
+        "rendered": "john",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Try it!",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Try it!",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Click Try It to add these songs to your Spotifive playlist:",
+        },
+        "ref": null,
+        "rendered": "Click Try It to add these songs to your Spotifive playlist:",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="track"
+>
+              <img
+                            alt={undefined}
+                            src="check-green.png"
+              />
+              <li />
+</div>,
+            <div
+              className="track"
+>
+              <img
+                            alt={undefined}
+                            src="check-green.png"
+              />
+              <li />
+</div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "NaN",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt={undefined}
+                  src="check-green.png"
+/>,
+                <li />,
+              ],
+              "className": "track",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": undefined,
+                  "src": "check-green.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "li",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": "NaN",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt={undefined}
+                  src="check-green.png"
+/>,
+                <li />,
+              ],
+              "className": "track",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": undefined,
+                  "src": "check-green.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "li",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "ul",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -45,27 +254,284 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <button
-          onClick={[Function]}
+        "children": Array [
+          <img
+            alt="john"
+            className="artist-image"
+            src="selfie.png"
+/>,
+          <h1>
+            john
+</h1>,
+          <button
+            onClick={[Function]}
 >
-          Add Spotifive
+            Try it!
 </button>,
+          <p>
+            Click Try It to add these songs to your Spotifive playlist:
+</p>,
+          <ul>
+            <div
+                        className="track"
+            >
+                        <img
+                                    alt={undefined}
+                                    src="check-green.png"
+                        />
+                        <li />
+            </div>
+            <div
+                        className="track"
+            >
+                        <img
+                                    alt={undefined}
+                                    src="check-green.png"
+                        />
+                        <li />
+            </div>
+</ul>,
+        ],
         "className": "tryit",
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Add Spotifive",
-          "onClick": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "john",
+            "className": "artist-image",
+            "src": "selfie.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
         },
-        "ref": null,
-        "rendered": "Add Spotifive",
-        "type": "button",
-      },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "john",
+          },
+          "ref": null,
+          "rendered": "john",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Try it!",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Try it!",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Click Try It to add these songs to your Spotifive playlist:",
+          },
+          "ref": null,
+          "rendered": "Click Try It to add these songs to your Spotifive playlist:",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="track"
+>
+                <img
+                                alt={undefined}
+                                src="check-green.png"
+                />
+                <li />
+</div>,
+              <div
+                className="track"
+>
+                <img
+                                alt={undefined}
+                                src="check-green.png"
+                />
+                <li />
+</div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "NaN",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt={undefined}
+                    src="check-green.png"
+/>,
+                  <li />,
+                ],
+                "className": "track",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": undefined,
+                    "src": "check-green.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "li",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": "NaN",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt={undefined}
+                    src="check-green.png"
+/>,
+                  <li />,
+                ],
+                "className": "track",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": undefined,
+                    "src": "check-green.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "li",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "ul",
+        },
+      ],
       "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Tryit matches the snapshot if user is not logged in 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Tryit
+    accessToken="1"
+    artist={
+        Object {
+            "artist": Object {
+              "image": "selfie.png",
+              "name": "john",
+              "topTracks": Array [
+                "track1",
+                "track2",
+              ],
+            },
+          }
+    }
+    submitUpdateSpotifive={[Function]}
+    user={
+        Object {
+            "loggedIn": false,
+            "userInfo": Object {
+              "spotifiveId": null,
+              "userId": "a",
+            },
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "push": false,
+      "to": "/",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "push": false,
+        "to": "/",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

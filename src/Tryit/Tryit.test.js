@@ -13,12 +13,34 @@ describe('Tryit', () => {
 
   beforeEach(() => {
     mockProps = {
-
+      accessToken: '1',
+      user: {
+        userInfo: {
+          userId: 'a',
+          spotifiveId: null
+        },
+        loggedIn: true
+      },
+      artist: {
+        artist: {
+          name: 'john',
+          image: 'selfie.png',
+          topTracks: ['track1', 'track2']
+        }
+      },
+      submitUpdateSpotifive: jest.fn()
     };
     wrapper = shallow(<Tryit { ...mockProps } />);
   })
 
-  it('matches the snapshot', () => {
+  it('matches the snapshot if user is logged in', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('matches the snapshot if user is not logged in', () => {
+    mockProps.user.loggedIn = false;
+    wrapper = shallow(<Tryit { ...mockProps } />);
+
     expect(wrapper).toMatchSnapshot();
   })
 

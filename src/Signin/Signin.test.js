@@ -4,12 +4,6 @@ import ReactDOM from 'react-dom';
 import Signin from './Signin';
 import * as authorize from '../spotify/authorizeSpotify';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Signin />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
 describe('Signin', () => {
 
   it('matches the snapshot', () => {

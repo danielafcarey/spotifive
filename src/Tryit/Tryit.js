@@ -14,26 +14,24 @@ class Tryit extends Component {
     const { topTracks } = this.props.artist.artist;
 
     submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
+  }
 
-    // get error from store and update in Tryit state
+  getTopTrackTitles = (topTracks) => {
+    const check = require('../images/check-green.png')
+
+    return topTracks.map((track, i) => {
+      return (
+        <div className='track' key={ track.name + i }>
+          <img src={ check } alt={ track.name }/>
+          <li>{ track.name }</li>
+        </div>
+      )
+    })
   }
 
   render() {
     const { loggedIn } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
-    const check = require('../images/check-green.png')
-
-    let trackTitles;
-    if (topTracks) {
-      trackTitles = topTracks.map(track => {
-        return (
-          <div className='track'>
-            <img src={ check }/>
-            <li>{ track.name }</li>
-          </div>
-        )
-      })
-    }
 
     if (!loggedIn) {
       return <Redirect to='/' />
@@ -52,7 +50,7 @@ class Tryit extends Component {
         </button>
         <p>Click Try It to add these songs to your Spotifive playlist:</p>
         <ul>
-          { trackTitles } 
+          { topTracks ? this.getTopTrackTitles(topTracks) : null } 
         </ul>
       </div>
     )
