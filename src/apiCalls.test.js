@@ -4,7 +4,9 @@ import {
   getSearchResults,
   getArtistData,
   getAllPlaylists,
-  getTopTracks
+  getTopTracks,
+  createSpotifive,
+  addTopSongs
 } from './apiCalls';
 import {
   mockUserData,
@@ -12,7 +14,8 @@ import {
   mockUserPlaylists2,
   mockSearchResults,
   mockArtistData,
-  mockTopTracks
+  mockTopTracks,
+  mockPlaylistObject
 } from './mockData';
 
 describe('apiCalls', () => {
@@ -354,6 +357,72 @@ describe('apiCalls', () => {
       
       expect(result).rejects.toEqual(expected);
     })
+  })
+
+
+  describe('createSpotifive', () => {
+    let optionsObject; 
+    let playlistBody;
+    let accessToken;
+
+    beforeEach(() => {
+      playlistBody = {
+        name: 'Spotifive',
+        description: 'Check out this new music!'
+      };
+      accessToken = 'hi';
+      optionsObject = {
+        method: 'POST',
+        headers: { 
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(playlistBody)
+      };
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockPlaylistObject)
+      }));
+    })
+
+    it('calls fetch with the correct arguments', async () => {
+      const url = `https://api.spotify.com/v1/users/1/playlists`; 
+
+      await createSpotifive(1, accessToken);
+
+      expect(window.fetch).toHaveBeenCalledWith(url, optionsObject);
+    })
+
+    it('returns a playlist object if successful', async () => {
+      const expected = mockPlaylistObject;
+      const result = await createSpotifive(1, accessToken);
+
+      expect(result).toEqual(expected);
+    })
+
+    it('throws an error if the response was not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 402,
+      }));
+      const expected = Error('Oops! There was a problem authorizing your account.')
+      const result = createSpotifive(1, accessToken);
+
+      expect(result).rejects.toEqual(expected);
+    })
+
+    it('throws an errof if the fetch failed', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject('There was a problem with your account - please sign in again.'));
+      const expected = 'There was a problem with your account - please sign in again.'
+      const result = createSpotifive(1, accessToken);
+
+      expect(result).rejects.toEqual(expected);
+
+    })
+  })
+
+
+  describe('addTopSongs', () => {
+
   })
 
 

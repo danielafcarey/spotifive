@@ -91,11 +91,46 @@ const getTopTracks = async (artistId, accessToken) => {
   }
 }
 
+const createSpotifive = async (userId, accessToken) => {
+  const playlistBody = {
+    name: 'Spotifive',
+    description: 'Check out this new music!'
+  }
+  const optionsObject = {
+    method: 'POST',
+    headers: { 
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(playlistBody)
+  }
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists`; 
+  try {
+    const response = await fetch(url, optionsObject);
+
+    if (response.status < 300) {
+      return await response.json();
+    } else {
+      throw Error('Oops! There was a problem authorizing your account.')
+    } 
+
+  } catch(error) {
+    throw error
+  }
+
+}
+
+const addTopSongs = async (userId, spotifiveId, topTracks, accessToken) => {
+
+}
+
 export {
   getUserData,
   getUserPlaylists,
   getAllPlaylists,
   getSearchResults,
   getArtistData,
-  getTopTracks
+  getTopTracks,
+  createSpotifive,
+  addTopSongs
 }
