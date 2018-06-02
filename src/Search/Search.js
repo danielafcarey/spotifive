@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import {
   submitUpdateSearch,
@@ -63,13 +64,17 @@ class Search extends Component {
   }
 
   render() {
+    const { artist, searchResults, user } = this.props;
     // redirect to Signin if loggedin is false
     // if (this.props.user.loggedin) {
     //   return <Redirect to='/' />
     // }
+    if (Object.keys(artist.artist).length !== 0 && artist.artistError === null) {
+      return <Redirect to='/tryit' />
+    }
     
     let body;
-    const lengthOfSearchResults = this.props.searchResults.searchResults.length;
+    const lengthOfSearchResults = searchResults.searchResults.length;
 
     if (lengthOfSearchResults < 1) {
       body = this.renderInstructions();
