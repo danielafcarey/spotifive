@@ -1,18 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import Tryit from './Tryit';
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Tryit />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import { 
+  Tryit,
+  mapStateToProps,
+  mapDispatchToProps
+} from './Tryit';
 
 describe('Tryit', () => {
+  let wrapper;
+  let mockProps;
+
+  beforeEach(() => {
+    mockProps = {
+
+    };
+    wrapper = shallow(<Tryit { ...mockProps } />);
+  })
 
   it('matches the snapshot', () => {
-
+    expect(wrapper).toMatchSnapshot();
   })
 
   describe('handleClick', () => {
@@ -28,5 +35,36 @@ describe('Tryit', () => {
     it('calls addSongs with the correct arguments', () => {
 
     })
+
   })
+
+  describe('mapStateToProps', () => {
+    
+    it('returns a state object with the correct state', () => {
+      const expected = {
+        accessToken: 'hi',
+        artist: { 
+          artist: {
+            artistId: '1',
+            topTracks: []
+          },
+          artistError: null
+        },
+        user: {
+          loggedIn: true,
+          userInfo: {}
+        },
+      }
+      const mockState = { ...expected, fakeState: 'do not add me' }
+      const result = mapStateToProps(mockState);
+
+      expect(result).toEqual(expected);
+    })
+
+  })
+
+  describe('mapDispatchToProps', () => {
+
+  })
+
 })

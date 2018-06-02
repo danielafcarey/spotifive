@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Tryit = (props) => {
+class Tryit extends Component {
 
-  return (
-    <div className='tryit'>
-    </div>
-  )
+  render() {
+    return (
+      <div className='tryit'>
+      </div>
+    )
+  }
 }
 
-export default Tryit;
+const mapStateToProps = (state) => ({
+  accessToken: state.accessToken,
+  user: state.user,
+  artist: state.artist
+})
+
+const mapDispatchToProps = (dispatch) => ({
+
+})
+
+export {
+  Tryit, 
+  mapStateToProps,
+  mapDispatchToProps
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tryit);;
