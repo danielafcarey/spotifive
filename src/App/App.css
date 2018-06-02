@@ -35,6 +35,26 @@
   margin: 50px auto;
   text-align: center; }
 
+.tryit {
+  width: 45%;
+  margin: 50px auto;
+  text-align: center; }
+  .tryit .artist-image {
+    width: 60%;
+    border-radius: 150px; }
+  .tryit p {
+    padding-top: 0; }
+  .tryit ul {
+    list-style: none;
+    text-align: left; }
+  .tryit .track {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .tryit .track li {
+      font-size: 16px;
+      padding: 10px; }
+
 body {
   background-color: black;
   margin: 0;
