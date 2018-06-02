@@ -30,10 +30,62 @@
   .search p {
     text-align: left; }
 
+.Instructions {
+  padding-top: 30px; }
+  .Instructions .instruction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 20px; }
+    .Instructions .instruction p {
+      padding: 0 15px; }
+
+.search-results ul {
+  padding: 0 20px; }
+
+.search-results p {
+  text-align: center; }
+
+.artist-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .artist-card:hover {
+    cursor: pointer;
+    background-color: #272727; }
+  .artist-card img {
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%; }
+  .artist-card p {
+    text-align: left;
+    padding: 0 15px;
+    font-size: 25px; }
+
 .signin {
   width: 45%;
   margin: 50px auto;
   text-align: center; }
+
+.tryit {
+  width: 45%;
+  margin: 50px auto;
+  text-align: center; }
+  .tryit .artist-image {
+    width: 60%;
+    border-radius: 50%; }
+  .tryit p {
+    padding-top: 0; }
+  .tryit ul {
+    list-style: none;
+    text-align: left; }
+  .tryit .track {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .tryit .track li {
+      font-size: 16px;
+      padding: 10px; }
 
 body {
   background-color: black;
@@ -48,6 +100,9 @@ body {
     border: none;
     color: white;
     font-size: 20px; }
+    body button:hover {
+      cursor: pointer;
+      background-color: #1ab350; }
   body p {
     padding-top: 30px;
     font-size: 30px;

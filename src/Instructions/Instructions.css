@@ -1,0 +1,9 @@
+.Instructions {
+  padding-top: 30px; }
+  .Instructions .instruction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 20px; }
+    .Instructions .instruction p {
+      padding: 0 15px; }

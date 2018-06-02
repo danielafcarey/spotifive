@@ -1,32 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { submitUpdateSpotifive } from '../actions';
-import * as apiCalls from '../apiCalls';
 
 class Tryit extends Component {
 
-  handleClick = async () => {
+  handleClick = () => {
     const { 
       accessToken, 
       submitUpdateSpotifive 
     } = this.props;
     const { userId, spotifiveId } = this.props.user.userInfo;
     const { topTracks } = this.props.artist.artist;
-    console.log(topTracks)
 
-    const addTracksResponse = await submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
-    console.log(addTracksResponse);
+    submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
 
-    // change saga to handle conditional
-    // use response to update error if necessary
+    // get error from store and update in Tryit state
   }
 
   render() {
+    const { loggedIn } = this.props.user;
+    const { name, image, topTracks } = this.props.artist.artist;
+    const check = require('../images/check-green.png')
+
+    let trackTitles;
+    if (topTracks) {
+      trackTitles = topTracks.map(track => {
+        return (
+          <div className='track'>
+            <img src={ check }/>
+            <li>{ track.name }</li>
+          </div>
+        )
+      })
+    }
+
+    if (!loggedIn) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div className='tryit'>
+        <img 
+          className='artist-image'
+          src={ image } 
+          alt={ name }/>
+        <h1>{ name }</h1>
         <button
           onClick={ this.handleClick }
-        >Add Spotifive</button>
+        >Try it!
+        </button>
+        <p>Click Try It to add these songs to your Spotifive playlist:</p>
+        <ul>
+          { trackTitles } 
+        </ul>
       </div>
     )
   }

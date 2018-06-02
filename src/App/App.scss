@@ -1,6 +1,9 @@
 @import '../Header/Header.scss';
 @import '../Authorize/Authorize.scss';
 @import '../Search/Search.scss';
+@import '../Instructions/Instructions.scss';
+@import '../SearchResults/SearchResults.scss';
+@import '../ArtistCard/ArtistCard.scss';
 @import '../Signin/Signin.scss';
 @import '../Tryit/Tryit.scss';
 
@@ -20,6 +23,11 @@ body {
     border: none;
     color: white;
     font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($spotify-green, 8%);
+    }
   }
 
   p {
