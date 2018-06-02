@@ -28,7 +28,6 @@ class Search extends Component {
 
   selectArtist = (artistId) => {
     this.props.submitUpdateArtist(artistId, this.props.accessToken);
-    //redirect to TryIt if successful (artist was updated in store)
   }
 
   renderInstructions = () => {
@@ -42,7 +41,8 @@ class Search extends Component {
   }
 
   renderResults = () => {
-    const listOfResults = this.props.searchResults.searchResults.map((result, i) => {
+    const { searchResults } = this.props.searchResults;
+    const listOfResults = searchResults.map((result, i) => {
       return (
         <ArtistCard 
           name={ result.name } 
@@ -64,19 +64,21 @@ class Search extends Component {
   }
 
   render() {
-    const { artist, searchResults, user } = this.props;
-    // redirect to Signin if loggedin is false
-    // if (this.props.user.loggedin) {
-    //   return <Redirect to='/' />
-    // }
-    if (Object.keys(artist.artist).length !== 0 && artist.artistError === null) {
+    const { loggedIn } = this.props.user;
+    const { searchResults } = this.props.searchResults;
+    const { artist, artistError } = this.props.artist;
+
+    if (!loggedIn) {
+      return <Redirect to='/' />
+    }
+
+    if (Object.keys(artist).length !== 0 && artistError === null) {
       return <Redirect to='/tryit' />
     }
     
     let body;
-    const lengthOfSearchResults = searchResults.searchResults.length;
 
-    if (lengthOfSearchResults < 1) {
+    if (searchResults.length < 1) {
       body = this.renderInstructions();
     } else {
       body = this.renderResults();
