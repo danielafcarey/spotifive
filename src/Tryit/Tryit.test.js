@@ -64,7 +64,20 @@ describe('Tryit', () => {
   })
 
   describe('mapDispatchToProps', () => {
+    
+    it('calls dispatch with the correct arguments', () => {
+      const dispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+        accessToken: 1
+      }
+      const expected = mockAction;
 
+      mappedProps.submitUpdateSpotifiveId(mockAction.accessToken);
+      
+      expect(dispatch).toHaveBeenCalledWith(expected);
+    })
   })
 
 })

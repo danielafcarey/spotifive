@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { submitUpdateSpotifiveId } from '../actions';
 
 class Tryit extends Component {
 
@@ -18,7 +19,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
+  submitUpdateSpotifiveId: (accessToken) => dispatch(submitUpdateSpotifiveId(accessToken))
 })
 
 export {
