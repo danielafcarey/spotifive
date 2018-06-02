@@ -3,6 +3,8 @@ import {
   updateUser,
   updateUserError,
   submitUpdateUser,
+  submitUpdateSpotifive,
+  updateSpotifiveId,
   updateSearchResults,
   updateSearchError,
   submitUpdateSearch,
@@ -52,12 +54,35 @@ describe('user actions', () => {
     expect(result).toEqual(expected);
   })
 
-  it('retuns an SUBMIT_UPDATE_USER action object', () => {
+  it('retuns a SUBMIT_UPDATE_USER action object', () => {
     const expected = {
       type: 'SUBMIT_UPDATE_USER',
       accessToken: 'y tho'
     }
     const result = submitUpdateUser(expected.accessToken);
+
+    expect(result).toEqual(expected);
+  })
+
+  it('returns a SUBMIT_UPDATE_SPOTIFIVE action object', () => {
+    const expected = {
+      type: 'SUBMIT_UPDATE_SPOTIFIVE',
+      userId: 1,
+      spotifiveId: 2,
+      topTracks: [],
+      accessToken: 'it me',
+    }
+    const result = submitUpdateSpotifive(1, 2, [], 'it me');
+
+    expect(result).toEqual(expected);
+  })
+
+  it('returns an UPDATE_SPOTIFIVEID action object', () => {
+    const expected = {
+      type: 'UPDATE_SPOTIFIVEID',
+      spotifiveId: '123'
+    }
+    const result = updateSpotifiveId('123');
 
     expect(result).toEqual(expected);
   })

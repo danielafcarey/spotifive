@@ -91,11 +91,65 @@ const getTopTracks = async (artistId, accessToken) => {
   }
 }
 
+const createSpotifive = async (userId, accessToken) => {
+  const playlistBody = {
+    name: 'Spotifive',
+    description: 'Check out this new music!'
+  }
+  const optionsObject = {
+    method: 'POST',
+    headers: { 
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(playlistBody)
+  }
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists`; 
+  const response = await fetch(url, optionsObject);
+
+  if (response.status < 300) {
+    return await response.json();
+  } else {
+    throw Error('Oops! There was a problem authorizing your account.')
+  } 
+
+}
+
+const addTracks = async (userId, spotifiveId, topTracks, accessToken) => {
+  const url = `https://api.spotify.com/v1/users/${userId}/playlists/${spotifiveId}/tracks`; 
+  const topTrackUris = topTracks.map(track => track.uri);
+  const addTracksBody = {
+    uris: topTrackUris 
+  };
+  const optionsObject = {
+    method: 'POST',
+    headers: { 
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(addTracksBody)
+  };
+
+  try {
+    const response = await fetch(url, optionsObject);
+
+    if (response.status === 201) {
+      return response;
+    } else {
+      throw Error('Oops! There was a problem adding these songs. Please try again.')
+    }
+  } catch(error) {
+    throw error
+  }
+}
+
 export {
   getUserData,
   getUserPlaylists,
   getAllPlaylists,
   getSearchResults,
   getArtistData,
-  getTopTracks
+  getTopTracks,
+  createSpotifive,
+  addTracks
 }
