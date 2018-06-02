@@ -105,7 +105,6 @@ const createSpotifive = async (userId, accessToken) => {
     body: JSON.stringify(playlistBody)
   }
   const url = `https://api.spotify.com/v1/users/${userId}/playlists`; 
-  try {
     const response = await fetch(url, optionsObject);
 
     if (response.status < 300) {
@@ -113,10 +112,6 @@ const createSpotifive = async (userId, accessToken) => {
     } else {
       throw Error('Oops! There was a problem authorizing your account.')
     } 
-
-  } catch(error) {
-    throw error
-  }
 
 }
 

@@ -318,6 +318,91 @@ describe('sagas', () => {
 
   })
 
+  describe('listenForSubmitUpdateSpotifiveId', () => {
+    let iterator;
+
+    beforeAll(() => {
+      iterator = sagas.listenForSubmitUpdateSpotifiveId();
+    })
+
+    it('should takeLatest SUBMIT_UPDATE_SPOTIFIVEID', () => {
+      const value = iterator.next().value;
+      const expected = takeLatest('SUBMIT_UPDATE_SPOTIFIVEID', sagas.submitUpdateSpotifiveId);
+
+      expect(value).toEqual(expected);
+    })
+
+    it('should be done', () => {
+      const done = iterator.next().done;
+
+      expect(done).toBe(true);
+    }) 
+  })
+
+  describe('submitUpdateSpotifiveId', () => {
+    let iterator;
+    let mockAction;
+    let mockPlaylist;
+
+    beforeAll(() => {
+      mockAction = {
+        type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+        userId: 2,
+        accessToken: 1
+      }
+      iterator = sagas.submitUpdateSpotifiveId(mockAction);
+      mockPlaylist = { id: 'pickME' }
+    })
+
+    it('yields call with the correct createSpotifive apiCall and arguments', () => {
+      const value = iterator.next().value;
+      const expected = call(apiCalls.createSpotifive, mockAction.userId, mockAction.accessToken);
+
+      expect(value).toEqual(expected);
+    })
+
+    it('yields put with updateSpotifiveId action', () => {
+      const value = iterator.next(mockPlaylist).value;
+      const expected = put(actions.updateSpotifiveId(mockPlaylist.id));
+
+      expect(value).toEqual(expected);
+    })
+
+    it('should be done', () => {
+      const done = iterator.next().done;
+
+      expect(done).toBe(true);
+    })
+
+  })
+
+  describe('submitUpdateSpotifiveId error', () => {
+    let iterator;
+    let mockAction;
+
+    beforeAll(() => {
+      mockAction = {
+        type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+        accessToken: 'hi'
+      }
+      iterator = sagas.submitUpdateSpotifiveId(mockAction);
+      iterator.next();
+    })
+
+    it('yields put with updateArtistError action if there is an error', () => {
+      const expected = put(actions.updateUserError('could not create playlist'));
+      const value = iterator.throw(Error('could not create playlist')).value;
+
+      expect(value).toEqual(expected);
+    })
+
+    it('should be done', () => {
+      const done = iterator.next().done;
+
+      expect(done).toBe(true);
+    })
+
+  })
 
 
 })

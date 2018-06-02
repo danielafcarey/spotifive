@@ -12,7 +12,8 @@ import { config } from './firebase/firebaseConfig';
 import { 
   listenForSubmitUpdateUser,
   listenForSubmitUpdateSearch,
-  listenForSubmitUpdateArtist
+  listenForSubmitUpdateArtist,
+  listenForSubmitUpdateSpotifiveId
 } from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
@@ -23,6 +24,7 @@ firebase.initializeApp(config);
 sagaMiddleware.run(listenForSubmitUpdateUser);
 sagaMiddleware.run(listenForSubmitUpdateSearch);
 sagaMiddleware.run(listenForSubmitUpdateArtist);
+sagaMiddleware.run(listenForSubmitUpdateSpotifiveId);
 
 const root = (
   <Provider store={ store }>
