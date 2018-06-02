@@ -12,6 +12,7 @@ class Tryit extends Component {
     } = this.props;
     const { userId, spotifiveId } = this.props.user.userInfo;
     const { topTracks } = this.props.artist.artist;
+    console.log(topTracks)
 
     const addTracksResponse = await submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
     console.log(addTracksResponse);

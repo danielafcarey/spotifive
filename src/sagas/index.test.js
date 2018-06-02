@@ -356,27 +356,28 @@ describe('sagas', () => {
       mockAction = {
         type: 'SUBMIT_UPDATE_SPOTIFIVE',
         userId: 2,
+        spotifiveId: null,
         accessToken: 1,
         topTracks: mockTopTracks
       }
       iterator = sagas.submitUpdateSpotifive(mockAction);
     })
 
-    it('yields call with the correct createSpotifive apiCall and arguments if spotifiveId is not defined', () => {
+    it('yields call with the correct createSpotifive apiCall and arguments if spotifiveId is null', () => {
       const value = iterator.next().value;
       const expected = call(apiCalls.createSpotifive, mockAction.userId, mockAction.accessToken);
 
       expect(value).toEqual(expected);
     })
 
-    it('yields put with updateSpotifiveId action if spotifiveId is not defined', () => {
+    it('yields put with updateSpotifiveId action if spotifiveId is null', () => {
       const value = iterator.next(mockPlaylist).value;
       const expected = put(actions.updateSpotifiveId(mockPlaylist.id));
 
       expect(value).toEqual(expected);
     })
 
-    it('yields call with correct addTracks apiCall and arguments if spotifiveId', () => {
+    it('yields call with correct addTracks apiCall and arguments', () => {
       const { userId, topTracks, accessToken } = mockAction;
       const value = iterator.next().value;
       const expected = call(apiCalls.addTracks, userId, mockPlaylist.id, topTracks, accessToken)
@@ -390,6 +391,38 @@ describe('sagas', () => {
       expect(done).toBe(true);
     })
 
+  })
+
+  describe('submitUpdateSpotify conditional', () => {
+    let iterator;
+    let mockAction;
+    let mockPlaylist;
+    let mockTopTracks;
+
+    beforeAll(() => {
+      mockPlaylist = { id: 'pickME' }
+      mockTopTracks = [
+        {
+          name: 'a track',
+          uri: 'track1 uri'
+        }
+      ]
+      mockAction = {
+        type: 'SUBMIT_UPDATE_SPOTIFIVE',
+        userId: 2,
+        spotifiveId: 'i am not null',
+        accessToken: 1,
+        topTracks: mockTopTracks
+      }
+      iterator = sagas.submitUpdateSpotifive(mockAction);
+    })
+    it('calls apiCalls.addTracks first if spotifiveId is not null', () => {
+      const { userId, spotifiveId, topTracks, accessToken } = mockAction;
+      const value = iterator.next().value;
+      const expected = call(apiCalls.addTracks, userId, spotifiveId, topTracks, accessToken)
+
+      expect(value).toEqual(expected);
+    })
   })
 
   describe('submitUpdateSpotifive error', () => {

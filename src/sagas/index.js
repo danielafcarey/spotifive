@@ -51,14 +51,15 @@ export function* listenForSubmitUpdateSpotifive() {
   yield takeLatest('SUBMIT_UPDATE_SPOTIFIVE', submitUpdateSpotifive);
 }
 
-export function* submitUpdateSpotifive({ userId, spotifiveId, topTracks, accessToken }) {
+export function* submitUpdateSpotifive(action) {
+  let { userId, spotifiveId, topTracks, accessToken } = action;
+
   try {
-    if (!spotifiveId) {
+    if (spotifiveId === null) {
       const spotifive = yield call(apiCalls.createSpotifive, userId, accessToken);
       spotifiveId = spotifive.id;
       yield put(actions.updateSpotifiveId(spotifiveId));
     }
-
     yield call(apiCalls.addTracks, userId, spotifiveId, topTracks, accessToken)
   } catch(error) {
     yield put(actions.updateUserError(error.message));
