@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { submitUpdateSpotifive } from '../actions';
-import * as apiCalls from '../apiCalls';
 
 class Tryit extends Component {
 
@@ -17,11 +17,15 @@ class Tryit extends Component {
     const addTracksResponse = await submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
     console.log(addTracksResponse);
 
-    // change saga to handle conditional
-    // use response to update error if necessary
+    // get error from store and update in Tryit state
   }
 
   render() {
+    const { loggedIn } = this.props.user;
+    if (!loggedIn) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div className='tryit'>
         <button
