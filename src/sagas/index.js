@@ -52,8 +52,10 @@ export function* listenForSubmitUpdateSpotifiveId() {
 }
 
 export function* submitUpdateSpotifiveId({ userId, accessToken }) {
+  debugger;
   try {
     const spotifive = yield call(apiCalls.createSpotifive, userId, accessToken)
+    console.log(spotifive);
     yield put(actions.updateSpotifiveId(spotifive.id))
   } catch(error) {
     yield put(actions.updateUserError(error.message));

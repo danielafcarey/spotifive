@@ -4,9 +4,22 @@ import { submitUpdateSpotifiveId } from '../actions';
 
 class Tryit extends Component {
 
+  handleClick = () => {
+    const { 
+      accessToken, 
+      submitUpdateSpotifiveId 
+    } = this.props;
+    const { userId } = this.props.user.userInfo
+
+    submitUpdateSpotifiveId(userId, accessToken);
+  }
+
   render() {
     return (
       <div className='tryit'>
+        <button
+          onClick={ this.handleClick }
+        >Add Spotifive</button>
       </div>
     )
   }
@@ -19,7 +32,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  submitUpdateSpotifiveId: (accessToken) => dispatch(submitUpdateSpotifiveId(accessToken))
+  submitUpdateSpotifiveId: (userId, accessToken) => dispatch(submitUpdateSpotifiveId(userId, accessToken))
 })
 
 export {

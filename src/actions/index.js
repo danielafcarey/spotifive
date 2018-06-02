@@ -21,8 +21,9 @@ const submitUpdateUser = (accessToken) => ({
   accessToken
 })
 
-const submitUpdateSpotifiveId = (accessToken) => ({
+const submitUpdateSpotifiveId = (userId, accessToken) => ({
   type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+  userId,
   accessToken
 })
 

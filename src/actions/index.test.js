@@ -67,9 +67,10 @@ describe('user actions', () => {
   it('returns a SUBMIT_UPDATE_SPOTIFIVEID action object', () => {
     const expected = {
       type: 'SUBMIT_UPDATE_SPOTIFIVEID',
+      userId: 1
       accessToken: 'it me',
     }
-    const result = submitUpdateSpotifiveId('it me');
+    const result = submitUpdateSpotifiveId(1, 'it me');
 
     expect(result).toEqual(expected);
   })
