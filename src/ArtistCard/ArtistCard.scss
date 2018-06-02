@@ -5,15 +5,18 @@
 
   &:hover {
     cursor: pointer;
+    background-color: #272727;
   }
 
   img {
     height: 50px;
+    padding-left: 10px;
     border-radius: 25px;
   }
 
   p {
     text-align: left;
     padding: 0 15px;
+    font-size: 25px;
   }
 }

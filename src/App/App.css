@@ -40,6 +40,9 @@
     .Instructions .instruction p {
       padding: 0 15px; }
 
+.search-results ul {
+  padding: 0 20px; }
+
 .search-results p {
   text-align: center; }
 
@@ -48,13 +51,16 @@
   flex-direction: row;
   align-items: center; }
   .artist-card:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #272727; }
   .artist-card img {
     height: 50px;
+    padding-left: 10px;
     border-radius: 25px; }
   .artist-card p {
     text-align: left;
-    padding: 0 15px; }
+    padding: 0 15px;
+    font-size: 25px; }
 
 .signin {
   width: 45%;
