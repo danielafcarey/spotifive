@@ -16,6 +16,14 @@ class Search extends Component {
     }
   }
 
+  componentDidUpdate = () => {
+    const { artist, artistError } = this.props.artist;
+
+    if (Object.keys(artist).length !== 0 && artistError === null) {
+      this.props.history.push('/tryit');
+    }
+  }
+
   handleChange = (event) => {
     const { value } = event.target;
     this.setState({ searchInput: value })
@@ -31,10 +39,6 @@ class Search extends Component {
     this.props.submitUpdateArtist(artistId, this.props.accessToken);
   }
 
-  redirectToTryit = () => {
-    this.props.history.push('/tryit');
-  }
-
   render() {
     const { loggedIn } = this.props.user;
     const { searchResults } = this.props;
@@ -42,10 +46,6 @@ class Search extends Component {
 
     if (!loggedIn) {
       return <Redirect to='/' />
-    }
-
-    if (Object.keys(artist).length !== 0 && artistError === null) {
-      return <Redirect to='/tryit' />
     }
     
     return (
