@@ -8,15 +8,15 @@ const Instructions = () => {
   return (
     <div className='Instructions'>
       <div className='instruction'>
-        <img src={ search } />
+        <img src={ search } alt='Search'/>
         <p>Search for an artist</p>
       </div>
       <div className='instruction'>
-        <img src={ click }/>
+        <img src={ click } alt='Click'/>
         <p>Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
       </div>
       <div className='instruction'>
-        <img src={ listen }/>
+        <img src={ listen } alt='Listen'/>
         <p>See new music in your Spotifive playlist in the Spotify app</p>
       </div>
     </div>

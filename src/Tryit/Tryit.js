@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { submitUpdateSpotifive } from '../actions';
 
 class Tryit extends Component {
@@ -75,4 +75,4 @@ export {
   mapDispatchToProps
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tryit);;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Tryit));

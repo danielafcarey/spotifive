@@ -13,7 +13,7 @@ const ArtistCard = ({ name, image, id, selectArtist }) => {
       className='artist-card'
       onClick={ () => selectArtist(id) }
     >
-      <img src={ showImage } />
+      <img src={ showImage } alt={ name }/>
       <p>{ name }</p>    
     </div>
   )
