@@ -4,6 +4,7 @@ const Instructions = () => {
   const search = require('../images/search.png');
   const click = require('../images/click.png');
   const listen = require('../images/listen.png'); 
+
   return (
     <div className='Instructions'>
       <div className='instruction'>

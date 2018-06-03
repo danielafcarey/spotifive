@@ -31,22 +31,9 @@ class Search extends Component {
     this.props.submitUpdateArtist(artistId, this.props.accessToken);
   }
 
-  renderInstructions = () => {
-    return <Instructions /> 
-  }
-
-  renderResults = () => {
-    const { searchResults } = this.props
-
-    return <SearchResults 
-      searchResults={ searchResults }
-      selectArtist={ this.selectArtist }
-    />
-  }
-
   render() {
     const { loggedIn } = this.props.user;
-    const { searchResults } = this.props.searchResults;
+    const { searchResults } = this.props;
     const { artist, artistError } = this.props.artist;
 
     if (!loggedIn) {
@@ -57,14 +44,6 @@ class Search extends Component {
       return <Redirect to='/tryit' />
     }
     
-    let body;
-
-    if (searchResults.length < 1) {
-      body = this.renderInstructions();
-    } else {
-      body = this.renderResults();
-    }
-
     return (
       <div className='search'>
         <form
@@ -77,7 +56,13 @@ class Search extends Component {
           /> 
           <button>Search</button>
         </form>
-        {body}
+        { searchResults.searchResults.length < 1 ?
+            <Instructions /> :
+            <SearchResults 
+              searchResults={ searchResults }
+              selectArtist={ this.selectArtist }
+            />
+        }
       </div>
     )
   }

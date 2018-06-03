@@ -15,11 +15,17 @@ describe('Search', () => {
   beforeEach(() => {
     mockProps = {
       accessToken: 'a',
-      user: { userId: 1 },
+      user: { 
+        userInfo: {userId: 1 },
+        loggedIn: true
+      },
       searchResults: { 
         searchResults: [] 
       },
-      artist: { artistId: 1 },
+      artist: { 
+        artist: { artistId: 1 },
+        artistError: null
+      },
       submitUpdateSearch: jest.fn(),
       submitUpdateArtist: jest.fn()
     }
@@ -30,22 +36,31 @@ describe('Search', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('matches the snapshot if there are search result', () => {
+  it('has a default state of searchInput', () => {
+    expect(wrapper.state('searchInput')).toEqual('');
+  })
+  
+  it('matches the snapshot if user is not logged in', () => {
+    mockProps.user.loggedIn = false;
+    const wrapper = shallow(<Search { ...mockProps } />);
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('matches the snapshot if there are search results', () => {
     mockProps.searchResults = { 
-      searchResults: [
-        {
-          name: 'hi',
-          id: 1
-        }
-      ] 
+      searchResults: [{ name: 'hi', id: 1 }] 
     };
     const wrapper = shallow(<Search { ...mockProps } />);
 
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('has a default state of searchInput', () => {
-    expect(wrapper.state('searchInput')).toEqual('');
+  it('matches the snapshot if there is no artist selected', () => {
+    mockProps.artist.artist = {};
+    const wrapper = shallow(<Search { ...mockProps } />);
+
+    expect(wrapper).toMatchSnapshot();
   })
 
   describe('handleChange', () => {
@@ -92,7 +107,9 @@ describe('Search', () => {
     })
 
     it('calls props.submitUpdateArtist with the correct arguments', () => {
-      
+      wrapper.instance().selectArtist('1');
+
+      expect(mockProps.submitUpdateArtist).toHaveBeenCalledWith('1', 'a')
     })
 
   })
@@ -104,11 +121,13 @@ describe('Search', () => {
         accessToken: 1,
         user: { userId: 1 },
         artist: { artistId: 1 },
+        searchResults: ['artist1', 'artist2'],
         fakeProp: 'do not add me'
       }
       const expected = {
         accessToken: 1,
         user: { userId: 1 },
+        searchResults: ['artist1', 'artist2'],
         artist: { artistId: 1 }
       }
       const result = mapStateToProps(state);
@@ -120,14 +139,28 @@ describe('Search', () => {
 
   describe('mapDispatchToProps', () => {
     
-    it('calls dispatch with the correct arguments', () => {
+    it('calls dispatch with the correct arguments when submitUpdateSearch is invoked', () => {
       const dispatch = jest.fn();
       const mappedProps = mapDispatchToProps(dispatch);
       const mockAction = {
         type: 'SUBMIT_UPDATE_SEARCH',
-        searchString: 'hi'
+        searchString: 'hi',
+        accessToken: 'me'
       }
-      mappedProps.submitUpdateSearch(mockAction.searchString);
+      mappedProps.submitUpdateSearch('hi', 'me');
+
+      expect(dispatch).toHaveBeenCalledWith(mockAction)
+    })
+
+    it('calls dispatch with the correct arguments when submitUpdateArtist is invoked', () => {
+      const dispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'SUBMIT_UPDATE_ARTIST',
+        artistId: 'hi',
+        accessToken: '2'
+      }
+      mappedProps.submitUpdateArtist('hi', '2');
 
       expect(dispatch).toHaveBeenCalledWith(mockAction)
     })

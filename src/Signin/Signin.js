@@ -1,7 +1,7 @@
 import React from 'react';
 import { authorizeSpotify } from '../spotify/authorizeSpotify';
 
-const Signin = (props) => {
+const Signin = () => {
 
   return (
     <div className='signin'>

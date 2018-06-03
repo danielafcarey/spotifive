@@ -49,6 +49,10 @@ describe('cleanUserData', () => {
     expect(result).toEqual(expected);
   })
 
+})
+
+describe('cleanSearchResults', () => {
+
   it('returns a cleaned array of search results', () => {
     const expected = [{
       name: 'Ivan Molina & Abba Padre Band',
