@@ -70,6 +70,13 @@ const submitUpdateArtist = (artistId, accessToken) => ({
   accessToken
 })
 
+
+//updateSpotifiveSuccess
+const updateSpotifiveSuccess = (message) => ({
+  type: 'UPDATE_SPOTIFIVE_SUCCESS',
+  message
+})
+
 export {
   updateAccessToken,
   updateUser,
@@ -82,5 +89,6 @@ export {
   submitUpdateSearch,
   updateArtist,
   updateArtistError,
-  submitUpdateArtist
+  submitUpdateArtist,
+  updateSpotifiveSuccess
 }

@@ -385,6 +385,13 @@ describe('sagas', () => {
       expect(value).toEqual(expected);
     })
 
+    it('yields put with updateSpotifiveSuccess apiCall and arguments', () => {
+      const value = iterator.next().value;
+      const expected = put(actions.updateSpotifiveSuccess(true));
+
+      expect(value).toEqual(expected);
+    })
+
     it('should be done', () => {
       const done = iterator.next().done;
 
@@ -416,6 +423,7 @@ describe('sagas', () => {
       }
       iterator = sagas.submitUpdateSpotifive(mockAction);
     })
+
     it('calls apiCalls.addTracks first if spotifiveId is not null', () => {
       const { userId, spotifiveId, topTracks, accessToken } = mockAction;
       const value = iterator.next().value;
@@ -439,7 +447,7 @@ describe('sagas', () => {
     })
 
     it('yields put with updateArtistError action if there is an error', () => {
-      const expected = put(actions.updateUserError('could not create playlist'));
+      const expected = put(actions.updateSpotifiveSuccess(false));
       const value = iterator.throw(Error('could not create playlist')).value;
 
       expect(value).toEqual(expected);
