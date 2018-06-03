@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import Instructions from '../Instructions/Instructions';
 import SearchResults from '../SearchResults/SearchResults';
 import {
@@ -29,6 +29,10 @@ class Search extends Component {
 
   selectArtist = (artistId) => {
     this.props.submitUpdateArtist(artistId, this.props.accessToken);
+  }
+
+  redirectToTryit = () => {
+    this.props.history.push('/tryit');
   }
 
   render() {
@@ -86,6 +90,6 @@ export {
   mapDispatchToProps
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
 
 
