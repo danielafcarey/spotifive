@@ -5,7 +5,8 @@ import Instructions from '../Instructions/Instructions';
 import SearchResults from '../SearchResults/SearchResults';
 import {
   submitUpdateSearch,
-  submitUpdateArtist
+  submitUpdateArtist,
+  updateArtist
 } from '../actions';
 
 class Search extends Component {
@@ -13,6 +14,16 @@ class Search extends Component {
     super(props);
     this.state = {
       searchInput: ''
+    }
+
+    this.props.updateArtist({});
+  }
+
+  componentDidUpdate = () => {
+    const { artist, artistError } = this.props.artist;
+
+    if (Object.keys(artist).length !== 0 && artistError === null) {
+      this.props.history.push('/tryit');
     }
   }
 
@@ -31,10 +42,6 @@ class Search extends Component {
     this.props.submitUpdateArtist(artistId, this.props.accessToken);
   }
 
-  redirectToTryit = () => {
-    this.props.history.push('/tryit');
-  }
-
   render() {
     const { loggedIn } = this.props.user;
     const { searchResults } = this.props;
@@ -42,10 +49,6 @@ class Search extends Component {
 
     if (!loggedIn) {
       return <Redirect to='/' />
-    }
-
-    if (Object.keys(artist).length !== 0 && artistError === null) {
-      return <Redirect to='/tryit' />
     }
     
     return (
@@ -81,7 +84,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
-  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)) 
+  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)), 
+  updateArtist: (artist) => dispatch(updateArtist(artist))
 })
 
 export {

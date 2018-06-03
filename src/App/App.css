@@ -1,5 +1,6 @@
 .Header {
-  text-align: center; }
+  text-align: right;
+  padding-right: 15px; }
   .Header h1 {
     display: inline-block;
     font-size: 55px;
@@ -11,6 +12,10 @@
     width: 65px;
     padding: 30px 6px;
     vertical-align: middle; }
+  .Header .profile-photo {
+    position: absolute;
+    left: 10px;
+    border-radius: 50%; }
 
 .search {
   width: 45%;
@@ -115,7 +120,12 @@
       padding: 10px; }
 
 body {
-  background-color: black;
+  background: #333333;
+  background: -moz-linear-gradient(top, #333333 0%, #000000 40%);
+  background: -webkit-linear-gradient(top, #333333 0%, #000000 40%);
+  background: linear-gradient(to bottom, #333333 0%, #000000 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$hexColor1, endColorstr=$hexColor2,GradientType=0 );
+  height: 150vh;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -142,14 +152,19 @@ body {
   .success {
     width: 75%; }
   .Header {
-    text-align: center; }
+    padding-right: 20px; }
     .Header h1 {
-      font-size: 40px; }
+      font-size: 35px; }
     .Header img {
-      width: 45px; }
+      width: 35px;
+      padding: 30px 0; }
+    .Header .profile-photo {
+      left: 20px; }
   body p {
     font-size: 20px;
-    padding-top: 0; }
+    padding-bottom: 10px; }
+  .signin {
+    margin-top: 0; }
   .search,
   .tryit,
   .success {
