@@ -28,7 +28,9 @@ describe('Tryit', () => {
           topTracks: ['track1', 'track2']
         }
       },
-      submitUpdateSpotifive: jest.fn()
+      submitUpdateSpotifive: jest.fn(),
+      updateArtist: jest.fn(),
+      updateSearchResults: jest.fn()
     };
     wrapper = shallow(<Tryit { ...mockProps } />);
   })
@@ -71,6 +73,7 @@ describe('Tryit', () => {
           loggedIn: true,
           userInfo: {}
         },
+        spotifiveSuccess: false
       }
       const mockState = { ...expected, fakeState: 'do not add me' }
       const result = mapStateToProps(mockState);
@@ -81,10 +84,15 @@ describe('Tryit', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    
-    it('calls dispatch with the correct arguments', () => {
-      const dispatch = jest.fn();
-      const mappedProps = mapDispatchToProps(dispatch);
+    let dispatch;
+    let mappedProps;
+
+    beforeEach(() => {
+      dispatch = jest.fn();
+      mappedProps = mapDispatchToProps(dispatch);
+    })
+
+    it('calls dispatch with the correct arguments for submitUpdateSpotifive', () => {
       const mockAction = {
         type: 'SUBMIT_UPDATE_SPOTIFIVE',
         userId: 2,
@@ -96,6 +104,30 @@ describe('Tryit', () => {
 
       mappedProps.submitUpdateSpotifive(2, 3, [], 1);
       
+      expect(dispatch).toHaveBeenCalledWith(expected);
+    })
+
+    it('calls dispatch with the correct arguments for updateArtist', () => {
+      const mockAction = {
+        type: 'UPDATE_ARTIST',
+        artist: {}
+      }
+      const expected = mockAction;
+
+      mappedProps.updateArtist({});
+
+      expect(dispatch).toHaveBeenCalledWith(expected);
+    })
+
+    it('calls dispatch with the correct arguments for updateSearchResults', () => {
+      const mockAction = {
+        type: 'UPDATE_SEARCH_RESULTS',
+        searchResults: []
+      }
+      const expected = mockAction;
+
+      mappedProps.updateSearchResults([]);
+
       expect(dispatch).toHaveBeenCalledWith(expected);
     })
   })

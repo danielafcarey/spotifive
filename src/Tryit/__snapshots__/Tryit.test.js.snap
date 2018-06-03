@@ -19,6 +19,8 @@ ShallowWrapper {
           }
     }
     submitUpdateSpotifive={[Function]}
+    updateArtist={[Function]}
+    updateSearchResults={[Function]}
     user={
         Object {
             "loggedIn": true,
@@ -488,6 +490,8 @@ ShallowWrapper {
           }
     }
     submitUpdateSpotifive={[Function]}
+    updateArtist={[Function]}
+    updateSearchResults={[Function]}
     user={
         Object {
             "loggedIn": false,
