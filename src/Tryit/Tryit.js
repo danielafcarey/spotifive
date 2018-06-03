@@ -36,7 +36,7 @@ class Tryit extends Component {
     const { spotifiveSuccess } = this.props;
 
     if (!loggedIn) {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
     }
 
     if (spotifiveSuccess) {
