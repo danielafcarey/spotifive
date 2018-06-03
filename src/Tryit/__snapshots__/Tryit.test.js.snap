@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tryit matches the snapshot if user is logged in 1`] = `
+exports[`Tryit matches the snapshot if user is logged in and there are topTracks 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -472,7 +472,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Tryit matches the snapshot if user is not logged in 1`] = `
+exports[`Tryit matches the snapshot if user is not logged in and there are no topTracks 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -483,10 +483,7 @@ ShallowWrapper {
             "artist": Object {
               "image": "selfie.png",
               "name": "john",
-              "topTracks": Array [
-                "track1",
-                "track2",
-              ],
+              "topTracks": undefined,
             },
           }
     }

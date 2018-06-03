@@ -27,4 +27,18 @@ describe('ArtistCard', () => {
 
     expect(wrapper).toMatchSnapshot();
   })
+
+  it('calls props.selectArtist with correct args on click', () => {
+    const mockProps = {
+      name: 'Daniela',
+      id: 'abc',
+      image: 'image',
+      selectArtist: jest.fn()
+    }
+    const wrapper = shallow(<ArtistCard { ...mockProps  } />);
+
+    wrapper.find('div').simulate('click');
+
+    expect(mockProps.selectArtist).toHaveBeenCalledWith(mockProps.id);
+  })
 })

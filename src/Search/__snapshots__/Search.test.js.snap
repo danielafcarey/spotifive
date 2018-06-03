@@ -8,7 +8,10 @@ ShallowWrapper {
     accessToken="a"
     artist={
         Object {
-            "artistId": 1,
+            "artist": Object {
+              "artistId": 1,
+            },
+            "artistError": null,
           }
     }
     searchResults={
@@ -20,7 +23,10 @@ ShallowWrapper {
     submitUpdateSearch={[Function]}
     user={
         Object {
-            "userId": 1,
+            "loggedIn": true,
+            "userInfo": Object {
+              "userId": 1,
+            },
           }
     }
 />,
@@ -37,7 +43,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "push": false,
-      "to": "/",
+      "to": "/tryit",
     },
     "ref": null,
     "rendered": null,
@@ -50,7 +56,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "push": false,
-        "to": "/",
+        "to": "/tryit",
       },
       "ref": null,
       "rendered": null,
@@ -67,7 +73,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Search matches the snapshot if there are search result 1`] = `
+exports[`Search matches the snapshot if there are search results 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -75,7 +81,10 @@ ShallowWrapper {
     accessToken="a"
     artist={
         Object {
-            "artistId": 1,
+            "artist": Object {
+              "artistId": 1,
+            },
+            "artistError": null,
           }
     }
     searchResults={
@@ -92,7 +101,294 @@ ShallowWrapper {
     submitUpdateSearch={[Function]}
     user={
         Object {
-            "userId": 1,
+            "loggedIn": true,
+            "userInfo": Object {
+              "userId": 1,
+            },
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "push": false,
+      "to": "/tryit",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "push": false,
+        "to": "/tryit",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Search matches the snapshot if there is no artist selected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Search
+    accessToken="a"
+    artist={
+        Object {
+            "artist": Object {},
+            "artistError": null,
+          }
+    }
+    searchResults={
+        Object {
+            "searchResults": Array [],
+          }
+    }
+    submitUpdateArtist={[Function]}
+    submitUpdateSearch={[Function]}
+    user={
+        Object {
+            "loggedIn": true,
+            "userInfo": Object {
+              "userId": 1,
+            },
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <form
+          onSubmit={[Function]}
+>
+          <input
+                    onChange={[Function]}
+                    placeholder="Search for an artist"
+                    value=""
+          />
+          <button>
+                    Search
+          </button>
+</form>,
+        <Instructions />,
+      ],
+      "className": "search",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              onChange={[Function]}
+              placeholder="Search for an artist"
+              value=""
+/>,
+            <button>
+              Search
+</button>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "onChange": [Function],
+              "placeholder": "Search for an artist",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Search",
+            },
+            "ref": null,
+            "rendered": "Search",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <form
+            onSubmit={[Function]}
+>
+            <input
+                        onChange={[Function]}
+                        placeholder="Search for an artist"
+                        value=""
+            />
+            <button>
+                        Search
+            </button>
+</form>,
+          <Instructions />,
+        ],
+        "className": "search",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                onChange={[Function]}
+                placeholder="Search for an artist"
+                value=""
+/>,
+              <button>
+                Search
+</button>,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "onChange": [Function],
+                "placeholder": "Search for an artist",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Search",
+              },
+              "ref": null,
+              "rendered": "Search",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Search matches the snapshot if user is not logged in 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Search
+    accessToken="a"
+    artist={
+        Object {
+            "artist": Object {
+              "artistId": 1,
+            },
+            "artistError": null,
+          }
+    }
+    searchResults={
+        Object {
+            "searchResults": Array [],
+          }
+    }
+    submitUpdateArtist={[Function]}
+    submitUpdateSearch={[Function]}
+    user={
+        Object {
+            "loggedIn": false,
+            "userInfo": Object {
+              "userId": 1,
+            },
           }
     }
 />,

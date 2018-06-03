@@ -33,12 +33,13 @@ describe('Tryit', () => {
     wrapper = shallow(<Tryit { ...mockProps } />);
   })
 
-  it('matches the snapshot if user is logged in', () => {
+  it('matches the snapshot if user is logged in and there are topTracks', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('matches the snapshot if user is not logged in', () => {
+  it('matches the snapshot if user is not logged in and there are no topTracks', () => {
     mockProps.user.loggedIn = false;
+    mockProps.artist.artist.topTracks = undefined;
     wrapper = shallow(<Tryit { ...mockProps } />);
 
     expect(wrapper).toMatchSnapshot();
@@ -46,16 +47,10 @@ describe('Tryit', () => {
 
   describe('handleClick', () => {
 
-    it('calls fetchPlaylists with the correct arguments to check for Spotifive playlist', () => {
+    it('calls submitUpdateSpotifive with the correct arguments', () => {
+      wrapper.find('button').simulate('click');
 
-    })
-
-    it('calls createPlaylist with the correct arguments if there is no Spotifive playlist', () => {
-
-    })
-
-    it('calls addSongs with the correct arguments', () => {
-
+      expect(mockProps.submitUpdateSpotifive).toHaveBeenCalledWith('a', null, ['track1', 'track2'], '1');
     })
 
   })
