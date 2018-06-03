@@ -5,7 +5,8 @@ import Instructions from '../Instructions/Instructions';
 import SearchResults from '../SearchResults/SearchResults';
 import {
   submitUpdateSearch,
-  submitUpdateArtist
+  submitUpdateArtist,
+  updateArtist
 } from '../actions';
 
 class Search extends Component {
@@ -14,6 +15,8 @@ class Search extends Component {
     this.state = {
       searchInput: ''
     }
+
+    this.props.updateArtist({});
   }
 
   componentDidUpdate = () => {
@@ -81,7 +84,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
-  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)) 
+  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)), 
+  updateArtist: (artist) => dispatch(updateArtist(artist))
 })
 
 export {
