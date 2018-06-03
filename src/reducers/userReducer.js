@@ -13,10 +13,14 @@ const userReducer = (state = initialState, action) => {
       };
     case 'UPDATE_USER_ERROR':
       return { ...state, loginError: action.error } 
-    case 'UPDATE_SPOTIFIVEID':
+    case 'UPDATE_SPOTIFIVE':
+      const newSpotifiveInfo = {
+        spotifiveId: action.spotifiveId,
+        link: action.link
+      }
       const newUserInfo = { 
         ...state.userInfo, 
-        spotifiveId: action.spotifiveId 
+        spotifive: newSpotifiveInfo 
       }
       return {
         ...state,

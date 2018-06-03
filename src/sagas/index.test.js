@@ -346,7 +346,7 @@ describe('sagas', () => {
     let mockTopTracks;
 
     beforeAll(() => {
-      mockPlaylist = { id: 'pickME' }
+      mockPlaylist = { id: 'pickME', external_urls: { spotify: 'hi.com' } }
       mockTopTracks = [
         {
           name: 'a track',
@@ -370,9 +370,9 @@ describe('sagas', () => {
       expect(value).toEqual(expected);
     })
 
-    it('yields put with updateSpotifiveId action if spotifiveId is null', () => {
+    it('yields put with updateSpotifive action if spotifiveId is null', () => {
       const value = iterator.next(mockPlaylist).value;
-      const expected = put(actions.updateSpotifiveId(mockPlaylist.id));
+      const expected = put(actions.updateSpotifive(mockPlaylist.id, mockPlaylist.external_urls.spotify));
 
       expect(value).toEqual(expected);
     })

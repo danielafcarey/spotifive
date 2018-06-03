@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import { submitUpdateSpotifive } from '../actions';
+import { 
+  submitUpdateSpotifive,
+  updateArtist,
+  updateSearchResults,
+  updateSpotifiveSuccess
+} from '../actions';
 import Success from '../Success/Success';
 
 class Tryit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      route: ''
+    }
+  }
 
   handleClick = () => {
     const { 
       accessToken, 
       submitUpdateSpotifive 
     } = this.props;
-    const { userId, spotifiveId } = this.props.user.userInfo;
+    const { userId } = this.props.user.userInfo;
+    const { spotifiveId } = this.props.user.userInfo.spotifive;
     const { topTracks } = this.props.artist.artist;
 
     submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
@@ -30,13 +42,28 @@ class Tryit extends Component {
     })
   }
 
+  changeRoute = (route) => {
+    this.setState({ route });
+
+    if (route === 'search') {
+      this.props.updateArtist({});
+      this.props.updateSearchResults([])
+      this.props.updateSpotifiveSuccess(false);
+    }
+  }
+
   render() {
-    const { loggedIn } = this.props.user;
+    const { loggedIn, userInfo } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
     const { spotifiveSuccess } = this.props;
+    const { route } = this.state;
 
     if (!loggedIn) {
       return <Redirect to='/' />;
+    } else if (route === 'search') {
+      return <Redirect to='/search' />;
+    } else if (route === 'spotify') {
+      window.open(userInfo.spotifive.link, "_blank")
     }
 
     if (spotifiveSuccess) {
@@ -44,7 +71,8 @@ class Tryit extends Component {
         name,
         image, 
         loggedIn,
-        topTracks: this.getTopTrackTitles(topTracks)
+        topTracks: this.getTopTrackTitles(topTracks),
+        changeRoute: this.changeRoute
       } 
 
       return <Success { ...successProps } />;
@@ -80,7 +108,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSpotifive: (userId, spotifiveId, topTracks, accessToken) => {
     dispatch(submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken))
-  }
+  },
+  updateArtist: (artist) => dispatch(updateArtist(artist)),
+  updateSearchResults: (searchResults) => dispatch(updateSearchResults(searchResults)),
+  updateSpotifiveSuccess: (success) => dispatch(updateSpotifiveSuccess(success))
 })
 
 export {

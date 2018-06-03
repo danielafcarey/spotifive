@@ -4,7 +4,7 @@ import {
   updateUserError,
   submitUpdateUser,
   submitUpdateSpotifive,
-  updateSpotifiveId,
+  updateSpotifive,
   updateSearchResults,
   updateSearchError,
   submitUpdateSearch,
@@ -78,12 +78,13 @@ describe('user actions', () => {
     expect(result).toEqual(expected);
   })
 
-  it('returns an UPDATE_SPOTIFIVEID action object', () => {
+  it('returns an UPDATE_SPOTIFIVE action object', () => {
     const expected = {
-      type: 'UPDATE_SPOTIFIVEID',
-      spotifiveId: '123'
+      type: 'UPDATE_SPOTIFIVE',
+      spotifiveId: '123',
+      link: 'gohere.com'
     }
-    const result = updateSpotifiveId('123');
+    const result = updateSpotifive('123', 'gohere.com');
 
     expect(result).toEqual(expected);
   })

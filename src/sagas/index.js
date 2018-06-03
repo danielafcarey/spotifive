@@ -58,7 +58,7 @@ export function* submitUpdateSpotifive(action) {
     if (spotifiveId === null) {
       const spotifive = yield call(apiCalls.createSpotifive, userId, accessToken);
       spotifiveId = spotifive.id;
-      yield put(actions.updateSpotifiveId(spotifiveId));
+      yield put(actions.updateSpotifive(spotifiveId, spotifive.external_urls.spotify ));
     }
     yield call(apiCalls.addTracks, userId, spotifiveId, topTracks, accessToken)
     yield put(actions.updateSpotifiveSuccess(true));

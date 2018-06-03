@@ -13,8 +13,11 @@ const cleanUserData = (userData, playlists) => {
     userId: userData.id,
     name: userData.display_name,
     image: userData.images[0].url,
-    spotifiveId: spotifive ? spotifive.id : null
-  } 
+    spotifive: {
+      spotifiveId: spotifive ? spotifive.id : null,
+      link: spotifive ? spotifive.external_urls.spotify : null
+    }
+  }; 
 }
 
 const cleanSearchResults = (searchResults) => {
@@ -23,9 +26,9 @@ const cleanSearchResults = (searchResults) => {
       name: result.name,
       id: result.id,
       image: result.images.length ? result.images[0].url : null
-    }
+    };
     return cleanResult;
-  })
+  });
 
   return cleanedSearchResults;
 }

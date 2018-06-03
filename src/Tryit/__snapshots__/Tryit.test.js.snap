@@ -19,11 +19,16 @@ ShallowWrapper {
           }
     }
     submitUpdateSpotifive={[Function]}
+    updateArtist={[Function]}
+    updateSearchResults={[Function]}
     user={
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "spotifiveId": null,
+              "spotifive": Object {
+                "link": null,
+                "spotifiveId": null,
+              },
               "userId": "a",
             },
           }
@@ -488,11 +493,16 @@ ShallowWrapper {
           }
     }
     submitUpdateSpotifive={[Function]}
+    updateArtist={[Function]}
+    updateSearchResults={[Function]}
     user={
         Object {
             "loggedIn": false,
             "userInfo": Object {
-              "spotifiveId": null,
+              "spotifive": Object {
+                "link": null,
+                "spotifiveId": null,
+              },
               "userId": "a",
             },
           }
