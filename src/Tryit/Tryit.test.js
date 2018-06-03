@@ -17,7 +17,10 @@ describe('Tryit', () => {
       user: {
         userInfo: {
           userId: 'a',
-          spotifiveId: null
+          spotifive: {
+            spotifiveId: null,
+            link: null
+          }
         },
         loggedIn: true
       },

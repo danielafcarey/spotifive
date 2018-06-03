@@ -22,7 +22,8 @@ class Tryit extends Component {
       accessToken, 
       submitUpdateSpotifive 
     } = this.props;
-    const { userId, spotifiveId } = this.props.user.userInfo;
+    const { userId } = this.props.user.userInfo;
+    const { spotifiveId } = this.props.user.userInfo.spotifive;
     const { topTracks } = this.props.artist.artist;
 
     submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken);
@@ -42,14 +43,17 @@ class Tryit extends Component {
   }
 
   changeRoute = (route) => {
-    this.props.updateArtist({});
-    this.props.updateSearchResults([])
     this.setState({ route });
-    this.props.updateSpotifiveSuccess(false);
+
+    if (route === 'search') {
+      this.props.updateArtist({});
+      this.props.updateSearchResults([])
+      this.props.updateSpotifiveSuccess(false);
+    }
   }
 
   render() {
-    const { loggedIn } = this.props.user;
+    const { loggedIn, userInfo } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
     const { spotifiveSuccess } = this.props;
     const { route } = this.state;
@@ -59,7 +63,7 @@ class Tryit extends Component {
     } else if (route === 'search') {
       return <Redirect to='/search' />;
     } else if (route === 'spotify') {
-      console.log('go to spotify');
+      window.open(userInfo.spotifive.link, "_blank")
     }
 
     if (spotifiveSuccess) {

@@ -25,7 +25,10 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "spotifiveId": null,
+              "spotifive": Object {
+                "link": null,
+                "spotifiveId": null,
+              },
               "userId": "a",
             },
           }
@@ -496,7 +499,10 @@ ShallowWrapper {
         Object {
             "loggedIn": false,
             "userInfo": Object {
-              "spotifiveId": null,
+              "spotifive": Object {
+                "link": null,
+                "spotifiveId": null,
+              },
               "userId": "a",
             },
           }
