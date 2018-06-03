@@ -25,7 +25,10 @@ describe('cleanUserData', () => {
     const expected = {
       userId: 'wizzler' ,
       name: 'JM Wizzler',
-      spotifiveId: null,
+      spotifive: {
+        spotifiveId: null,
+        link: null
+      },
       image: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/1970403_10152215092574354_1798272330_n.jpg'
     } 
     const result = cleaner.cleanUserData(mockUserData, mockPlaylists);
@@ -36,12 +39,18 @@ describe('cleanUserData', () => {
   it('returns a user object with spotifiveId if playlists include Spotifive', () => {
     const mockPlaylists = [{ 
       name: 'Spotifive',
-      id: 1
+      id: 1,
+      external_urls: {
+        spotify: 'spotify.com'
+      }
     }];
     const expected = {
       userId: 'wizzler' ,
       name: 'JM Wizzler',
-      spotifiveId: 1,
+      spotifive: {
+        spotifiveId: 1,
+        link: 'spotify.com'
+      },
       image: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/1970403_10152215092574354_1798272330_n.jpg'
     } 
     const result = cleaner.cleanUserData(mockUserData, mockPlaylists);

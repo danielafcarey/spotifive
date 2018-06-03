@@ -56,22 +56,26 @@ describe('userReducer', () => {
     expect(result).toEqual(expected);
   })
 
-  it('returns new state if action is UPDATE_SPOTIFIVEID', () => {
+  it('returns new state if action is UPDATE_SPOTIFIVE', () => {
     const action = {
-      type: 'UPDATE_SPOTIFIVEID',
-      spotifiveId: '123'
+      type: 'UPDATE_SPOTIFIVE',
+      spotifiveId: '123',
+      link: 'clickme.com'
     }
     const state = {
       loggedIn: true,
       userInfo: {
-        spotifiveId: null
+        spotifive: null 
       },
       loginError: null
     }
     const expected = {
       loggedIn: true,
       userInfo: {
-        spotifiveId: '123' 
+        spotifive: {
+          spotifiveId: '123',
+          link: 'clickme.com'
+        }
       },
       loginError: null
     }
