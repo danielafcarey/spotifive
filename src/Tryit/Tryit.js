@@ -4,7 +4,8 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { 
   submitUpdateSpotifive,
   updateArtist,
-  updateSearchResults
+  updateSearchResults,
+  updateSpotifiveSuccess
 } from '../actions';
 import Success from '../Success/Success';
 
@@ -44,6 +45,7 @@ class Tryit extends Component {
     this.props.updateArtist({});
     this.props.updateSearchResults([])
     this.setState({ route });
+    this.props.updateSpotifiveSuccess(false);
   }
 
   render() {
@@ -104,7 +106,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken))
   },
   updateArtist: (artist) => dispatch(updateArtist(artist)),
-  updateSearchResults: (searchResults) => dispatch(updateSearchResults(searchResults))
+  updateSearchResults: (searchResults) => dispatch(updateSearchResults(searchResults)),
+  updateSpotifiveSuccess: (success) => dispatch(updateSpotifiveSuccess(success))
 })
 
 export {

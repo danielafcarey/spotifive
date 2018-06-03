@@ -130,6 +130,18 @@ describe('Tryit', () => {
 
       expect(dispatch).toHaveBeenCalledWith(expected);
     })
+
+    it('calls dispatch with the correct arguments for updateSpotifiveSuccess', () => {
+      const mockAction = {
+        type: 'UPDATE_SPOTIFIVE_SUCCESS',
+        message: false 
+      }
+      const expected = mockAction;
+
+      mappedProps.updateSpotifiveSuccess(false);
+
+      expect(dispatch).toHaveBeenCalledWith(expected);
+    })
   })
 
 })

@@ -22,6 +22,7 @@ ShallowWrapper {
           className="instruction"
 >
           <img
+                    alt="Search"
                     src="search.png"
           />
           <p>
@@ -32,6 +33,7 @@ ShallowWrapper {
           className="instruction"
 >
           <img
+                    alt="Click"
                     src="click.png"
           />
           <p>
@@ -42,6 +44,7 @@ ShallowWrapper {
           className="instruction"
 >
           <img
+                    alt="Listen"
                     src="listen.png"
           />
           <p>
@@ -60,6 +63,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <img
+              alt="Search"
               src="search.png"
 />,
             <p>
@@ -75,6 +79,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "alt": "Search",
               "src": "search.png",
             },
             "ref": null,
@@ -102,6 +107,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <img
+              alt="Click"
               src="click.png"
 />,
             <p>
@@ -117,6 +123,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "alt": "Click",
               "src": "click.png",
             },
             "ref": null,
@@ -144,6 +151,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <img
+              alt="Listen"
               src="listen.png"
 />,
             <p>
@@ -159,6 +167,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "alt": "Listen",
               "src": "listen.png",
             },
             "ref": null,
@@ -193,6 +202,7 @@ ShallowWrapper {
             className="instruction"
 >
             <img
+                        alt="Search"
                         src="search.png"
             />
             <p>
@@ -203,6 +213,7 @@ ShallowWrapper {
             className="instruction"
 >
             <img
+                        alt="Click"
                         src="click.png"
             />
             <p>
@@ -213,6 +224,7 @@ ShallowWrapper {
             className="instruction"
 >
             <img
+                        alt="Listen"
                         src="listen.png"
             />
             <p>
@@ -231,6 +243,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <img
+                alt="Search"
                 src="search.png"
 />,
               <p>
@@ -246,6 +259,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "alt": "Search",
                 "src": "search.png",
               },
               "ref": null,
@@ -273,6 +287,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <img
+                alt="Click"
                 src="click.png"
 />,
               <p>
@@ -288,6 +303,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "alt": "Click",
                 "src": "click.png",
               },
               "ref": null,
@@ -315,6 +331,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <img
+                alt="Listen"
                 src="listen.png"
 />,
               <p>
@@ -330,6 +347,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "alt": "Listen",
                 "src": "listen.png",
               },
               "ref": null,

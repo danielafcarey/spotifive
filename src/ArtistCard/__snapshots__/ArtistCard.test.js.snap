@@ -24,6 +24,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <img
+          alt="Daniela"
           src="image"
 />,
         <p>
@@ -40,6 +41,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "alt": "Daniela",
           "src": "image",
         },
         "ref": null,
@@ -68,6 +70,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <img
+            alt="Daniela"
             src="image"
 />,
           <p>
@@ -84,6 +87,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "alt": "Daniela",
             "src": "image",
           },
           "ref": null,
@@ -139,6 +143,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <img
+          alt="Daniela"
           src="logo-grey.png"
 />,
         <p>
@@ -155,6 +160,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "alt": "Daniela",
           "src": "logo-grey.png",
         },
         "ref": null,
@@ -183,6 +189,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <img
+            alt="Daniela"
             src="logo-grey.png"
 />,
           <p>
@@ -199,6 +206,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "alt": "Daniela",
             "src": "logo-grey.png",
           },
           "ref": null,

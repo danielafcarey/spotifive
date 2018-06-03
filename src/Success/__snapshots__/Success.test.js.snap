@@ -28,42 +28,34 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
-          Success!
-</h1>,
         <img
           alt="The Rock"
           className="artist-image"
           src="the rocks face"
 />,
+        <h1>
+          Success!
+</h1>,
+        <p>
+          The Rock has been added to your Spotifive playlist
+</p>,
         <button
+          name="search"
           onClick={[Function]}
 >
           Search for another artist
 </button>,
-        <p>
-          The Rock has been added to your Spotifive playlist
-</p>,
-        <ul>
-          i am rock
-          i love rock
-</ul>,
+        <button
+          name="spotify"
+          onClick={[Function]}
+>
+          Go to Spotify
+</button>,
       ],
       "className": "success",
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Success!",
-        },
-        "ref": null,
-        "rendered": "Success!",
-        "type": "h1",
-      },
       Object {
         "instance": null,
         "key": undefined,
@@ -82,12 +74,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Search for another artist",
-          "onClick": [Function],
+          "children": "Success!",
         },
         "ref": null,
-        "rendered": "Search for another artist",
-        "type": "button",
+        "rendered": "Success!",
+        "type": "h1",
       },
       Object {
         "instance": null,
@@ -105,17 +96,26 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            "i am rock",
-            "i love rock",
-          ],
+          "children": "Search for another artist",
+          "name": "search",
+          "onClick": [Function],
         },
         "ref": null,
-        "rendered": Array [
-          "i am rock",
-          "i love rock",
-        ],
-        "type": "ul",
+        "rendered": "Search for another artist",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Go to Spotify",
+          "name": "spotify",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Go to Spotify",
+        "type": "button",
       },
     ],
     "type": "div",
@@ -127,42 +127,34 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
-            Success!
-</h1>,
           <img
             alt="The Rock"
             className="artist-image"
             src="the rocks face"
 />,
+          <h1>
+            Success!
+</h1>,
+          <p>
+            The Rock has been added to your Spotifive playlist
+</p>,
           <button
+            name="search"
             onClick={[Function]}
 >
             Search for another artist
 </button>,
-          <p>
-            The Rock has been added to your Spotifive playlist
-</p>,
-          <ul>
-            i am rock
-            i love rock
-</ul>,
+          <button
+            name="spotify"
+            onClick={[Function]}
+>
+            Go to Spotify
+</button>,
         ],
         "className": "success",
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Success!",
-          },
-          "ref": null,
-          "rendered": "Success!",
-          "type": "h1",
-        },
         Object {
           "instance": null,
           "key": undefined,
@@ -181,12 +173,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Search for another artist",
-            "onClick": [Function],
+            "children": "Success!",
           },
           "ref": null,
-          "rendered": "Search for another artist",
-          "type": "button",
+          "rendered": "Success!",
+          "type": "h1",
         },
         Object {
           "instance": null,
@@ -204,17 +195,26 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              "i am rock",
-              "i love rock",
-            ],
+            "children": "Search for another artist",
+            "name": "search",
+            "onClick": [Function],
           },
           "ref": null,
-          "rendered": Array [
-            "i am rock",
-            "i love rock",
-          ],
-          "type": "ul",
+          "rendered": "Search for another artist",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Go to Spotify",
+            "name": "spotify",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Go to Spotify",
+          "type": "button",
         },
       ],
       "type": "div",
