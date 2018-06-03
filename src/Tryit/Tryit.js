@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import { submitUpdateSpotifive } from '../actions';
+import { 
+  submitUpdateSpotifive,
+  updateArtist,
+  updateSearchResults
+} from '../actions';
 import Success from '../Success/Success';
 
 class Tryit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      route: ''
+    }
+  }
 
   handleClick = () => {
     const { 
@@ -30,13 +40,24 @@ class Tryit extends Component {
     })
   }
 
+  changeRoute = (route) => {
+    this.props.updateArtist({});
+    this.props.updateSearchResults([])
+    this.setState({ route });
+  }
+
   render() {
     const { loggedIn } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
     const { spotifiveSuccess } = this.props;
+    const { route } = this.state;
 
     if (!loggedIn) {
       return <Redirect to='/' />;
+    } else if (route === 'search') {
+      return <Redirect to='/search' />;
+    } else if (route === 'spotify') {
+      console.log('go to spotify');
     }
 
     if (spotifiveSuccess) {
@@ -44,7 +65,8 @@ class Tryit extends Component {
         name,
         image, 
         loggedIn,
-        topTracks: this.getTopTrackTitles(topTracks)
+        topTracks: this.getTopTrackTitles(topTracks),
+        changeRoute: this.changeRoute
       } 
 
       return <Success { ...successProps } />;
@@ -80,7 +102,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSpotifive: (userId, spotifiveId, topTracks, accessToken) => {
     dispatch(submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken))
-  }
+  },
+  updateArtist: (artist) => dispatch(updateArtist(artist)),
+  updateSearchResults: (searchResults) => dispatch(updateSearchResults(searchResults))
 })
 
 export {
