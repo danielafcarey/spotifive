@@ -10,7 +10,8 @@ import {
   submitUpdateSearch,
   updateArtist,
   updateArtistError,
-  submitUpdateArtist
+  submitUpdateArtist,
+  updateSpotifiveSuccess
 } from './index.js';
 
 describe('access token actions', () => {
@@ -163,6 +164,18 @@ describe('artist actions', () => {
 })
 
 
+describe('updateSpotifiveSuccess', () => {
+
+  it('returns an UPDATE_SPOTIFIVE_SUCCESS action object', () => {
+    const expected = {
+      type: 'UPDATE_SPOTIFIVE_SUCCESS',
+      message: 'it worked!'
+    }
+    const result = updateSpotifiveSuccess('it worked!');
+
+    expect(result).toEqual(expected);
+  })
+})
 
 
 

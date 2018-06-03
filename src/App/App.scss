@@ -6,6 +6,7 @@
 @import '../ArtistCard/ArtistCard.scss';
 @import '../Signin/Signin.scss';
 @import '../Tryit/Tryit.scss';
+@import '../Success/Success.scss';
 
 $spotify-green: #1fd760;
 
@@ -41,7 +42,8 @@ body {
 @media only screen and (max-width: 768px) {
   .signin,
   .search,
-  .tryit {
+  .tryit,
+  .success {
     width: 75%
   } 
 
@@ -63,7 +65,8 @@ body {
   }
 
   .search,
-  .tryit {
+  .tryit, 
+  .success {
     margin-top: 10px;
   }
 
@@ -84,7 +87,8 @@ body {
     }
   }
 
-  .tryit {
+  .tryit,
+  .success {
     .artist-image {
       width: 150px;
       height: 150px;
@@ -96,4 +100,8 @@ body {
   }
 }
 
-
+@media only screen and (max-width: 350px) {
+  body button {
+    font-size: 16px;
+  }
+} 

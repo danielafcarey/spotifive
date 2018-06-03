@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { submitUpdateSpotifive } from '../actions';
+import Success from '../Success/Success';
 
 class Tryit extends Component {
 
@@ -32,9 +33,21 @@ class Tryit extends Component {
   render() {
     const { loggedIn } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
+    const { spotifiveSuccess } = this.props;
 
     if (!loggedIn) {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
+    }
+
+    if (spotifiveSuccess) {
+      const successProps = {
+        name,
+        image, 
+        loggedIn,
+        topTracks: this.getTopTrackTitles(topTracks)
+      } 
+
+      return <Success { ...successProps } />;
     }
 
     return (
@@ -45,8 +58,8 @@ class Tryit extends Component {
           alt={ name }/>
         <h1>{ name }</h1>
         <button
-          onClick={ this.handleClick }
-        >Try it!
+          onClick={ this.handleClick } >
+          Try it!
         </button>
         <p>Click Try It to add these songs to your Spotifive playlist:</p>
         <ul>
@@ -60,7 +73,8 @@ class Tryit extends Component {
 const mapStateToProps = (state) => ({
   accessToken: state.accessToken,
   user: state.user,
-  artist: state.artist
+  artist: state.artist,
+  spotifiveSuccess: state.spotifiveSuccess
 })
 
 const mapDispatchToProps = (dispatch) => ({

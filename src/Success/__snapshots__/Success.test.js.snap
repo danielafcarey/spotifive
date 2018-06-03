@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Success matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Success
+    image="the rocks face"
+    loggedIn={true}
+    name="The Rock"
+    topTracks={
+        Array [
+            "i am rock",
+            "i love rock",
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Success!
+</h1>,
+        <img
+          alt="The Rock"
+          className="artist-image"
+          src="the rocks face"
+/>,
+        <button
+          onClick={[Function]}
+>
+          Search for another artist
+</button>,
+        <p>
+          The Rock has been added to your Spotifive playlist
+</p>,
+        <ul>
+          i am rock
+          i love rock
+</ul>,
+      ],
+      "className": "success",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Success!",
+        },
+        "ref": null,
+        "rendered": "Success!",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "The Rock",
+          "className": "artist-image",
+          "src": "the rocks face",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Search for another artist",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Search for another artist",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "The Rock has been added to your Spotifive playlist",
+        },
+        "ref": null,
+        "rendered": "The Rock has been added to your Spotifive playlist",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "i am rock",
+            "i love rock",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "i am rock",
+          "i love rock",
+        ],
+        "type": "ul",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Success!
+</h1>,
+          <img
+            alt="The Rock"
+            className="artist-image"
+            src="the rocks face"
+/>,
+          <button
+            onClick={[Function]}
+>
+            Search for another artist
+</button>,
+          <p>
+            The Rock has been added to your Spotifive playlist
+</p>,
+          <ul>
+            i am rock
+            i love rock
+</ul>,
+        ],
+        "className": "success",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Success!",
+          },
+          "ref": null,
+          "rendered": "Success!",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "The Rock",
+            "className": "artist-image",
+            "src": "the rocks face",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Search for another artist",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Search for another artist",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "The Rock has been added to your Spotifive playlist",
+          },
+          "ref": null,
+          "rendered": "The Rock has been added to your Spotifive playlist",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "i am rock",
+              "i love rock",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "i am rock",
+            "i love rock",
+          ],
+          "type": "ul",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

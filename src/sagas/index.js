@@ -61,8 +61,9 @@ export function* submitUpdateSpotifive(action) {
       yield put(actions.updateSpotifiveId(spotifiveId));
     }
     yield call(apiCalls.addTracks, userId, spotifiveId, topTracks, accessToken)
+    yield put(actions.updateSpotifiveSuccess(true));
   } catch(error) {
-    yield put(actions.updateUserError(error.message));
+    yield put(actions.updateSpotifiveSuccess(false));
   }
 }
 
