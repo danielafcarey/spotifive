@@ -10,8 +10,17 @@
 
 $spotify-green: #1fd760;
 
+@mixin linear-gradient($hexColor1, $hexColor2) {
+  background: $hexColor1;
+  background: -moz-linear-gradient(top, $hexColor1 0%, $hexColor2 50%);
+  background: -webkit-linear-gradient(top, $hexColor1 0%, $hexColor2 50%);
+  background: linear-gradient(to bottom, $hexColor1 0%, $hexColor2 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$hexColor1, endColorstr=$hexColor2,GradientType=0 );
+}
+
 body {
-  background-color: black;
+  @include linear-gradient(#333333, #000000);
+  height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
