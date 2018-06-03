@@ -1,5 +1,5 @@
 .Header {
-  text-align: right; }
+  text-align: center; }
   .Header h1 {
     display: inline-block;
     font-size: 55px;
@@ -9,7 +9,7 @@
   .Header img {
     display: inline-block;
     width: 65px;
-    padding: 30px 30px 30px 6px;
+    padding: 30px 6px;
     vertical-align: middle; }
 
 .search {
@@ -121,8 +121,7 @@ body {
     .Header h1 {
       font-size: 40px; }
     .Header img {
-      width: 45px;
-      padding-right: 0; }
+      width: 45px; }
   body p {
     font-size: 20px;
     padding-top: 0; }

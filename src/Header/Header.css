@@ -1,5 +1,5 @@
 .Header {
-  text-align: right; }
+  text-align: center; }
   .Header h1 {
     display: inline-block;
     font-size: 55px;
@@ -9,5 +9,5 @@
   .Header img {
     display: inline-block;
     width: 65px;
-    padding: 30px 30px 30px 6px;
+    padding: 30px 6px;
     vertical-align: middle; }
