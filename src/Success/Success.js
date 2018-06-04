@@ -32,7 +32,7 @@ class Success extends Component {
         <button
           onClick={ this.handleClick } 
           name='spotify'>
-          Go to Spotify 
+          Go to your Spotifive 
         </button>
       </div>  
     )

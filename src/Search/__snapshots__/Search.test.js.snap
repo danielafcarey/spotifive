@@ -9,7 +9,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -21,6 +21,7 @@ ShallowWrapper {
     }
     searchResults={
         Object {
+            "searchError": null,
             "searchResults": Array [],
           }
     }
@@ -31,7 +32,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -57,6 +58,9 @@ ShallowWrapper {
                     placeholder="Search for an artist"
                     value=""
           />
+          <p
+                    className="search-error"
+          />
           <button>
                     Search
           </button>
@@ -78,6 +82,9 @@ ShallowWrapper {
               placeholder="Search for an artist"
               value=""
 />,
+            <p
+              className="search-error"
+/>,
             <button>
               Search
 </button>,
@@ -98,6 +105,18 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "search-error",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "p",
           },
           Object {
             "instance": null,
@@ -140,6 +159,9 @@ ShallowWrapper {
                         placeholder="Search for an artist"
                         value=""
             />
+            <p
+                        className="search-error"
+            />
             <button>
                         Search
             </button>
@@ -161,6 +183,9 @@ ShallowWrapper {
                 placeholder="Search for an artist"
                 value=""
 />,
+              <p
+                className="search-error"
+/>,
               <button>
                 Search
 </button>,
@@ -181,6 +206,18 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "search-error",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "p",
             },
             Object {
               "instance": null,
@@ -228,7 +265,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -255,7 +292,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -280,6 +317,9 @@ ShallowWrapper {
                     onChange={[Function]}
                     placeholder="Search for an artist"
                     value=""
+          />
+          <p
+                    className="search-error"
           />
           <button>
                     Search
@@ -314,6 +354,9 @@ ShallowWrapper {
               placeholder="Search for an artist"
               value=""
 />,
+            <p
+              className="search-error"
+/>,
             <button>
               Search
 </button>,
@@ -334,6 +377,18 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "search-error",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "p",
           },
           Object {
             "instance": null,
@@ -386,6 +441,9 @@ ShallowWrapper {
                         placeholder="Search for an artist"
                         value=""
             />
+            <p
+                        className="search-error"
+            />
             <button>
                         Search
             </button>
@@ -419,6 +477,9 @@ ShallowWrapper {
                 placeholder="Search for an artist"
                 value=""
 />,
+              <p
+                className="search-error"
+/>,
               <button>
                 Search
 </button>,
@@ -439,6 +500,18 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "search-error",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "p",
             },
             Object {
               "instance": null,
@@ -506,6 +579,7 @@ ShallowWrapper {
     }
     searchResults={
         Object {
+            "searchError": null,
             "searchResults": Array [],
           }
     }
@@ -516,7 +590,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -542,6 +616,9 @@ ShallowWrapper {
                     placeholder="Search for an artist"
                     value=""
           />
+          <p
+                    className="search-error"
+          />
           <button>
                     Search
           </button>
@@ -563,6 +640,9 @@ ShallowWrapper {
               placeholder="Search for an artist"
               value=""
 />,
+            <p
+              className="search-error"
+/>,
             <button>
               Search
 </button>,
@@ -583,6 +663,18 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "search-error",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "p",
           },
           Object {
             "instance": null,
@@ -625,6 +717,9 @@ ShallowWrapper {
                         placeholder="Search for an artist"
                         value=""
             />
+            <p
+                        className="search-error"
+            />
             <button>
                         Search
             </button>
@@ -646,6 +741,9 @@ ShallowWrapper {
                 placeholder="Search for an artist"
                 value=""
 />,
+              <p
+                className="search-error"
+/>,
               <button>
                 Search
 </button>,
@@ -666,6 +764,18 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "search-error",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "p",
             },
             Object {
               "instance": null,
@@ -713,7 +823,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -725,6 +835,7 @@ ShallowWrapper {
     }
     searchResults={
         Object {
+            "searchError": null,
             "searchResults": Array [],
           }
     }
@@ -735,7 +846,7 @@ ShallowWrapper {
         Object {
             "loggedIn": false,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }

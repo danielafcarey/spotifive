@@ -16,14 +16,15 @@ describe('Search', () => {
     mockProps = {
       accessToken: 'a',
       user: { 
-        userInfo: {userId: 1 },
+        userInfo: { userId: '1' },
         loggedIn: true
       },
       searchResults: { 
-        searchResults: [] 
+        searchResults: [],
+        searchError: null
       },
       artist: { 
-        artist: { artistId: 1 },
+        artist: { artistId: '1' },
         artistError: null
       },
       submitUpdateSearch: jest.fn(),
@@ -99,6 +100,36 @@ describe('Search', () => {
       expect(wrapper.state('searchInput')).toEqual('');
     })
 
+  })
+
+  describe('componentDidUpdate', () => {
+
+    it('calls updateSearchError if searchResults updated', () => {
+      const wrapperInst = wrapper.instance();
+      wrapperInst.updateSearchError = jest.fn();
+      const prevProps = { searchResults: { searchResults: [{id: 'a'}] } }
+
+      wrapperInst.componentDidUpdate(prevProps);
+
+      expect(wrapperInst.updateSearchError).toHaveBeenCalled();
+    })
+  })
+
+  describe('updateSearchError', () => {
+
+    it('updates searchError in state if search results are empty', () => {
+      wrapper.instance().updateSearchError();
+
+      expect(wrapper.state('searchError')).toEqual('Sorry! We didn\'t find that artist.');
+    })
+
+    it('udpates searchError in state if search results are not empty', () => {
+
+      mockProps.searchResults.searchResults = [{ id: 1 }];
+      wrapper.instance().updateSearchError();
+
+      expect(wrapper.state('searchError')).toEqual('');
+    })
   })
 
   describe('selectArtist', () => {

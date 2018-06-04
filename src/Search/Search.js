@@ -21,18 +21,25 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: ''
+      searchInput: '',
+      searchError: ''
     }
 
     this.props.updateArtist({});
   }
 
-  componentDidUpdate = () => {
+  componentDidUpdate = (prevProps, prevState) => {
     const { artist, artistError } = this.props.artist;
+    const { searchResults } = this.props.searchResults;
 
     if (Object.keys(artist).length !== 0 && artistError === null) {
       this.props.history.push('/tryit');
     }
+
+    if (prevProps.searchResults.searchResults.length !== searchResults.length) {
+      this.updateSearchError();
+    }
+
   }
 
   handleChange = (event) => {
@@ -42,9 +49,21 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { submitUpdateSearch, accessToken, searchResults } = this.props;
+
     document.activeElement.blur();
-    this.props.submitUpdateSearch(this.state.searchInput, this.props.accessToken);
+    submitUpdateSearch(this.state.searchInput, accessToken);
     this.setState({ searchInput: '' })
+  }
+
+  updateSearchError = () => {
+    const { searchResults } = this.props.searchResults;
+
+    if (searchResults.length < 1) {
+      this.setState({ searchError: 'Sorry! We didn\'t find that artist.' });
+    } else {
+      this.setState({ searchError: '' });
+    }
   }
 
   selectArtist = (artistId) => {
@@ -69,7 +88,10 @@ class Search extends Component {
             onChange={ this.handleChange }
             placeholder='Search for an artist'
           /> 
-          <button>Search</button>
+          <p className='search-error' >{ this.state.searchError }</p>
+          <button
+            disabled={ this.state.searchInput === '' } 
+          >Search</button>
         </form>
         { searchResults.searchResults.length < 1 ?
             <Instructions /> :

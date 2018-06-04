@@ -22,7 +22,7 @@ describe('SearchResults', () => {
   })
 
   it('matches the snapshot if there are search results', () => {
-    mockProps.searchResults.searchResults = ['result'];
+    mockProps.searchResults.searchResults = [{ name: 'result' }];
     const wrapper = shallow(<SearchResults { ...mockProps } />);
 
     expect(wrapper).toMatchSnapshot();
