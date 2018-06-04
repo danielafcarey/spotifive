@@ -4,7 +4,7 @@ import ArtistCard from '../ArtistCard/ArtistCard';
 
 const SearchResults = (props) => {
   const { selectArtist } = props;
-  const { searchResults, searchError } = props.searchResults;
+  const { searchResults } = props.searchResults;
 
   if (searchResults.length < 1) {
     return <Instructions />;
