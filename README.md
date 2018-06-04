@@ -2,15 +2,24 @@
 
 ## Synopsis
 
-Project description
+Spotifive is an app that helps you quickly add new music to try to a Spotifive playlist in your Spotify account. 
+Search for an artist you want to try, click Try It, and that artist's top 5 songs will be added to a *Spotifive* playlist in your Spotify account.
+
+*Try it out here*: [try-spotifive.firebaseapp.com](http://try-spotifive.firebaseapp.com)
 
 ### Tools 
 
-* Api data from [link to data](https://swapi.co/documentation)
+* Api data from [Spotify](https://developer.spotify.com/documentation/)
+* Hosting by [Firebase](https://firebase.google.com/)
 
 ### *Example* 
 
-![main screen](./src/images/main.png)
+![Sign In](./src/images/signin.png)
+![Search](./src/images/search1.png)
+![Search](./src/images/search2.png)
+![Try It](./src/images/tryit.png)
+![Success](./src/images/success.png)
+![Spotifive on Spotify](./src/images/spotify.png)
 
 ---
 
@@ -18,6 +27,6 @@ Project description
 
 Daniela Carey
 
-_(**Turing School of Software & Design Front-end Engineering project - Mod 3:** [Project Spec](https://github.com/turingschool-examples/headcount2.0))_ 
+_(**Turing School of Software & Design Front-end Engineering project - Mod 3:** [Project Spec](http://frontend.turing.io/projects/self-directed-project.html))_ 
 
 
