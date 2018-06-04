@@ -1,10 +1,12 @@
 const getAccessToken = (url) => {
+  debugger;
   const splitUrl = url.split('=');
 
   return splitUrl[1].split('&')[0];
 }
 
 const cleanUserData = (userData, playlists) => {
+  debugger
   const spotifive = playlists.find(playlist => {
     return playlist.name === 'Spotifive'
   });
@@ -12,12 +14,12 @@ const cleanUserData = (userData, playlists) => {
   return {
     userId: userData.id,
     name: userData.display_name,
-    image: userData.images[0].url,
+    image: userData.images.length > 0 ? userData.images[0].url : null,
     spotifive: {
       spotifiveId: spotifive ? spotifive.id : null,
       link: spotifive ? spotifive.external_urls.spotify : null
     }
-  }; 
+  };
 }
 
 const cleanSearchResults = (searchResults) => {

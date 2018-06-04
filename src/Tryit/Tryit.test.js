@@ -60,6 +60,17 @@ describe('Tryit', () => {
 
   })
 
+  describe('changeRoute', () => {
+
+    it('sets the state with the selected route', () => {
+
+    })
+
+    it('calls updateArtist, updateSearchResults, and updateSpotifiveSuccess with the correct args', () => {
+
+    })
+  })
+
   describe('mapStateToProps', () => {
     
     it('returns a state object with the correct state', () => {

@@ -14,6 +14,11 @@ ShallowWrapper {
             "artistError": null,
           }
     }
+    history={
+        Object {
+            "push": [Function],
+          }
+    }
     searchResults={
         Object {
             "searchResults": Array [],
@@ -21,6 +26,7 @@ ShallowWrapper {
     }
     submitUpdateArtist={[Function]}
     submitUpdateSearch={[Function]}
+    updateArtist={[Function]}
     user={
         Object {
             "loggedIn": true,
@@ -40,27 +46,167 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "push": false,
-      "to": "/tryit",
+      "children": Array [
+        <form
+          onSubmit={[Function]}
+>
+          <input
+                    onChange={[Function]}
+                    placeholder="Search for an artist"
+                    value=""
+          />
+          <button>
+                    Search
+          </button>
+</form>,
+        <Instructions />,
+      ],
+      "className": "search",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              onChange={[Function]}
+              placeholder="Search for an artist"
+              value=""
+/>,
+            <button>
+              Search
+</button>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "onChange": [Function],
+              "placeholder": "Search for an artist",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Search",
+            },
+            "ref": null,
+            "rendered": "Search",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "push": false,
-        "to": "/tryit",
+        "children": Array [
+          <form
+            onSubmit={[Function]}
+>
+            <input
+                        onChange={[Function]}
+                        placeholder="Search for an artist"
+                        value=""
+            />
+            <button>
+                        Search
+            </button>
+</form>,
+          <Instructions />,
+        ],
+        "className": "search",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                onChange={[Function]}
+                placeholder="Search for an artist"
+                value=""
+/>,
+              <button>
+                Search
+</button>,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "onChange": [Function],
+                "placeholder": "Search for an artist",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Search",
+              },
+              "ref": null,
+              "rendered": "Search",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -87,6 +233,11 @@ ShallowWrapper {
             "artistError": null,
           }
     }
+    history={
+        Object {
+            "push": [Function],
+          }
+    }
     searchResults={
         Object {
             "searchResults": Array [
@@ -99,6 +250,7 @@ ShallowWrapper {
     }
     submitUpdateArtist={[Function]}
     submitUpdateSearch={[Function]}
+    updateArtist={[Function]}
     user={
         Object {
             "loggedIn": true,
@@ -118,27 +270,211 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "push": false,
-      "to": "/tryit",
+      "children": Array [
+        <form
+          onSubmit={[Function]}
+>
+          <input
+                    onChange={[Function]}
+                    placeholder="Search for an artist"
+                    value=""
+          />
+          <button>
+                    Search
+          </button>
+</form>,
+        <SearchResults
+          searchResults={
+                    Object {
+                              "searchResults": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "hi",
+                                },
+                              ],
+                            }
+          }
+          selectArtist={[Function]}
+/>,
+      ],
+      "className": "search",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              onChange={[Function]}
+              placeholder="Search for an artist"
+              value=""
+/>,
+            <button>
+              Search
+</button>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "onChange": [Function],
+              "placeholder": "Search for an artist",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Search",
+            },
+            "ref": null,
+            "rendered": "Search",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "searchResults": Object {
+            "searchResults": Array [
+              Object {
+                "id": 1,
+                "name": "hi",
+              },
+            ],
+          },
+          "selectArtist": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "push": false,
-        "to": "/tryit",
+        "children": Array [
+          <form
+            onSubmit={[Function]}
+>
+            <input
+                        onChange={[Function]}
+                        placeholder="Search for an artist"
+                        value=""
+            />
+            <button>
+                        Search
+            </button>
+</form>,
+          <SearchResults
+            searchResults={
+                        Object {
+                                    "searchResults": Array [
+                                      Object {
+                                        "id": 1,
+                                        "name": "hi",
+                                      },
+                                    ],
+                                  }
+            }
+            selectArtist={[Function]}
+/>,
+        ],
+        "className": "search",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                onChange={[Function]}
+                placeholder="Search for an artist"
+                value=""
+/>,
+              <button>
+                Search
+</button>,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "onChange": [Function],
+                "placeholder": "Search for an artist",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Search",
+              },
+              "ref": null,
+              "rendered": "Search",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "searchResults": Object {
+              "searchResults": Array [
+                Object {
+                  "id": 1,
+                  "name": "hi",
+                },
+              ],
+            },
+            "selectArtist": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -163,6 +499,11 @@ ShallowWrapper {
             "artistError": null,
           }
     }
+    history={
+        Object {
+            "push": [Function],
+          }
+    }
     searchResults={
         Object {
             "searchResults": Array [],
@@ -170,6 +511,7 @@ ShallowWrapper {
     }
     submitUpdateArtist={[Function]}
     submitUpdateSearch={[Function]}
+    updateArtist={[Function]}
     user={
         Object {
             "loggedIn": true,
@@ -376,6 +718,11 @@ ShallowWrapper {
             "artistError": null,
           }
     }
+    history={
+        Object {
+            "push": [Function],
+          }
+    }
     searchResults={
         Object {
             "searchResults": Array [],
@@ -383,6 +730,7 @@ ShallowWrapper {
     }
     submitUpdateArtist={[Function]}
     submitUpdateSearch={[Function]}
+    updateArtist={[Function]}
     user={
         Object {
             "loggedIn": false,

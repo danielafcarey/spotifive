@@ -8,7 +8,7 @@ const Header = (props) => {
     <div className='Header' >
       <img 
         className='profile-photo'
-        src={ props.image ? props.image : '' } 
+        src={ props.image !== null ? props.image : props.name } 
         alt='' />
       <h1>Spotifive</h1> 
       <img 
@@ -20,7 +20,13 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  image: state.user.userInfo.image
+  image: state.user.userInfo.image,
+  name: state.user.userInfo.name
 });
+
+export {
+  Header,
+  mapStateToProps
+}
 
 export default connect(mapStateToProps)(Header);

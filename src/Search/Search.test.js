@@ -27,9 +27,11 @@ describe('Search', () => {
         artistError: null
       },
       submitUpdateSearch: jest.fn(),
-      submitUpdateArtist: jest.fn()
-    }
-    wrapper = shallow(<Search { ...mockProps } />)
+      submitUpdateArtist: jest.fn(),
+      updateArtist: jest.fn(),
+      history: { push: jest.fn() }
+    };
+    wrapper = shallow(<Search { ...mockProps } />);
   })
 
   it('matches the snapshot', () => {
@@ -161,6 +163,18 @@ describe('Search', () => {
         accessToken: '2'
       }
       mappedProps.submitUpdateArtist('hi', '2');
+
+      expect(dispatch).toHaveBeenCalledWith(mockAction)
+    })
+
+    it('calls dispatch with the correct arguments when submitUpdateArtist is invoked', () => {
+      const dispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'UPDATE_ARTIST',
+        artist: 'i am an artist'
+      }
+      mappedProps.updateArtist('i am an artist');
 
       expect(dispatch).toHaveBeenCalledWith(mockAction)
     })
