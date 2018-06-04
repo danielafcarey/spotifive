@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { string } from 'prop-types';
 
 const Header = (props) => {
   const logo = require('../images/logo.png');
@@ -23,6 +24,11 @@ const mapStateToProps = (state) => ({
   image: state.user.userInfo.image,
   name: state.user.userInfo.name
 });
+
+Header.propTypes = {
+  name: string,
+  image: string
+}
 
 export {
   Header,

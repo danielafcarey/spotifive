@@ -8,6 +8,14 @@ import {
   submitUpdateArtist,
   updateArtist
 } from '../actions';
+import {
+  string,
+  shape,
+  arrayOf,
+  func,
+  bool,
+  object
+} from 'prop-types';
 
 class Search extends Component {
   constructor(props) {
@@ -73,6 +81,34 @@ class Search extends Component {
       </div>
     )
   }
+}
+
+Search.propTypes = {
+  accessToken: string,
+  user: shape({
+    loggedIn: bool,
+    userInfo: shape({
+      userId: string,
+      name: string,
+      image: string,
+      spotifive: shape({
+        spotifiveId: string,
+        link: string
+      })
+    }),
+    loginError: string
+  }),
+  searchResults: shape({
+    searchResults: arrayOf(object),
+    searchError: string
+  }),
+  artist: shape({
+    artist: object,
+    artistError: string
+  }),
+  submitUpdateSearch: func,
+  submitUpdateArtist: func,
+  updateArtist: func
 }
 
 const mapStateToProps = (state) => ({
