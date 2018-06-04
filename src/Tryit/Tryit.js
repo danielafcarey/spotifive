@@ -63,7 +63,7 @@ class Tryit extends Component {
     } else if (route === 'search') {
       return <Redirect to='/search' />;
     } else if (route === 'spotify') {
-      window.open(userInfo.spotifive.link, "_blank")
+      window.open(userInfo.spotifive.link, '_blank');
     }
 
     if (spotifiveSuccess) {
