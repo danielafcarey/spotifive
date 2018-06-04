@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, func, arrayOf, shape, object } from 'prop-types';
 import Instructions from '../Instructions/Instructions';
 import ArtistCard from '../ArtistCard/ArtistCard';
 
@@ -31,6 +32,14 @@ const SearchResults = (props) => {
     )
   }
 
+}
+
+SearchResults.propTypes = {
+  selectArtist: func,
+  searchResults: shape({
+    searchResults: arrayOf(object),
+    searchError: string
+  })
 }
 
 export default SearchResults;

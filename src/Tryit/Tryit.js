@@ -7,6 +7,13 @@ import {
   updateSearchResults,
   updateSpotifiveSuccess
 } from '../actions';
+import {
+  string,
+  shape,
+  bool,
+  object,
+  func
+} from 'prop-types';
 import Success from '../Success/Success';
 
 class Tryit extends Component {
@@ -96,6 +103,32 @@ class Tryit extends Component {
       </div>
     )
   }
+}
+
+Tryit.propTypes = {
+  accessToken: string,
+  user: shape({
+    loggedIn: bool,
+    userInfo: shape({
+      userId: string,
+      name: string,
+      image: string,
+      spotifive: shape({
+        spotifiveId: string,
+        link: string
+      })
+    }),
+    loginError: string
+  }),
+  artist: shape({
+    artist: object,
+    artistError: string
+  }),
+  spotifiveSuccess: bool,
+  submitUpdateSpotifive: func,
+  updateArtist: func,
+  updateSpotifiveSuccess: func,
+  updateSearchResults: func
 }
 
 const mapStateToProps = (state) => ({

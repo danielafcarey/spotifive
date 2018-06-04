@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bool, string, func } from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 class Success extends Component {
@@ -35,8 +36,14 @@ class Success extends Component {
         </button>
       </div>  
     )
-
   }
+}
+
+Success.propTypes = {
+  changeRoute: func,
+  name: string,
+  image: string,
+  loggedIn: bool
 }
 
 export default Success;
