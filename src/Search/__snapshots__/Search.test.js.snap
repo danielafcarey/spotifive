@@ -9,7 +9,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -31,7 +31,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -228,7 +228,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -255,7 +255,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -516,7 +516,7 @@ ShallowWrapper {
         Object {
             "loggedIn": true,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }
@@ -713,7 +713,7 @@ ShallowWrapper {
     artist={
         Object {
             "artist": Object {
-              "artistId": 1,
+              "artistId": "1",
             },
             "artistError": null,
           }
@@ -735,7 +735,7 @@ ShallowWrapper {
         Object {
             "loggedIn": false,
             "userInfo": Object {
-              "userId": 1,
+              "userId": "1",
             },
           }
     }

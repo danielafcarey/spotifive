@@ -59,7 +59,9 @@ ShallowWrapper {
         Object {
             "searchError": null,
             "searchResults": Array [
-              "result",
+              Object {
+                "name": "result",
+              },
             ],
           }
     }
@@ -85,7 +87,7 @@ ShallowWrapper {
           <ArtistCard
                     id={undefined}
                     image={undefined}
-                    name={undefined}
+                    name="result"
                     selectArtist={[Function]}
           />
 </ul>,
@@ -114,7 +116,7 @@ ShallowWrapper {
             <ArtistCard
               id={undefined}
               image={undefined}
-              name={undefined}
+              name="result"
               selectArtist={[Function]}
 />,
           ],
@@ -128,7 +130,7 @@ ShallowWrapper {
             "props": Object {
               "id": undefined,
               "image": undefined,
-              "name": undefined,
+              "name": "result",
               "selectArtist": [Function],
             },
             "ref": null,
@@ -155,7 +157,7 @@ ShallowWrapper {
             <ArtistCard
                         id={undefined}
                         image={undefined}
-                        name={undefined}
+                        name="result"
                         selectArtist={[Function]}
             />
 </ul>,
@@ -184,7 +186,7 @@ ShallowWrapper {
               <ArtistCard
                 id={undefined}
                 image={undefined}
-                name={undefined}
+                name="result"
                 selectArtist={[Function]}
 />,
             ],
@@ -198,7 +200,7 @@ ShallowWrapper {
               "props": Object {
                 "id": undefined,
                 "image": undefined,
-                "name": undefined,
+                "name": "result",
                 "selectArtist": [Function],
               },
               "ref": null,

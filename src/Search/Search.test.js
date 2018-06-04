@@ -16,14 +16,14 @@ describe('Search', () => {
     mockProps = {
       accessToken: 'a',
       user: { 
-        userInfo: {userId: 1 },
+        userInfo: { userId: '1' },
         loggedIn: true
       },
       searchResults: { 
         searchResults: [] 
       },
       artist: { 
-        artist: { artistId: 1 },
+        artist: { artistId: '1' },
         artistError: null
       },
       submitUpdateSearch: jest.fn(),

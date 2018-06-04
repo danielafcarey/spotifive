@@ -50,7 +50,7 @@ ShallowWrapper {
           name="spotify"
           onClick={[Function]}
 >
-          Go to Spotify
+          Go to your Spotifive
 </button>,
       ],
       "className": "success",
@@ -110,12 +110,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Go to Spotify",
+          "children": "Go to your Spotifive",
           "name": "spotify",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Go to Spotify",
+        "rendered": "Go to your Spotifive",
         "type": "button",
       },
     ],
@@ -149,7 +149,7 @@ ShallowWrapper {
             name="spotify"
             onClick={[Function]}
 >
-            Go to Spotify
+            Go to your Spotifive
 </button>,
         ],
         "className": "success",
@@ -209,12 +209,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Go to Spotify",
+            "children": "Go to your Spotifive",
             "name": "spotify",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Go to Spotify",
+          "rendered": "Go to your Spotifive",
           "type": "button",
         },
       ],
