@@ -34,6 +34,7 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    document.activeElement.blur();
     this.props.submitUpdateSearch(this.state.searchInput, this.props.accessToken);
     this.setState({ searchInput: '' })
   }

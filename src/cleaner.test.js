@@ -36,6 +36,27 @@ describe('cleanUserData', () => {
     expect(result).toEqual(expected);
   })
 
+  it('returns a cleaned user object with image as null if user has no image', () => {
+    const mockPlaylists = mockUserPlaylists2.items;
+    const mockUser = {
+      id: 1,
+      display_name: 'it me',
+      images: []
+    }
+    const expected = {
+      userId: 1,
+      name: 'it me',
+      spotifive: {
+        spotifiveId: null,
+        link: null
+      },
+      image: null
+    }
+
+    const result = cleaner.cleanUserData(mockUser, mockPlaylists);
+    expect(result).toEqual(expected);
+  })
+
   it('returns a user object with spotifiveId if playlists include Spotifive', () => {
     const mockPlaylists = [{ 
       name: 'Spotifive',

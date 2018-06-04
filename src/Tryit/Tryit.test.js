@@ -33,6 +33,7 @@ describe('Tryit', () => {
       },
       submitUpdateSpotifive: jest.fn(),
       updateArtist: jest.fn(),
+      updateSpotifiveSuccess: jest.fn(),
       updateSearchResults: jest.fn()
     };
     wrapper = shallow(<Tryit { ...mockProps } />);
@@ -50,6 +51,23 @@ describe('Tryit', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
+  it('matches the snapshot if props.spotifiveSuccess is true', () => {
+    mockProps.spotifiveSuccess = true;
+    wrapper = shallow(<Tryit { ...mockProps } />);
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('calls window.open with correct props if state.route is spotify', () => {
+    window.open = jest.fn();
+    mockProps.user.userInfo.spotifive.link = 'url';
+    wrapper = shallow(<Tryit { ...mockProps } />);
+    wrapper.setState({ route: 'spotify' });
+    wrapper.update();
+
+    expect(window.open).toHaveBeenCalledWith('url', '_blank');
+  })
+
   describe('handleClick', () => {
 
     it('calls submitUpdateSpotifive with the correct arguments', () => {
@@ -58,6 +76,25 @@ describe('Tryit', () => {
       expect(mockProps.submitUpdateSpotifive).toHaveBeenCalledWith('a', null, ['track1', 'track2'], '1');
     })
 
+  })
+
+  describe('changeRoute', () => {
+
+    it('sets the state with the selected route', () => {
+      wrapper.setState({ route: '' });
+      wrapper.instance().changeRoute('search');
+
+      expect(wrapper.state('route')).toEqual('search');
+    })
+
+    it('calls updateArtist, updateSearchResults, and updateSpotifiveSuccess with the correct args', () => {
+      const wrapperInst = wrapper.instance();
+      wrapperInst.changeRoute('search');
+
+      expect(wrapperInst.props.updateArtist).toHaveBeenCalledWith({});
+      expect(wrapperInst.props.updateSearchResults).toHaveBeenCalledWith([]);
+      expect(wrapperInst.props.updateSpotifiveSuccess).toHaveBeenCalledWith(false);
+    })
   })
 
   describe('mapStateToProps', () => {
