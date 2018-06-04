@@ -15,7 +15,8 @@
   .Header .profile-photo {
     position: absolute;
     left: 10px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    object-fit: cover; }
 
 .search {
   width: 45%;
@@ -62,7 +63,8 @@
     height: 50px;
     width: 50px;
     padding: 10px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    object-fit: cover; }
   .artist-card p {
     text-align: left;
     padding: 0 15px;
