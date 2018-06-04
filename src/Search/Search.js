@@ -89,7 +89,9 @@ class Search extends Component {
             placeholder='Search for an artist'
           /> 
           <p className='search-error' >{ this.state.searchError }</p>
-          <button>Search</button>
+          <button
+            disabled={ this.state.searchInput === '' } 
+          >Search</button>
         </form>
         { searchResults.searchResults.length < 1 ?
             <Instructions /> :
