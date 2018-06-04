@@ -1,12 +1,10 @@
 const getAccessToken = (url) => {
-  debugger;
   const splitUrl = url.split('=');
 
   return splitUrl[1].split('&')[0];
 }
 
 const cleanUserData = (userData, playlists) => {
-  debugger
   const spotifive = playlists.find(playlist => {
     return playlist.name === 'Spotifive'
   });
