@@ -12,7 +12,7 @@ Search for an artist you want to try, click Try It, and that artist's top 5 song
 * Api data from [Spotify](https://developer.spotify.com/documentation/)
 * Hosting by [Firebase](https://firebase.google.com/)
 
-### *Example* 
+## Example 
 
 #### Sign in:
 ![Sign In](./src/images/signin.png)
