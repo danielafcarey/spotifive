@@ -14,11 +14,18 @@ Search for an artist you want to try, click Try It, and that artist's top 5 song
 
 ### *Example* 
 
+#### Sign in:
 ![Sign In](./src/images/signin.png)
+
+#### Search:
 ![Search](./src/images/search1.png)
 ![Search](./src/images/search2.png)
+
+#### Try it:
 ![Try It](./src/images/tryit.png)
 ![Success](./src/images/success.png)
+
+#### Spotifive on Spotify:
 ![Spotifive on Spotify](./src/images/spotify.png)
 
 ---
