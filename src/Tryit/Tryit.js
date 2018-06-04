@@ -62,12 +62,13 @@ class Tryit extends Component {
   render() {
     const { loggedIn, userInfo } = this.props.user;
     const { name, image, topTracks } = this.props.artist.artist;
+    const { artist } = this.props.artist;
     const { spotifiveSuccess } = this.props;
     const { route } = this.state;
 
     if (!loggedIn) {
       return <Redirect to='/' />;
-    } else if (route === 'search') {
+    } else if (route === 'search' || Object.keys(artist).length < 1) {
       return <Redirect to='/search' />;
     } else if (route === 'spotify') {
       window.open(userInfo.spotifive.link, '_blank');

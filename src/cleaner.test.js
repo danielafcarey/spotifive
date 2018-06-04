@@ -93,6 +93,26 @@ describe('cleanSearchResults', () => {
 
     expect(result).toEqual(expected);
   })
+
+  it('sets the user image as null if there is no image', () => {
+    const mockResultsWithNoImage = {
+      artists: {
+        items: [{
+          name: 'it me',
+          id: 'garbage',
+          images: []
+        }]
+      }
+    };
+    const expected = [{
+      name: 'it me',
+      id: 'garbage',
+      image: null
+    }];
+    const result = cleaner.cleanSearchResults(mockResultsWithNoImage);
+
+    expect(result).toEqual(expected);
+  })
 })
 
 describe('cleanArtistData', () => {
@@ -113,6 +133,26 @@ describe('cleanArtistData', () => {
 
     expect(result).toEqual(expected);
   }) 
+
+  it('sets the artist image to null if there is no image', () => {
+    const mockTopTracksArg = {
+      tracks: [{ name: 'a track', uri: 'uri' }]
+    }
+    const artistDataNoImage = {
+      name: 'artsy fartsy',
+      id: '1',
+      images: []
+    }
+    const expected = {
+      name: 'artsy fartsy',
+      id: '1',
+      image: null,
+      topTracks: mockTopTracksArg.tracks
+    }
+    const result = cleaner.cleanArtistData(artistDataNoImage, mockTopTracksArg);
+
+    expect(result).toEqual(expected);
+  })
 
 })
 

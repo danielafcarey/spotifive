@@ -68,6 +68,20 @@ describe('Tryit', () => {
     expect(window.open).toHaveBeenCalledWith('url', '_blank');
   })
 
+  it('matches the snapshot if state.route is search', () => {
+    wrapper.setState({ route: 'route' });
+    wrapper.update();
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('matches the snapshot if there is no artist', () => {
+    mockProps.artist.artist = {};
+    wrapper = shallow(<Tryit { ...mockProps } />);
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
   describe('handleClick', () => {
 
     it('calls submitUpdateSpotifive with the correct arguments', () => {

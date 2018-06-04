@@ -60,7 +60,7 @@ class Search extends Component {
     const { searchResults } = this.props.searchResults;
 
     if (searchResults.length < 1) {
-      this.setState({ searchError: 'Sorry! We didn\'t find that artist' });
+      this.setState({ searchError: 'Sorry! We didn\'t find that artist.' });
     } else {
       this.setState({ searchError: '' });
     }
