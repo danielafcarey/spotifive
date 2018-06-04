@@ -3,9 +3,9 @@
 ## Synopsis
 
 Spotifive is an app that helps you quickly add new music to try to a Spotifive playlist in your Spotify account. 
-Search for an artist you want to try, click Try It, and that artist's top 5 songs will be added to a *Spotifive* playlist in your Spotify account.
+Search for an artist you want to try, click Try It, and that artist's top 5 songs will be added to a **Spotifive** playlist in your Spotify account.
 
-*Try it out here*: [try-spotifive.firebaseapp.com](http://try-spotifive.firebaseapp.com)
+**Try it out here**: [try-spotifive.firebaseapp.com](http://try-spotifive.firebaseapp.com)
 
 ### Tools 
 
