@@ -9,7 +9,7 @@ class Success extends Component {
   }
 
   render() {
-    const { name, image, topTracks, loggedIn } = this.props; 
+    const { name, image, loggedIn } = this.props; 
 
     if (!loggedIn) {
       return <Redirect to='/' />;

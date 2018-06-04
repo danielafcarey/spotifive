@@ -45,7 +45,6 @@ class Search extends Component {
   render() {
     const { loggedIn } = this.props.user;
     const { searchResults } = this.props;
-    const { artist, artistError } = this.props.artist;
 
     if (!loggedIn) {
       return <Redirect to='/' />
