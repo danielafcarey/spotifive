@@ -65,6 +65,7 @@ class Tryit extends Component {
     const { artist } = this.props.artist;
     const { spotifiveSuccess } = this.props;
     const { route } = this.state;
+    const stockImage = require('../images/logo-grey.png');
 
     if (!loggedIn) {
       return <Redirect to='/' />;
@@ -90,7 +91,7 @@ class Tryit extends Component {
       <div className='tryit'>
         <img 
           className='artist-image'
-          src={ image } 
+          src={ image === null ? stockImage : image } 
           alt={ name }/>
         <h1>{ name }</h1>
         <button
