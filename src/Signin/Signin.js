@@ -7,7 +7,7 @@ const Signin = () => {
     <div className='signin'>
       <p>
         Spotifive helps you discover new music 
-        by generating a playlist of new music to try 
+        by generating a playlist of music to try 
         based on the artists you choose.
       </p>
       <p>To begin, sign in with Spotify:</p>
