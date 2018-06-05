@@ -60,14 +60,14 @@ class Search extends Component {
 
     if (isNaN(parseInt(searchInput, 10)) && searchInput.length > 1) {
       artistSuggestions = artistTrie.suggest(searchInput);
-    }
-
-    if (searchInput.length <= 1) {
+    } else if (searchInput.length <= 1) {
       artistSuggestions = [];
-    }
+    } 
 
     if (artistSuggestions) {
-      this.setState({suggestions: artistSuggestions });
+      this.setState({ suggestions: artistSuggestions });
+    } else if (!artistSuggestions && searchInput.length > 1) {
+      this.setState({ suggestions: [searchInput] })
     }
   }
   
