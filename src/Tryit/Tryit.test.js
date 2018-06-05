@@ -82,6 +82,13 @@ describe('Tryit', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
+  it('matches the snapshot if there is no artist image', () => {
+    mockProps.artist.artist.image = null;
+    wrapper = shallow(<Tryit { ...mockProps } />);
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
   describe('handleClick', () => {
 
     it('calls submitUpdateSpotifive with the correct arguments', () => {

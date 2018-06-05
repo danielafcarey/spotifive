@@ -18,6 +18,9 @@
     border-radius: 50%;
     object-fit: cover; }
 
+.authorize p {
+  text-align: center; }
+
 .search {
   width: 45%;
   margin: 50px auto;

@@ -34,7 +34,7 @@ class Authorize extends Component {
 
     return (
       <div className='authorize' >
-        <p>{ loginError }</p>
+        <p>{ loginError === null ? '' : 'There was a problem signing in. Please try again.' }</p>
       </div>
     );
   }
