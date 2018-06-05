@@ -10,17 +10,17 @@ const SearchResults = (props) => {
   if (searchResults.length < 1) {
     return <Instructions />;
   } else {
-    const listOfResults = searchResults.map((result, i) => {
+    const listOfResults = searchResults.map((result, index) => {
       return (
         <ArtistCard 
           name={ result.name } 
           id={ result.id }
           image={ result.image }
           selectArtist={ selectArtist } 
-          key={`artistKey${i}`}
+          key={`artistKey${index}`}
         />     
-      )
-    })
+      );
+    });
 
     return (
       <div className='search-results'>
@@ -29,10 +29,9 @@ const SearchResults = (props) => {
           { listOfResults }
         </ul>
       </div>
-    )
+    );
   }
-
-}
+};
 
 SearchResults.propTypes = {
   selectArtist: func,
@@ -40,6 +39,6 @@ SearchResults.propTypes = {
     searchResults: arrayOf(object),
     searchError: string
   })
-}
+};
 
 export default SearchResults;

@@ -21,7 +21,7 @@ class Tryit extends Component {
     super(props);
     this.state = {
       route: ''
-    }
+    };
   }
 
   handleClick = () => {
@@ -37,16 +37,16 @@ class Tryit extends Component {
   }
 
   getTopTrackTitles = (topTracks) => {
-    const check = require('../images/check-green.png')
+    const check = require('../images/check-green.png');
 
-    return topTracks.map((track, i) => {
+    return topTracks.map((track, index) => {
       return (
-        <div className='track' key={ track.name + i }>
+        <div className='track' key={ track.name + index }>
           <img src={ check } alt={ track.name }/>
           <li>{ track.name }</li>
         </div>
-      )
-    })
+      );
+    });
   }
 
   changeRoute = (route) => {
@@ -54,7 +54,7 @@ class Tryit extends Component {
 
     if (route === 'search') {
       this.props.updateArtist({});
-      this.props.updateSearchResults([])
+      this.props.updateSearchResults([]);
       this.props.updateSpotifiveSuccess(false);
     }
   }
@@ -81,7 +81,7 @@ class Tryit extends Component {
         loggedIn,
         topTracks: this.getTopTrackTitles(topTracks),
         changeRoute: this.changeRoute
-      } 
+      }; 
 
       return <Success { ...successProps } />;
     }
@@ -102,7 +102,7 @@ class Tryit extends Component {
           { topTracks ? this.getTopTrackTitles(topTracks) : null } 
         </ul>
       </div>
-    )
+    );
   }
 }
 
@@ -130,28 +130,34 @@ Tryit.propTypes = {
   updateArtist: func,
   updateSpotifiveSuccess: func,
   updateSearchResults: func
-}
+};
 
 const mapStateToProps = (state) => ({
   accessToken: state.accessToken,
   user: state.user,
   artist: state.artist,
   spotifiveSuccess: state.spotifiveSuccess
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   submitUpdateSpotifive: (userId, spotifiveId, topTracks, accessToken) => {
-    dispatch(submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken))
+    return dispatch(
+      submitUpdateSpotifive(userId, spotifiveId, topTracks, accessToken)
+    );
   },
   updateArtist: (artist) => dispatch(updateArtist(artist)),
-  updateSearchResults: (searchResults) => dispatch(updateSearchResults(searchResults)),
-  updateSpotifiveSuccess: (success) => dispatch(updateSpotifiveSuccess(success))
-})
+  updateSearchResults: (searchResults) => {
+    return dispatch(updateSearchResults(searchResults));
+  },
+  updateSpotifiveSuccess: (success) => {
+    return dispatch(updateSpotifiveSuccess(success));
+  }
+});
 
 export {
   Tryit, 
   mapStateToProps,
   mapDispatchToProps
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Tryit));

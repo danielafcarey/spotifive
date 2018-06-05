@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const mockUserData = {
   "birthdate": "1937-06-01",
   "country": "SE",

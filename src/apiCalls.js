@@ -13,8 +13,7 @@ const getUserData = async (accessToken) => {
   } else {
     throw Error('There was a problem signing in');
   }   
-
-}
+};
 
 const getUserPlaylists = async (accessToken) => {
   const url = 'https://api.spotify.com/v1/me/playlists?limit=50';
@@ -25,12 +24,13 @@ const getUserPlaylists = async (accessToken) => {
 
   if (response.status === 200) {
     const data = await response.json();
-    const allPlaylists = await getAllPlaylists(data.items, data.next, optionsObject)
-    return allPlaylists
+    const { items, next } = data;
+    const allPlaylists = await getAllPlaylists(items, next, optionsObject);
+    return allPlaylists;
   } else {
-    throw Error('There was a problem fetching your playlists')
+    throw Error('There was a problem fetching your playlists');
   }
-}
+};
 
 const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
   if (nextPage === null) {
@@ -40,12 +40,12 @@ const getAllPlaylists = async (prevPlaylists, nextPage, optionsObject) => {
 
   if (response.status === 200) {
     const data = await response.json();
-    const combinedPlaylists = [...data.items, ...prevPlaylists] 
-    return getAllPlaylists(combinedPlaylists, data.next, optionsObject)
+    const combinedPlaylists = [...data.items, ...prevPlaylists]; 
+    return getAllPlaylists(combinedPlaylists, data.next, optionsObject);
   } else {
-    throw Error('There was a problem fetching your playlists')
+    throw Error('There was a problem fetching your playlists');
   }
-}
+};
 
 const getSearchResults = async (searchString, accessToken) => {
   const searchQuery = searchString.split(' ').join('+');
@@ -58,12 +58,12 @@ const getSearchResults = async (searchString, accessToken) => {
   if (response.status === 200) {
     return await response.json();
   } else {
-    throw Error('There was a problem. Please try again.')
+    throw Error('There was a problem. Please try again.');
   }
-} 
+}; 
 
 const getArtistData = async (artistId, accessToken) => {
-  const url = `https://api.spotify.com/v1/artists/${artistId}`
+  const url = `https://api.spotify.com/v1/artists/${artistId}`;
   const optionsObject = {
     headers: { 'Authorization': `Bearer ${accessToken}` }
   };
@@ -75,10 +75,10 @@ const getArtistData = async (artistId, accessToken) => {
   } else {
     throw Error('There was a problem getting that artist.');
   }
-}
+};
 
 const getTopTracks = async (artistId, accessToken) => {
-  const url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`
+  const url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`;
   const optionsObject = {
     headers: { 'Authorization': `Bearer ${accessToken}` }
   };
@@ -87,15 +87,15 @@ const getTopTracks = async (artistId, accessToken) => {
   if (response.status === 200) {
     return await response.json();
   } else {
-    throw Error('There was a problem getting artists top tracks.')
+    throw Error('There was a problem getting artists top tracks.');
   }
-}
+};
 
 const createSpotifive = async (userId, accessToken) => {
   const playlistBody = {
     name: 'Spotifive',
     description: 'Check out this new music!'
-  }
+  };
   const optionsObject = {
     method: 'POST',
     headers: { 
@@ -103,17 +103,16 @@ const createSpotifive = async (userId, accessToken) => {
       'Content-type': 'application/json'
     },
     body: JSON.stringify(playlistBody)
-  }
+  };
   const url = `https://api.spotify.com/v1/users/${userId}/playlists`; 
   const response = await fetch(url, optionsObject);
 
   if (response.status < 300) {
     return await response.json();
   } else {
-    throw Error('Oops! There was a problem authorizing your account.')
+    throw Error('Oops! There was a problem authorizing your account.');
   } 
-
-}
+};
 
 const addTracks = async (userId, spotifiveId, topTracks, accessToken) => {
   const url = `https://api.spotify.com/v1/users/${userId}/playlists/${spotifiveId}/tracks`; 
@@ -136,12 +135,14 @@ const addTracks = async (userId, spotifiveId, topTracks, accessToken) => {
     if (response.status === 201) {
       return response;
     } else {
-      throw Error('Oops! There was a problem adding these songs. Please try again.')
+      throw Error(
+        'Oops! There was a problem adding these songs. Please try again.'
+      );
     }
-  } catch(error) {
-    throw error
+  } catch (error) {
+    throw error;
   }
-}
+};
 
 export {
   getUserData,
@@ -152,4 +153,4 @@ export {
   getTopTracks,
   createSpotifive,
   addTracks
-}
+};

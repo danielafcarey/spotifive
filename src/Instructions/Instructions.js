@@ -13,14 +13,19 @@ const Instructions = () => {
       </div>
       <div className='instruction'>
         <img src={ click } alt='Click'/>
-        <p>Click TryIt to add that artists' top 5 songs to your Spotifive playlist</p>
+        <p>
+          Click TryIt to add that artists&apos; top 5 songs 
+          to your Spotifive playlist
+        </p>
       </div>
       <div className='instruction'>
         <img src={ listen } alt='Listen'/>
-        <p>See new music in your Spotifive playlist in the Spotify app</p>
+        <p>
+          See new music in your Spotifive playlist in the Spotify app
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Instructions;

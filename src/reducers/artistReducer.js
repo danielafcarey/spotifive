@@ -1,7 +1,7 @@
 const initialState = {
   artist: {},
   artistError: null
-}
+};
 
 const artistReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +12,6 @@ const artistReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default artistReducer;

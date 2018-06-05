@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export const artistList = [
 "Drake",
 "Justin Bieber",

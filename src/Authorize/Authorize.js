@@ -7,7 +7,7 @@ import {
   submitUpdateUser
 } from '../actions';
 import { 
-  getAccessToken,
+  getAccessToken
 } from '../cleaner.js';
 
 class Authorize extends Component {
@@ -21,7 +21,7 @@ class Authorize extends Component {
     const { accessToken, submitUpdateUser } = this.props;
 
     if (prevProps.accessToken !== accessToken) {
-      submitUpdateUser(accessToken)
+      submitUpdateUser(accessToken);
     }
   }
 
@@ -29,14 +29,14 @@ class Authorize extends Component {
     const { loginError, loggedIn } = this.props.user;
 
     if (loggedIn) {
-      return <Redirect to='/search' />
+      return <Redirect to='/search' />;
     }
 
     return (
       <div className='authorize' >
         <p>{ loginError }</p>
       </div>
-    )
+    );
   }
 }
 
@@ -55,11 +55,12 @@ Authorize.propTypes = {
   user: PropTypes.object,
   updateAccessToken: PropTypes.func,
   submitUpdateUser: PropTypes.func
-}
+};
 
 export {
   Authorize,
   mapStateToProps,
   mapDispatchToProps
-}
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Authorize);

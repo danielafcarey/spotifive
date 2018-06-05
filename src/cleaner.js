@@ -2,11 +2,11 @@ const getAccessToken = (url) => {
   const splitUrl = url.split('=');
 
   return splitUrl[1].split('&')[0];
-}
+};
 
 const cleanUserData = (userData, playlists) => {
   const spotifive = playlists.find(playlist => {
-    return playlist.name === 'Spotifive'
+    return playlist.name === 'Spotifive';
   });
 
   return {
@@ -18,7 +18,7 @@ const cleanUserData = (userData, playlists) => {
       link: spotifive ? spotifive.external_urls.spotify : null
     }
   };
-}
+};
 
 const cleanSearchResults = (searchResults) => {
   const cleanedSearchResults = searchResults.artists.items.map(result => {
@@ -31,7 +31,7 @@ const cleanSearchResults = (searchResults) => {
   });
 
   return cleanedSearchResults;
-}
+};
 
 const cleanArtistData = (artistData, topTracks) => {
   const cleanedArtistData = {
@@ -39,22 +39,21 @@ const cleanArtistData = (artistData, topTracks) => {
     id: artistData.id,
     image: artistData.images.length ? artistData.images[0].url : null,
     topTracks: cleanTopTracks(topTracks.tracks)
-  }
+  };
 
   return cleanedArtistData;
-
-}
+};
 
 const cleanTopTracks = (topTracks) => {
   const cleanedTopTracks = topTracks.map(track => {
     return {
       name: track.name,
       uri: track.uri
-    }
-  }).splice(0, 5)
+    };
+  }).splice(0, 5);
 
   return cleanedTopTracks;
-}
+};
 
 export {
   getAccessToken,
@@ -62,4 +61,4 @@ export {
   cleanSearchResults,
   cleanArtistData,
   cleanTopTracks
-}
+};
