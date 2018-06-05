@@ -42,7 +42,9 @@
       "!src/registerServiceWorker.js",
       "!src/mockData.js",
       "!src/spotify/*.js",
-      "!src/firebase/*.js"
+      "!src/firebase/*.js",
+      "!src/artistlist.js",
+      "!src/autocomplete/*.js"
     ]
   }
 }

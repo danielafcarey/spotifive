@@ -6,7 +6,8 @@ import {
   mapStateToProps,
   mapDispatchToProps
 } from './Search';
-
+import Trie from '../autocomplete/autocomplete';
+const artistTrie = new Trie();
 
 describe('Search', () => {
   let mockProps;
@@ -67,7 +68,6 @@ describe('Search', () => {
   })
 
   describe('handleChange', () => {
-
     it('sets the state of searchInput', () => {
       const mockEvent = { target: { value: 'some input' } };
       const expected = 'some input';
@@ -76,6 +76,49 @@ describe('Search', () => {
 
       expect(wrapper.state('searchInput')).toEqual(expected);
     })
+  })
+
+  describe('getSuggestions', () => {
+    it('calls clearSuggestions', () => {
+      const wrapperInst = wrapper.instance();
+      wrapperInst.clearSuggestions = jest.fn();
+
+      wrapperInst.getSuggestions();
+
+      expect(wrapperInst.clearSuggestions).toHaveBeenCalled();
+    })
+
+    it('sets state with the suggestions if there are suggestions', () => {
+      wrapper.setState({ searchInput: 'father' })
+      wrapper.update();
+
+      wrapper.instance().getSuggestions();
+
+      expect(wrapper.state('suggestions')).toEqual(['father john misty'])
+    })
+
+    it('sets state with the searchInput if there are no suggestions and the input is more than 1', () => {
+      wrapper.setState({ searchInput: 'asdflkjasdf' })
+      wrapper.update();
+
+      wrapper.instance().getSuggestions();
+
+      expect(wrapper.state('suggestions')).toEqual(['asdflkjasdf'])
+    })
+  })
+
+  describe('clearSuggestions', () => {
+    it('resets the state to an empty array if there is no search input', () => {
+      wrapper.setState({ searchInput: '' });
+      wrapper.setState({ suggestions: ['not empty'] })
+      expect(wrapper.state('suggestions')).toEqual(['not empty']);
+
+      wrapper.instance().clearSuggestions();
+      expect(wrapper.state('suggestions')).toEqual([]);
+    })
+  })
+
+  describe('clearSuggestions', () => {
 
   })
 
@@ -99,11 +142,9 @@ describe('Search', () => {
 
       expect(wrapper.state('searchInput')).toEqual('');
     })
-
   })
 
   describe('componentDidUpdate', () => {
-
     it('calls updateSearchError if searchResults updated', () => {
       const wrapperInst = wrapper.instance();
       wrapperInst.updateSearchError = jest.fn();
@@ -116,7 +157,6 @@ describe('Search', () => {
   })
 
   describe('updateSearchError', () => {
-
     it('updates searchError in state if search results are empty', () => {
       wrapper.instance().updateSearchError();
 
@@ -148,7 +188,6 @@ describe('Search', () => {
   })
 
   describe('mapStateToProps', () => {
-
     it('returns a state object with accessToken, user, and artist', () => {
       const state = {
         accessToken: 1,
@@ -171,7 +210,6 @@ describe('Search', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    
     it('calls dispatch with the correct arguments when submitUpdateSearch is invoked', () => {
       const dispatch = jest.fn();
       const mappedProps = mapDispatchToProps(dispatch);
