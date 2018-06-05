@@ -6,7 +6,7 @@ const ArtistSuggestions = ({ suggestions }) => {
   }).slice(0, 10);
   
   return (
-    <datalist id="ArtistSuggestions">
+    <datalist id="artist-suggestions">
       { optionList }
     </datalist>
   );

@@ -116,7 +116,7 @@ class Search extends Component {
             value={ this.state.searchInput } 
             onChange={ this.handleChange }
             placeholder='Search for an artist'
-            list='ArtistSuggestions'
+            list='artist-suggestions'
           /> 
           <ArtistSuggestions suggestions={ this.state.suggestions } />
           <p className='search-error' >{ this.state.searchError }</p>
