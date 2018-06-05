@@ -19,7 +19,7 @@ import {
 } from 'prop-types';
 
 import { artistList } from '../artistlist';
-import Trie from '@danielafcarey/autocomplete';
+import Trie from '../autocomplete/autocomplete';
 const artistTrie = new Trie();
 artistTrie.populate(artistList);
 
