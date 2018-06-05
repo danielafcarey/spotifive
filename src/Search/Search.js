@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import Instructions from '../Instructions/Instructions';
 import SearchResults from '../SearchResults/SearchResults';
+import ArtistSuggestions from '../ArtistSuggestions/ArtistSuggestions';
 import {
   submitUpdateSearch,
   submitUpdateArtist,
@@ -17,12 +18,18 @@ import {
   object
 } from 'prop-types';
 
+import { artistList } from '../artistlist';
+import Trie from '../autocomplete/autocomplete';
+const artistTrie = new Trie();
+artistTrie.populate(artistList);
+
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchInput: '',
-      searchError: ''
+      searchError: '',
+      suggestions: []
     }
 
     this.props.updateArtist({});
@@ -39,17 +46,39 @@ class Search extends Component {
     if (prevProps.searchResults.searchResults.length !== searchResults.length) {
       this.updateSearchError();
     }
-
   }
 
   handleChange = (event) => {
     const { value } = event.target;
-    this.setState({ searchInput: value })
+    this.setState({ searchInput: value }, this.getSuggestions);
   }
 
+  getSuggestions = () => {
+    this.clearSuggestions();
+    const { searchInput } = this.state;
+    let artistSuggestions;
+
+    if (isNaN(parseInt(searchInput, 10)) && searchInput.length > 1) {
+      artistSuggestions = artistTrie.suggest(searchInput);
+    } else if (searchInput.length <= 1) {
+      artistSuggestions = [];
+    } 
+
+    if (artistSuggestions) {
+      this.setState({ suggestions: artistSuggestions });
+    } else if (!artistSuggestions && searchInput.length > 1) {
+      this.setState({ suggestions: [searchInput] })
+    }
+  }
+  
+  clearSuggestions = () => {
+    if (this.state.searchInput === '') {
+      this.setState({ suggestions: [] });
+    }
+  }
   handleSubmit = (event) => {
     event.preventDefault();
-    const { submitUpdateSearch, accessToken, searchResults } = this.props;
+    const { submitUpdateSearch, accessToken } = this.props;
 
     document.activeElement.blur();
     submitUpdateSearch(this.state.searchInput, accessToken);
@@ -87,7 +116,9 @@ class Search extends Component {
             value={ this.state.searchInput } 
             onChange={ this.handleChange }
             placeholder='Search for an artist'
+            list='ArtistSuggestions'
           /> 
+          <ArtistSuggestions suggestions={ this.state.suggestions } />
           <p className='search-error' >{ this.state.searchError }</p>
           <button
             disabled={ this.state.searchInput === '' } 
