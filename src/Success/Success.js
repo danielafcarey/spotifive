@@ -35,7 +35,7 @@ class Success extends Component {
           Go to your Spotifive 
         </button>
       </div>  
-    )
+    );
   }
 }
 
@@ -44,6 +44,6 @@ Success.propTypes = {
   name: string,
   image: string,
   loggedIn: bool
-}
+};
 
 export default Success;

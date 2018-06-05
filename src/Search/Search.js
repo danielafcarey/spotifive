@@ -30,12 +30,12 @@ class Search extends Component {
       searchInput: '',
       searchError: '',
       suggestions: []
-    }
+    };
 
     this.props.updateArtist({});
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate = (prevProps) => {
     const { artist, artistError } = this.props.artist;
     const { searchResults } = this.props.searchResults;
 
@@ -67,10 +67,10 @@ class Search extends Component {
     if (artistSuggestions) {
       this.setState({ suggestions: artistSuggestions });
     } else if (!artistSuggestions && searchInput.length > 1) {
-      this.setState({ suggestions: [searchInput] })
+      this.setState({ suggestions: [searchInput] });
     }
   }
-  
+
   clearSuggestions = () => {
     if (this.state.searchInput === '') {
       this.setState({ suggestions: [] });
@@ -82,7 +82,7 @@ class Search extends Component {
 
     document.activeElement.blur();
     submitUpdateSearch(this.state.searchInput, accessToken);
-    this.setState({ searchInput: '' })
+    this.setState({ searchInput: '' });
   }
 
   updateSearchError = () => {
@@ -104,9 +104,9 @@ class Search extends Component {
     const { searchResults } = this.props;
 
     if (!loggedIn) {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
     }
-    
+
     return (
       <div className='search'>
         <form
@@ -125,14 +125,14 @@ class Search extends Component {
           >Search</button>
         </form>
         { searchResults.searchResults.length < 1 ?
-            <Instructions /> :
-            <SearchResults 
-              searchResults={ searchResults }
-              selectArtist={ this.selectArtist }
-            />
+          <Instructions /> :
+          <SearchResults 
+            searchResults={ searchResults }
+            selectArtist={ this.selectArtist }
+          />
         }
       </div>
-    )
+    );
   }
 }
 
@@ -161,27 +161,34 @@ Search.propTypes = {
   }),
   submitUpdateSearch: func,
   submitUpdateArtist: func,
-  updateArtist: func
-}
+  updateArtist: func,
+  history: shape({
+    push: func
+  })
+};
 
 const mapStateToProps = (state) => ({
   accessToken: state.accessToken,
   user: state.user,
   searchResults: state.searchResults,
   artist: state.artist
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  submitUpdateSearch: (searchString, accessToken) => dispatch(submitUpdateSearch(searchString, accessToken)),
-  submitUpdateArtist: (artistId, accessToken) => dispatch(submitUpdateArtist(artistId, accessToken)), 
+  submitUpdateSearch: (searchString, accessToken) => {
+    return dispatch(submitUpdateSearch(searchString, accessToken));
+  },
+  submitUpdateArtist: (artistId, accessToken) => {
+    return dispatch(submitUpdateArtist(artistId, accessToken));
+  }, 
   updateArtist: (artist) => dispatch(updateArtist(artist))
-})
+});
 
 export {
   Search,
   mapStateToProps,
   mapDispatchToProps
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
 

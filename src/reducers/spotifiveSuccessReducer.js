@@ -5,6 +5,6 @@ const spotifiveSuccessReducer = (state = false, action) => {
     default:
       return state;
   }
-}
+};
 
 export default spotifiveSuccessReducer;

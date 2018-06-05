@@ -17,7 +17,7 @@ const Header = (props) => {
         src={ logo } 
         alt='logo' />
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -28,11 +28,11 @@ const mapStateToProps = (state) => ({
 Header.propTypes = {
   name: string,
   image: string
-}
+};
 
 export {
   Header,
   mapStateToProps
-}
+};
 
 export default connect(mapStateToProps)(Header);

@@ -17,8 +17,13 @@ import {
 } from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(rootReducer, devTools, applyMiddleware(sagaMiddleware));
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && 
+  window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(
+  rootReducer, 
+  devTools, 
+  applyMiddleware(sagaMiddleware)
+);
 
 firebase.initializeApp(config);
 sagaMiddleware.run(listenForSubmitUpdateUser);
@@ -32,6 +37,6 @@ const root = (
       <App /> 
     </BrowserRouter> 
   </Provider>
-)
+);
 
 ReactDOM.render(root, document.getElementById('root'));

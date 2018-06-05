@@ -17,14 +17,14 @@ const ArtistCard = ({ name, image, id, selectArtist }) => {
       <img src={ showImage } alt={ name }/>
       <p>{ name }</p>    
     </div>
-  )
-}
+  );
+};
 
 ArtistCard.propTypes = {
   name: string,
   image: string,
   id: string,
   selectArtist: func
-}
+};
 
 export default ArtistCard;
