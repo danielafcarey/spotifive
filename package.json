@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@danielafcarey/autocomplete": "git+https://github.com/danielafcarey/autocomplete.git",
     "firebase": "^5.0.4",
     "firebase-admin": "^5.12.1",
     "hoek": "^5.0.3",
