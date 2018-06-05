@@ -54,9 +54,13 @@ ShallowWrapper {
           onSubmit={[Function]}
 >
           <input
+                    list="artist-suggestions"
                     onChange={[Function]}
                     placeholder="Search for an artist"
                     value=""
+          />
+          <ArtistSuggestions
+                    suggestions={Array []}
           />
           <p
                     className="search-error"
@@ -80,9 +84,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
+              list="artist-suggestions"
               onChange={[Function]}
               placeholder="Search for an artist"
               value=""
+/>,
+            <ArtistSuggestions
+              suggestions={Array []}
 />,
             <p
               className="search-error"
@@ -102,6 +110,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "list": "artist-suggestions",
               "onChange": [Function],
               "placeholder": "Search for an artist",
               "value": "",
@@ -109,6 +118,17 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "suggestions": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
@@ -160,9 +180,13 @@ ShallowWrapper {
             onSubmit={[Function]}
 >
             <input
+                        list="artist-suggestions"
                         onChange={[Function]}
                         placeholder="Search for an artist"
                         value=""
+            />
+            <ArtistSuggestions
+                        suggestions={Array []}
             />
             <p
                         className="search-error"
@@ -186,9 +210,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <input
+                list="artist-suggestions"
                 onChange={[Function]}
                 placeholder="Search for an artist"
                 value=""
+/>,
+              <ArtistSuggestions
+                suggestions={Array []}
 />,
               <p
                 className="search-error"
@@ -208,6 +236,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "list": "artist-suggestions",
                 "onChange": [Function],
                 "placeholder": "Search for an artist",
                 "value": "",
@@ -215,6 +244,17 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "suggestions": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
             Object {
               "instance": null,
@@ -324,9 +364,13 @@ ShallowWrapper {
           onSubmit={[Function]}
 >
           <input
+                    list="artist-suggestions"
                     onChange={[Function]}
                     placeholder="Search for an artist"
                     value=""
+          />
+          <ArtistSuggestions
+                    suggestions={Array []}
           />
           <p
                     className="search-error"
@@ -362,9 +406,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
+              list="artist-suggestions"
               onChange={[Function]}
               placeholder="Search for an artist"
               value=""
+/>,
+            <ArtistSuggestions
+              suggestions={Array []}
 />,
             <p
               className="search-error"
@@ -384,6 +432,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "list": "artist-suggestions",
               "onChange": [Function],
               "placeholder": "Search for an artist",
               "value": "",
@@ -391,6 +440,17 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "suggestions": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
@@ -452,9 +512,13 @@ ShallowWrapper {
             onSubmit={[Function]}
 >
             <input
+                        list="artist-suggestions"
                         onChange={[Function]}
                         placeholder="Search for an artist"
                         value=""
+            />
+            <ArtistSuggestions
+                        suggestions={Array []}
             />
             <p
                         className="search-error"
@@ -490,9 +554,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <input
+                list="artist-suggestions"
                 onChange={[Function]}
                 placeholder="Search for an artist"
                 value=""
+/>,
+              <ArtistSuggestions
+                suggestions={Array []}
 />,
               <p
                 className="search-error"
@@ -512,6 +580,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "list": "artist-suggestions",
                 "onChange": [Function],
                 "placeholder": "Search for an artist",
                 "value": "",
@@ -519,6 +588,17 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "suggestions": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
             Object {
               "instance": null,
@@ -632,9 +712,13 @@ ShallowWrapper {
           onSubmit={[Function]}
 >
           <input
+                    list="artist-suggestions"
                     onChange={[Function]}
                     placeholder="Search for an artist"
                     value=""
+          />
+          <ArtistSuggestions
+                    suggestions={Array []}
           />
           <p
                     className="search-error"
@@ -658,9 +742,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
+              list="artist-suggestions"
               onChange={[Function]}
               placeholder="Search for an artist"
               value=""
+/>,
+            <ArtistSuggestions
+              suggestions={Array []}
 />,
             <p
               className="search-error"
@@ -680,6 +768,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "list": "artist-suggestions",
               "onChange": [Function],
               "placeholder": "Search for an artist",
               "value": "",
@@ -687,6 +776,17 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "suggestions": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
@@ -738,9 +838,13 @@ ShallowWrapper {
             onSubmit={[Function]}
 >
             <input
+                        list="artist-suggestions"
                         onChange={[Function]}
                         placeholder="Search for an artist"
                         value=""
+            />
+            <ArtistSuggestions
+                        suggestions={Array []}
             />
             <p
                         className="search-error"
@@ -764,9 +868,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <input
+                list="artist-suggestions"
                 onChange={[Function]}
                 placeholder="Search for an artist"
                 value=""
+/>,
+              <ArtistSuggestions
+                suggestions={Array []}
 />,
               <p
                 className="search-error"
@@ -786,6 +894,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "list": "artist-suggestions",
                 "onChange": [Function],
                 "placeholder": "Search for an artist",
                 "value": "",
@@ -793,6 +902,17 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "suggestions": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
             Object {
               "instance": null,
