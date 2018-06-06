@@ -58,7 +58,7 @@ class Search extends Component {
     const { searchInput } = this.state;
     let artistSuggestions;
 
-    if (isNaN(parseInt(searchInput, 10)) && searchInput.length > 1) {
+    if (searchInput.length > 1) {
       artistSuggestions = artistTrie.suggest(searchInput);
     } else if (searchInput.length <= 1) {
       artistSuggestions = [];
@@ -76,6 +76,7 @@ class Search extends Component {
       this.setState({ suggestions: [] });
     }
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const { submitUpdateSearch, accessToken } = this.props;

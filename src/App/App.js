@@ -14,11 +14,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        
         <Route path='/authorize'
           component={ Authorize }
         />
-
         <Route 
           exact path='/'
           component={ Signin }
@@ -31,7 +29,6 @@ class App extends Component {
           exact path='/tryit'
           component={ Tryit }
         />
-
       </div>
     );
   }

@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { 
-  updateAccessToken,
-  submitUpdateUser
-} from '../actions';
-import { 
-  getAccessToken
-} from '../cleaner.js';
+import { string, object, func } from 'prop-types';
+import { updateAccessToken, submitUpdateUser } from '../actions';
+import { getAccessToken } from '../cleaner.js';
 
 class Authorize extends Component {
 
@@ -34,15 +29,20 @@ class Authorize extends Component {
 
     return (
       <div className='authorize' >
-        <p>{ loginError === null ? '' : 'There was a problem signing in. Please try again.' }</p>
+        <p>
+          { loginError === null ? 
+          '' : 
+          'There was a problem signing in. Please try again.' 
+          }
+        </p>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  accessToken: state.accessToken,
-  user: state.user
+const mapStateToProps = ({ accessToken, user }) => ({
+  accessToken,
+  user
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -51,10 +51,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Authorize.propTypes = {
-  accessToken: PropTypes.string,
-  user: PropTypes.object,
-  updateAccessToken: PropTypes.func,
-  submitUpdateUser: PropTypes.func
+  accessToken: string,
+  user: object,
+  updateAccessToken: func,
+  submitUpdateUser: func
 };
 
 export {
@@ -64,3 +64,4 @@ export {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authorize);
+

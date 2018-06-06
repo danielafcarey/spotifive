@@ -25,10 +25,7 @@ class Tryit extends Component {
   }
 
   handleClick = () => {
-    const { 
-      accessToken, 
-      submitUpdateSpotifive 
-    } = this.props;
+    const { accessToken, submitUpdateSpotifive } = this.props;
     const { userId } = this.props.user.userInfo;
     const { spotifiveId } = this.props.user.userInfo.spotifive;
     const { topTracks } = this.props.artist.artist;
@@ -162,3 +159,4 @@ export {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Tryit));
+
