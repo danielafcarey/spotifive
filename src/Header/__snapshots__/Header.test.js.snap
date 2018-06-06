@@ -21,11 +21,11 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <img
-          alt=""
-          className="profile-photo"
-          src="Daniela"
-/>,
+        <h4
+          className="user-name"
+>
+          Daniela
+</h4>,
         <h1>
           Spotifive
 </h1>,
@@ -44,13 +44,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "alt": "",
-          "className": "profile-photo",
-          "src": "Daniela",
+          "children": "Daniela",
+          "className": "user-name",
         },
         "ref": null,
-        "rendered": null,
-        "type": "img",
+        "rendered": "Daniela",
+        "type": "h4",
       },
       Object {
         "instance": null,
@@ -86,11 +85,11 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <img
-            alt=""
-            className="profile-photo"
-            src="Daniela"
-/>,
+          <h4
+            className="user-name"
+>
+            Daniela
+</h4>,
           <h1>
             Spotifive
 </h1>,
@@ -109,13 +108,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "",
-            "className": "profile-photo",
-            "src": "Daniela",
+            "children": "Daniela",
+            "className": "user-name",
           },
           "ref": null,
-          "rendered": null,
-          "type": "img",
+          "rendered": "Daniela",
+          "type": "h4",
         },
         Object {
           "instance": null,

@@ -12,6 +12,13 @@
     width: 65px;
     padding: 30px 6px;
     vertical-align: middle; }
+  .Header .user-name {
+    position: absolute;
+    left: 20px;
+    width: 50px;
+    text-align: left;
+    top: 13px;
+    font-size: 14px; }
   .Header .profile-photo {
     position: absolute;
     left: 10px;

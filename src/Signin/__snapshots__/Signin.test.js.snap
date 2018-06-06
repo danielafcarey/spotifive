@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <p>
-          Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.
+          Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.
 </p>,
         <p>
           To begin, sign in with Spotify:
@@ -39,10 +39,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+          "children": "Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.",
         },
         "ref": null,
-        "rendered": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+        "rendered": "Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.",
         "type": "p",
       },
       Object {
@@ -79,7 +79,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <p>
-            Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.
+            Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.
 </p>,
           <p>
             To begin, sign in with Spotify:
@@ -99,10 +99,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+            "children": "Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.",
           },
           "ref": null,
-          "rendered": "Spotifive helps you discover new music by generating a playlist of new music to try based on the artists you choose.",
+          "rendered": "Spotifive helps you discover new music by generating a playlist of music to try based on the artists you choose.",
           "type": "p",
         },
         Object {
