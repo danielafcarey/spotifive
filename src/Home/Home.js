@@ -4,7 +4,8 @@ import { authorizeSpotify } from '../spotify/authorizeSpotify';
 class Home extends Component {
 
   handleClick = () => {
-    authorizeSpotify();
+    window.location = 'http://localhost:8888/login';
+    // authorizeSpotify();
   }
 
   render() {
