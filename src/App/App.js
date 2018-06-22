@@ -4,7 +4,7 @@ import './App.css';
 
 import Header from '../Header/Header';
 import Search from '../Search/Search';
-import Home from '../Signin/Signin';
+import Home from '../Home/Home';
 import Tryit from '../Tryit/Tryit';
 import Authorize from '../Authorize/Authorize';
 
