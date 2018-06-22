@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import Signin from './Signin';
+import Home from './Signin';
 import * as authorize from '../spotify/authorizeSpotify';
 
-describe('Signin', () => {
+describe('Home', () => {
 
   it('matches the snapshot', () => {
-    const wrapper = shallow(<Signin />);
+    const wrapper = shallow(<Home />);
 
     expect(wrapper).toMatchSnapshot();
   })
@@ -15,7 +15,7 @@ describe('Signin', () => {
   describe('handleClick', () => {
 
     it('calls authorizeSpotify', () => {
-      const wrapper = shallow(<Signin />);
+      const wrapper = shallow(<Home />);
       authorize.authorizeSpotify = jest.fn();
 
       wrapper.find('button').simulate('click');

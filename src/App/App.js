@@ -4,7 +4,7 @@ import './App.css';
 
 import Header from '../Header/Header';
 import Search from '../Search/Search';
-import Signin from '../Signin/Signin';
+import Home from '../Signin/Signin';
 import Tryit from '../Tryit/Tryit';
 import Authorize from '../Authorize/Authorize';
 
@@ -19,7 +19,7 @@ class App extends Component {
         />
         <Route 
           exact path='/'
-          component={ Signin }
+          component={ Home }
         />
         <Route 
           exact path='/search'

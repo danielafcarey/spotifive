@@ -1,7 +1,7 @@
 import React from 'react';
 import { authorizeSpotify } from '../spotify/authorizeSpotify';
 
-const Signin = () => {
+const Home = () => {
 
   return (
     <div className='signin'>
@@ -22,4 +22,4 @@ const handleClick = () => {
   authorizeSpotify();
 };
 
-export default Signin;
+export default Home;
