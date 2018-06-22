@@ -8,7 +8,8 @@ import { getAccessToken } from '../cleaner.js';
 class Authorize extends Component {
 
   componentDidMount = () => {
-    const cleanAccessToken = getAccessToken(window.location.hash);
+    const cleanAccessToken = getAccessToken(window.location.href);
+    debugger;
     this.props.updateAccessToken(cleanAccessToken);
   }
 

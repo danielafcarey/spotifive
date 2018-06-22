@@ -1,7 +1,6 @@
 const getAccessToken = (url) => {
   const splitUrl = url.split('=');
 
-  debugger;
   return splitUrl[1];
 };
 
