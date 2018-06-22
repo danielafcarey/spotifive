@@ -1,7 +1,8 @@
 const getAccessToken = (url) => {
   const splitUrl = url.split('=');
 
-  return splitUrl[1].split('&')[0];
+  debugger;
+  return splitUrl[1];
 };
 
 const cleanUserData = (userData, playlists) => {
