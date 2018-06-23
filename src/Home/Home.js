@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Home extends Component {
 
   handleClick = () => {
-    window.location = 'http://localhost:8888/login';
-    // window.location = 'https://try-spotifive-backend.firebaseapp.com/login';
+    // window.location = 'http://localhost:8888/login';
+    window.location = 'https://try-spotifive-backend.firebaseapp.com/login';
   }
 
   render() {
