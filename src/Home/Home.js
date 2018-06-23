@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { authorizeSpotify } from '../spotify/authorizeSpotify';
 
 class Home extends Component {
 
   handleClick = () => {
     window.location = 'http://localhost:8888/login';
-    // authorizeSpotify();
+    // window.location = 'https://try-spotifive-backend.firebaseapp.com/login';
   }
 
   render() {
