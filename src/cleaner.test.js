@@ -10,7 +10,7 @@ import {
 describe('getAccessToken', () => {
 
   it('returns a cleaned access token', () => {
-    const mockAccessToken = 'http://website.com/authorize#access_token=IAMANACCESSTOKEN&token_type=hello&expires_in=3600';
+    const mockAccessToken = 'http://localhost:3000/authorize?access_token=IAMANACCESSTOKEN';
     const expected = 'IAMANACCESSTOKEN';
     const result = cleaner.getAccessToken(mockAccessToken);
 
