@@ -1,5 +1,7 @@
 # Spotifive
 
+## _(Temporarily down for updates)_
+
 ## Synopsis
 
 Spotifive is an app that helps you quickly add new music to try to a Spotifive playlist in your Spotify account. 
