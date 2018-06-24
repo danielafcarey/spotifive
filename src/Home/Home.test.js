@@ -12,16 +12,4 @@ describe('Home', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  describe('handleClick', () => {
-
-    it('calls authorizeSpotify', () => {
-      const wrapper = shallow(<Home />);
-      authorize.authorizeSpotify = jest.fn();
-
-      wrapper.find('button').simulate('click');
-
-      expect(authorize.authorizeSpotify).toHaveBeenCalled();
-    })
-  })
-
 })
