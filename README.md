@@ -1,7 +1,5 @@
 # Spotifive
 
-## _(Temporarily down for updates)_
-
 ## Synopsis
 
 Spotifive is an app that helps you quickly add new music to try to a Spotifive playlist in your Spotify account. 
@@ -12,7 +10,8 @@ Search for an artist you want to try, click Try It, and that artist's top 5 song
 ### Tools 
 
 * Api data from [Spotify](https://developer.spotify.com/documentation/)
-* Hosting by [Firebase](https://firebase.google.com/)
+* Hosting by [Firebase(frontend)](https://firebase.google.com/) and [Heroku (backend)](https://www.heroku.com/)
+* [Backend repo](https://github.com/danielafcarey/spotifive-backend)
 
 ## Example 
 
