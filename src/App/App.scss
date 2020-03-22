@@ -28,7 +28,7 @@ body {
 
   button {
     background-color: $spotify-green;
-    width: 90%;
+    width: 320px;
     height: 45px;
     border: none;
     color: white;
@@ -53,7 +53,7 @@ body {
   .search,
   .tryit,
   .success {
-    width: 75%
+    width: 85%;
   } 
 
   .Header {
@@ -73,9 +73,15 @@ body {
     }
   }
 
-  body p {
-    font-size: 20px;
-    padding-bottom: 10px;
+  body {
+    p {
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
   }
 
   .signin {
