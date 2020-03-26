@@ -151,6 +151,7 @@ body {
     width: 320px;
     height: 45px;
     border: none;
+    border-radius: 25px;
     color: white;
     font-size: 20px; }
     body button:hover {
